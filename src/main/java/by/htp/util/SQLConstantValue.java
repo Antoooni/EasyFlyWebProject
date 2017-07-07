@@ -19,6 +19,7 @@ public interface SQLConstantValue {
 	String SQL_STATEMENT_CREATE_TICKET_SEARCH_TICKET_LIST=" select ticket_list_id from ticket_list where user_id=?";
 	String SQL_STATEMENT_CREATE_TICKET_MAX_LIST="select MAX(ticket_list_id) from ticket_list";
 	//change FLIGHT date & time data
+
 	String SQL_STATEMENT_CHANGE_FLIGHT_DATA="UPDATE flight SET departure_date=?, departure_time=?, arrival_date=?, arrival_time=? WHERE  flight_id=?;";
 	String SQL_STATEMENT_CANCEL_FLIGHT="UPDATE flight SET cancellation='cancelled' WHERE  flight_id=?;";
 }
