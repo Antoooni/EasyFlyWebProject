@@ -1,0 +1,5 @@
+<footer>
+	<h3><fmt:message key="footer.contactus" /></h3>
+	<p>Copyright 2017 © Mazets Anton</p>
+	<p> mazets_anton@tut.by</p>
+</footer>

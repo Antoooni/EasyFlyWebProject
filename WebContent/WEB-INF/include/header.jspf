@@ -1,0 +1,89 @@
+ <nav> </nav>
+			<div id="iside_header">
+				<!--LANGUAGE-->
+				<div id="blok0">
+					<%--<form name="change_Lang" action="Main" method="GET" id="language">
+	                            <input type="hidden" name="action" value="ru_RU">--%>
+					<table>
+						<tr>
+							<td><a href="Main?action=change_language&language=en_EN">
+								<img src="img/usa.png" width="20" height="20"></a></td>
+							<td><a href="Main?action=change_language&language=ru_Ru">
+							<img src="img/russia.png" width="20" height="20"></a></td>
+	
+						</tr>
+					</table>
+					<%--</form>--%>
+				</div>
+				<!--LOGIN-->
+				<div id="blok1">
+					
+						<!--Welcome-->
+						<h3>
+							<fmt:message key="welcome" />
+						</h3>
+						
+				</div>
+				<c:if test="${user_data == null}">
+					<div id="blok2">
+						<button id="myBtn">
+							<fmt:message key="button.login" />
+						</button>
+					</div>
+				</c:if>
+				<!--LOGOUT-->
+				<c:if test="${user_data != null}">
+					<div id="blok2">
+						<form name="val_form" action="Main" method="GET">
+							<input type="hidden" value="logout" name="action" />
+							<button class="left" onClick="return Formdata(this.form)" id="logout">
+								<fmt:message key="button.logout" />
+							</button>
+						</form>
+					</div>
+				</c:if>
+				<!--REGISTRATION-->
+				<c:if test="${user_data == null}">
+					<div id="blok3">
+						<form name="registration" action="Main" method="GET"
+							id="registration">
+							<input type="hidden" name="action" value="registration">
+							<button class="right" id="myBtn1">
+							<fmt:message key="button.registration" />
+							</button>
+						</form>
+						<div>
+				</c:if>
+			</div>
+
+			<div id="myPopUp" class="modal">
+				<!--Modal content -->
+				<div class="modal-content">
+					<span class="close">&times;</span>
+					<p>
+					<form name="val_form" action="Main" method="POST"
+						onsubmit="return validate_form ( );">
+						<input type="hidden" value="login" name="action" />
+						<div class="auth1">
+							<div class="auth">
+								<label for="l">
+									<fmt:message key="popup.login" />
+								</label>
+								 <input class="popupText" from type="text" name="login" id="l" />
+								 <br>
+							</div>
+							<div class="auth">
+								<label for="p">
+									<fmt:message key="popup.password" />
+								</label>
+								<input class="popupText" type="password" name="pass" id="p" />
+							</div>
+						</div>
+						<div class="auth_button">
+							<br> <br> <br> <input type="submit"
+								onClick="return Formdata(this.form)" value="<fmt:message key="popup.logIN" />" />
+						</div>
+					</form>
+					</p>
+				</div>
+			</div>

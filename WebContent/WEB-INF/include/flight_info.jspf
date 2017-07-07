@@ -1,0 +1,97 @@
+<div id="content">
+	<div class="position_head">
+		<div class="position_head_inside"><fmt:message key="flight.details" /></div>
+	</div>
+	<div class="position_first">
+
+		<div id="blok1_first">
+			<div class="position_second_img">
+				<img src="img/logo.png" style="width: 50%">
+			</div>
+		</div>
+		<div id="blok2_first">
+			<fmt:message key="flightInfo.provided" /><br> EasyFly
+		</div>
+	</div>
+	<div class="position_third">
+		<div id="blok1_third">
+			<c:out value="${flight.getFromDirection().getDirectionCode()}" />
+			,
+			<c:out value="${flight.getFromDirection().getDirectionName()}" />
+		</div>
+		<div id="blok2_third">→</div>
+		<div id="blok3_third">
+			<c:out value="${flight.getToDirection().getDirectionCode()}" />
+			,
+			<c:out value="${flight.getToDirection().getDirectionName()}" />
+		</div>
+	</div>
+</div>
+<div class="position_fourth">
+	<div id="blok1_fourth">
+		<div id="sub_block1">
+			<c:out value="${flight.getDepartureTime()}" />
+		</div>
+		<div id="sub_block2">
+			<!--15 июня, четверг-->
+			<c:out value="${flight.getDepartureDate()}" />
+		</div>
+		<div id="sub_block3">
+			<!--Минск-->
+			<c:out value="${flight.getFromDirection().getDirectionName()}" />
+		</div>
+	</div>
+	<div id="blok2_fourth">
+		<img src="img/direction.jpg" style="padding-top: 10px;">
+	</div>
+	<div id="blok3_fourth">
+		<div id="sub_block1">
+			<!--19:30-->
+			<c:out value="${flight.getArrivalTime()}" />
+		</div>
+		<div id="sub_block2">
+			<!--15 июня, четверг-->
+			<c:out value="${flight.getArrivalDate()}" />
+		</div>
+		<div id="sub_block3">
+			<!--Москва-->
+			<c:out value="${flight.getToDirection().getDirectionName()}" />
+		</div>
+	</div>
+	<div id="blok4_fourth">
+		<div id="blok1_four">
+			<fmt:message key="flightInfo.operated" />
+			<div id="sub__four_block1">EasyFly</div>
+		</div>
+		<div id="blok2_four">
+			<fmt:message key="flightInfo.flight" />
+			<div id="sub__four_block2">
+				<c:out value="${flight.getFlightCode()}" />
+			</div>
+		</div>
+		<div id="blok3_four">
+			<fmt:message key="flightInfo.plane" />
+			<div id="sub__four_block1">
+				<c:out value="${flight.getPlane().getPlaneName()}" />
+			</div>
+		</div>
+	</div>
+</div>
+<div class="position">
+	<div id="blok1_five">
+		<fmt:message key="flightInfo.duration" />
+		<div id="sub__five_block1">1 час 25 мин!!!</div>
+	</div>
+	<div id="blok2_five">
+		<fmt:message key="flightInfo.class" />
+		<div id="sub__five_block1"><fmt:message key="flightInfo.className" /></div>
+	</div>
+	<div id="blok3_five">
+		<fmt:message key="flightInfo.meals" />
+		<div id="sub__five_block1"><fmt:message key="flightInfo.mealsValue" /></div>
+	</div>
+	<div id="blok4_five">
+		<fmt:message key="flightInfo.baggage" />
+		<div id="sub__five_block1"><fmt:message key="flightInfo.baggageValue" /></div>
+	</div>
+</div>
