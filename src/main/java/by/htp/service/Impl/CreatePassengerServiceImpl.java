@@ -1,10 +1,11 @@
-package by.htp.service;
+package by.htp.service.Impl;
 
 import by.htp.bin.Passenger;
 import by.htp.dao.CreatePassengerDao;
 import by.htp.dao.factory.DaoFactory;
 import by.htp.exception.DAOException;
 import by.htp.exception.ServiceException;
+import by.htp.service.CreatePassengerService;
 
 public class CreatePassengerServiceImpl implements CreatePassengerService {
 	private CreatePassengerDao buyTicketDao;

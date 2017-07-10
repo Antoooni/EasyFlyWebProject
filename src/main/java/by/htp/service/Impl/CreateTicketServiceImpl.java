@@ -1,4 +1,4 @@
-package by.htp.service;
+package by.htp.service.Impl;
 
 import by.htp.bin.Ticket;
 import by.htp.bin.TicketList;
@@ -7,6 +7,7 @@ import by.htp.dao.CreateTicketDao;
 import by.htp.dao.factory.DaoFactory;
 import by.htp.exception.DAOException;
 import by.htp.exception.ServiceException;
+import by.htp.service.CreateTicketService;
 
 public class CreateTicketServiceImpl implements CreateTicketService {
 	private CreateTicketDao createTicketDao;

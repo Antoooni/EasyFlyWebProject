@@ -1,10 +1,11 @@
-package by.htp.service;
+package by.htp.service.Impl;
 
 import by.htp.bin.User;
 import by.htp.dao.UserCreateDao;
 import by.htp.dao.factory.DaoFactory;
 import by.htp.exception.DAOException;
 import by.htp.exception.ServiceException;
+import by.htp.service.UserCreateService;
 
 public class UserCreateServiceImpl implements UserCreateService {
 	private UserCreateDao daoCreateUser;

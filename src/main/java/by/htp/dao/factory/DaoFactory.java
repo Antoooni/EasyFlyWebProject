@@ -1,6 +1,7 @@
 package by.htp.dao.factory;
 
 import by.htp.dao.*;
+import by.htp.dao.Impl.*;
 
 public class DaoFactory {
 	private final static UserAuthorizationDao userAuthorizationDao = new UserAuthorizationDaoImpl();

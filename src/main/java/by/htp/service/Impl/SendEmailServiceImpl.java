@@ -1,7 +1,8 @@
-package by.htp.service;
+package by.htp.service.Impl;
 
 import by.htp.dao.EmailDao;
 import by.htp.dao.factory.DaoFactory;
+import by.htp.service.SendEmailService;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
