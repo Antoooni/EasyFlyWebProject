@@ -11,7 +11,7 @@
 		<description></description>
 		<display-name>Main</display-name>
 		<servlet-name>Main</servlet-name>
-		<servlet-class>by.htp.servlet.Main</servlet-class>
+		<servlet-class>by.htp.easyfly.servlet.Main</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>Main</servlet-name>
