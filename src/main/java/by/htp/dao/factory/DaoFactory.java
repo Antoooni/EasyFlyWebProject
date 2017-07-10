@@ -1,23 +1,6 @@
 package by.htp.dao.factory;
 
-import by.htp.dao.ChangeFlightDao;
-import by.htp.dao.ChangeFlightDaoImpl;
-import by.htp.dao.CreatePassengerDao;
-import by.htp.dao.CreatePassengerDaoImpl;
-import by.htp.dao.CreateTicketDao;
-import by.htp.dao.CreateTicketDaoImpl;
-import by.htp.dao.DirectionCodeDao;
-import by.htp.dao.DirectionCodeDaoImpl;
-import by.htp.dao.FlightDirectionDao;
-import by.htp.dao.FlightDirectionDaoImpl;
-import by.htp.dao.FlightListDao;
-import by.htp.dao.FlightListDaoImpl;
-import by.htp.dao.SelectedFlightDao;
-import by.htp.dao.SelectedFlightDaoImpl;
-import by.htp.dao.UserAuthorizationDao;
-import by.htp.dao.UserAuthorizationDaoImpl;
-import by.htp.dao.UserCreateDao;
-import by.htp.dao.UserCreateDaoImpl;
+import by.htp.dao.*;
 
 public class DaoFactory {
 	private final static UserAuthorizationDao userAuthorizationDao = new UserAuthorizationDaoImpl();
@@ -29,6 +12,7 @@ public class DaoFactory {
 	private final static CreatePassengerDao createPassengerDao = new CreatePassengerDaoImpl();
 	private final static CreateTicketDao createTicketDao = new CreateTicketDaoImpl();
 	private final static ChangeFlightDao changeFlightDao = new ChangeFlightDaoImpl();
+    private final static EmailDao emailDao = new EmailDaoImpl();
 	
 
 	private DaoFactory() {
@@ -52,7 +36,6 @@ public class DaoFactory {
 	public FlightListDao getFlightListDao(){
 		return flightListDao;
 	}
-	
 	public DirectionCodeDao getDirectionCodeDao(){
 		return directionCodeDao;
 	}
@@ -71,4 +54,7 @@ public class DaoFactory {
 	public ChangeFlightDao getChangeFlightDao(){
 		return changeFlightDao;
 	}
+    public EmailDao getEmailDao() {
+        return emailDao;
+    }
 }

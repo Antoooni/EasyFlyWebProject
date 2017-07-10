@@ -1,5 +1,8 @@
 package by.htp.service;
 
+import by.htp.dao.EmailDao;
+import by.htp.dao.factory.DaoFactory;
+
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
@@ -13,6 +16,11 @@ public class SendEmailServiceImpl implements SendEmailService {
     private String username;
     private String password;
     private Properties props;
+    private EmailDao emailDao;
+
+    public SendEmailServiceImpl(){
+        emailDao = DaoFactory.getInstance().getEmailDao();
+    }
 
     public SendEmailServiceImpl(String username, String password) {
         this.username = username;
