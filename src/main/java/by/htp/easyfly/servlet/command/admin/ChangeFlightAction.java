@@ -32,6 +32,7 @@ public class ChangeFlightAction implements CommandAction {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		String page = PAGE_DONE_CANCELLATION;
+        String textEmail= "Dear customer, you flight data has been changed. Please check you data before check-in.  Best regards, EasyFly.";
 		HttpSession session = request.getSession(true);
 		try {
 			Flight selectedFlight = (Flight) session.getAttribute(REQUEST_PARAM_SESSION_FLIGHT_CHANGING_INFO);
@@ -39,15 +40,17 @@ public class ChangeFlightAction implements CommandAction {
 			String departureDate = request.getParameter(REQUEST_PARAM_CHANGE_DEPARTURE_DATE);
 			String departureTime = request.getParameter(REQUEST_PARAM_CHANGE_DEPARTURE_TIME);
 			String arrivalDate = request.getParameter(REQUEST_PARAM_CHANGE_ARRIVAL_DATE);
-			String arrivatTime = request.getParameter(REQUEST_PARAM_CHANGE_ARRIVAL_TIME);
+			String arrivalTime = request.getParameter(REQUEST_PARAM_CHANGE_ARRIVAL_TIME);
 
-			selectedFlight = defineFlightFields(selectedFlight, departureDate, departureTime, arrivalDate, arrivatTime);
+			selectedFlight = defineFlightFields(selectedFlight, departureDate, departureTime, arrivalDate, arrivalTime);
 			System.out.println(selectedFlight.toString());
 
-			if (isValidDates(departureDate, departureTime, arrivalDate, arrivatTime)) {
-				changeFlightService.chancheFlightData(selectedFlight);
-                //send email about changes
-                sendEmailService.send("This is Subject", "TLS: This is text!", "easyfly.info@gmail.com", "mazets_anton@tut.by");
+			if (isValidDates(departureDate, departureTime, arrivalDate, arrivalTime)) {
+				changeFlightService.changeFlightData(selectedFlight);
+                //sendEmail email about changes or cancellation
+                sendEmailService.sendEmail(selectedFlight,textEmail);
+                //attribute to notification
+                request.setAttribute(NOTIFICATION_MESSAGE_CHANGE_DATA_FLIGHT, true);
 				ForwardPage.forwardPage(request, response, page);
 			} else {
 				request.setAttribute(REQUEST_PARAM_IS_CHANGE_DATA_INVALID, true);

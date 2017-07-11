@@ -14,7 +14,7 @@ public class ServiceFactory {
 	private static final CreatePassengerService createPassengerService = new CreatePassengerServiceImpl();
 	private static final CreateTicketService createTicketService = new CreateTicketServiceImpl();
 	private static final ChangeFlightService changeFlightService = new ChangeFlightServiceImpl();
-    private static final SendEmailService sendEmailService =new SendEmailServiceImpl("easyfly.info@gmail.com", "easyflyPASSWORD");
+    private static final SendEmailService sendEmailService =new EmailServiceImpl("easyfly.info@gmail.com", "easyflyPASSWORD");
 
 	private ServiceFactory() { 
 
@@ -27,27 +27,21 @@ public class ServiceFactory {
 	public static ServiceFactory getInstance() {
 		return ServiceFactoryHolder.instance;
 	}
-
 	public DirectionService getDirectionService() {
 		return directionService;
 	}
-
 	public AuthorizationService getAuthorizationService() {
 		return authorizationService;
 	}
-
 	public DirectionCodeService getDirectionCodeService() {
 		return directionCodeService;
 	}
-
 	public UserCreateService getUserCreateService() {
 		return userCreateService;
 	}
-
 	public FlightListService getFlightListService() {
 		return flightListService;
 	}
-
 	public SelectedFlightService getSelectedFlightService() {
 		return selectedFlightService;
 	}

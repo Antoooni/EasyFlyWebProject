@@ -55,7 +55,7 @@ public class LoginCommandAction implements CommandAction {
 				System.out.println(workingDir);
 				// config.init();
 				// DOMConfigurator.configure("log4j.xml");
-				log.info("��� �������������� ���������!");
+				log.info("Информационное сообщение");
 				// log.fine("!!!!!!!!!");
 				page = PAGE_HOME;
 			} else {

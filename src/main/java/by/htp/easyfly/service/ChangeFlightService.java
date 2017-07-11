@@ -5,5 +5,5 @@ import by.htp.easyfly.exception.ServiceException;
 
 public interface ChangeFlightService {
 	public void cancelFlight(Flight flight) throws ServiceException;
-	public void chancheFlightData(Flight flight) throws ServiceException;
+	public void changeFlightData(Flight flight) throws ServiceException;
 }

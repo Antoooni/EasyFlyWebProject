@@ -25,7 +25,7 @@ public class ChangeFlightServiceImpl implements ChangeFlightService {
 	}
 
 	@Override
-	public void chancheFlightData(Flight flight) throws ServiceException {
+	public void changeFlightData(Flight flight) throws ServiceException {
 		try {
 			cancelFlight.changeFlightData(flight);
 		} catch (DAOException e) {

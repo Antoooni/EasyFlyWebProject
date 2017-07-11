@@ -86,6 +86,9 @@ public class ConstantValue {
 	public static final String PAGE_DONE_CANCELLATION = "/WEB-INF/jsp/admin/cancel_done.jsp";
 	public static final String PAGE_CANCELLATION = "/WEB-INF/jsp/admin/cancel.jsp";
 
+    public static final String NOTIFICATION_MESSAGE_CHANGE_DATA_FLIGHT="CHANGE_DATA_FLIGHT";
+    public static final String NOTIFICATION_MESSAGE_CANCEL_FLIGHT="CANCEL_FLIGHT";
+
 	
 	
 }

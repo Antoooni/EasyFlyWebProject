@@ -21,5 +21,5 @@ public interface SQLConstantValue {
 	//change FLIGHT date & time data
 	String SQL_STATEMENT_CHANGE_FLIGHT_DATA="UPDATE flight SET departure_date=?, departure_time=?, arrival_date=?, arrival_time=? WHERE  flight_id=?;";
 	String SQL_STATEMENT_CANCEL_FLIGHT="UPDATE flight SET cancellation='cancelled' WHERE  flight_id=?;";
-    String SQL_STATEMENT_SELECT_USER_CHANGED_FLIGHT="select  user_name, user_surname, user_email from user as t2 join ticket as n1 on n1.user_id = t2.user_id join flight as n2 on n2.flight_id = n1.flight_id where  n2.flight_id=?";
+    String SQL_STATEMENT_SELECT_USER_CHANGED_FLIGHT="select t2.user_id, user_name, user_surname, user_email from user as t2 join ticket as n1 on n1.user_id = t2.user_id join flight as n2 on n2.flight_id = n1.flight_id where  n2.flight_id=?";
 }
