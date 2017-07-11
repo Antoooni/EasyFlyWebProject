@@ -31,7 +31,6 @@ public class GoHomeAction implements CommandAction {
 			session.setAttribute(REQUEST_PARAM_LANGUAGE, "en_EN");
 			String page = PAGE_DEFAULT;
 			List<FlightDirection> flightDirection = directionService.listDirections();
-			// ������� ������ ����������� dropdown
 			request.setAttribute(REQUEST_PARAM_LIST_DIRECTION, flightDirection);
 			page = PAGE_HOME;
 
