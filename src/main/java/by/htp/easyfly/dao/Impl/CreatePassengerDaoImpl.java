@@ -24,7 +24,7 @@ public class CreatePassengerDaoImpl implements CreatePassengerDao {
 		try (Connection connection = SQLConnectionPool.getDs().getConnection()) {
 
 			if (!connection.isClosed()) {
-				ps = connection.prepareStatement(SQL_STATEMENT_CREATE_PASSANGER, Statement.RETURN_GENERATED_KEYS);
+				ps = connection.prepareStatement(SQL_STATEMENT_CREATE_PASSENGER, Statement.RETURN_GENERATED_KEYS);
 				ps.setString(1, passenger.getName());
 				ps.setString(2, passenger.getSurname());
 				ps.setString(3, passenger.getMiddleName());

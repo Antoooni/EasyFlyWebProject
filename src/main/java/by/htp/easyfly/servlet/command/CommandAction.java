@@ -9,5 +9,5 @@ import javax.servlet.http.HttpServletResponse;
 
 public interface CommandAction {
 	
-	public void execute(HttpServletRequest request, HttpServletResponse response) throws DAOException;
+	public void execute(HttpServletRequest request, HttpServletResponse response);
 }

@@ -11,13 +11,13 @@ public interface SQLConstantValue {
 	String SQL_STATEMENT_CREATE_USER_DATA="INSERT INTO user (user_id, user_name, user_surname, user_email, ticket_list_id) select  user_id , ?, ?, ?, null from logon_data where login = ?";
 	String SQL_STATEMENT_IF_USER_LOGIN_EXIST = "select count(*) from logon_data where login=?;";
 	String SQL_STATEMENT_IF_USER_EMAIL_EXIST="select count(*) from user where user_email=?;";
-	String SQL_STATEMENT_CREATE_PASSANGER ="INSERT INTO passenger (name, surname, middlename, birthday, age, gender, passport_number, passport_expiry, baggage) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
+	String SQL_STATEMENT_CREATE_PASSENGER ="INSERT INTO passenger (name, surname, middlename, birthday, age, gender, passport_number, passport_expiry, baggage) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
 	String SQL_STATEMENT_CREATE_TICKET = "INSERT INTO ticket (flight_id, passenger_id, primary_boarding, online_checkin, total_amount) VALUES (?, ?, ?, ?, ?);";
-//	String SQL_STATEMENT_CREATE_TICKET_LIST ="INSERT INTO ticket_list (ticket_list_id, ticket_id, user_id) VALUES (?,?,?);";
-//	String SQL_STATEMENT_CREATE_TICKET_IF_TICKETLIST_EXISTS="select count(*) from ticket_list where user_id=?";
-//	String SQL_STATEMENT_CREATE_TICKET_UPDATE_USER=" UPDATE user SET ticket_list_id=? WHERE  user_id=?;";
-//	String SQL_STATEMENT_CREATE_TICKET_SEARCH_TICKET_LIST=" select ticket_list_id from ticket_list where user_id=?";
-//	String SQL_STATEMENT_CREATE_TICKET_MAX_LIST="select MAX(ticket_list_id) from ticket_list";
+	String SQL_STATEMENT_CREATE_TICKET_LIST ="INSERT INTO ticket_list (ticket_list_id, ticket_id, user_id) VALUES (?,?,?);";
+	String SQL_STATEMENT_CREATE_TICKET_IF_TICKETLIST_EXISTS="select count(*) from ticket_list where user_id=?";
+	String SQL_STATEMENT_CREATE_TICKET_UPDATE_USER=" UPDATE user SET ticket_list_id=? WHERE  user_id=?;";
+	String SQL_STATEMENT_CREATE_TICKET_SEARCH_TICKET_LIST=" select ticket_list_id from ticket_list where user_id=?";
+	String SQL_STATEMENT_CREATE_TICKET_MAX_LIST="select MAX(ticket_list_id) from ticket_list";
 	//change FLIGHT date & time data
 	String SQL_STATEMENT_CHANGE_FLIGHT_DATA="UPDATE flight SET departure_date=?, departure_time=?, arrival_date=?, arrival_time=? WHERE  flight_id=?;";
 	String SQL_STATEMENT_CANCEL_FLIGHT="UPDATE flight SET cancellation='cancelled' WHERE  flight_id=?;";

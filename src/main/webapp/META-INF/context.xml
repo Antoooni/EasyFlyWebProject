@@ -10,7 +10,7 @@
           username="root" 
           password="root"
           driverClassName="com.mysql.jdbc.Driver"
-          url="jdbc:mysql://localhost:3306/easy_fly_DB?useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC&amp;useSSL=false&amp;useUnicode=true&amp;characte"/>
+          url="jdbc:mysql://localhost:3306/easyfly?useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC&amp;useSSL=false&amp;useUnicode=true&amp;characte"/>
           
  
 </Context>

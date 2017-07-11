@@ -43,13 +43,11 @@ public class LoginCommandAction implements CommandAction {
 			// try {
 			if (user != null) {
 				List<FlightDirection> flightDirection = directionService.listDirections();
-				// ������� ������ ����������� dropdown
+				// dropdown
 				session.setAttribute(REQUEST_PARAM_LIST_DIRECTION, flightDirection);
 
 				session.setAttribute(REQUEST_PARAM_SESSION_USERNAME, user.getUserName());
 				session.setAttribute(REQUEST_PARAM_SESSION_USER, user);
-
-				/////////////
 				String workingDir = System.getProperty("user.dir");
 
 				System.out.println(workingDir);

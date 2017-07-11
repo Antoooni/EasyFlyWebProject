@@ -32,8 +32,8 @@ public class GoHomeAction implements CommandAction {
 			String page = PAGE_DEFAULT;
 			List<FlightDirection> flightDirection = directionService.listDirections();
 			request.setAttribute(REQUEST_PARAM_LIST_DIRECTION, flightDirection);
+            session.setAttribute(REQUEST_PARAM_LIST_DIRECTION, flightDirection);
 			page = PAGE_HOME;
-
 			ForwardPage.forwardPage(request, response, page);
 		} catch (ServiceException e) {
 

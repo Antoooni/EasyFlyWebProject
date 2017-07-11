@@ -71,7 +71,7 @@ public class ConstantValue {
 	public static final String REQUEST_PARAM_ARRIVAL_DATE = "arrival_date";
 
 	public static final String REQUEST_PARAM_ERROR_MSG = "errog_msg";
-	public static final String PAGE_NO_FLIGHTS_ERROR = "/error_no_flights.jsp";
+	public static final String PAGE_NO_FLIGHTS_ERROR = "/WEB-INF/jsp/error/error_no_flights.jsp";
 
 	public static final String PAGE_DEFAULT = "/default.jsp";
 	public static final String PAGE_AUTHORIZED = "/authorised.jsp";
