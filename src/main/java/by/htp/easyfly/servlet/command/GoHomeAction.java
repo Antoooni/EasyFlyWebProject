@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import by.htp.easyfly.Cookie.CookieController;
+import by.htp.easyfly.cookie.CookieController;
 import by.htp.easyfly.bin.FlightDirection;
 import by.htp.easyfly.exception.ServiceException;
 import by.htp.easyfly.service.DirectionService;
