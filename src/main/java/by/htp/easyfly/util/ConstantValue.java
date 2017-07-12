@@ -24,7 +24,8 @@ public class ConstantValue {
 	public static final String REQUEST_PARAM_SESSION_FLIGHT="flight";
 	public static final String REQUEST_PARAM_SESSION_FLIGHTLIST="flight_list";
 	public static final String REQUEST_PARAM_SESSION_FLIGHT_CHANGING_INFO = "charging_flight";
-	
+
+    public static final String REQUEST_PARAM_COOKIE="cookie";
 	public static final String REQUEST_PARAM_LOGIN = "login";
 	public static final String REQUEST_PARAM_PASSWORD = "pass";
 	public static final String REQUEST_PARAM_LIST_DIRECTION = "list_directions";
@@ -71,8 +72,9 @@ public class ConstantValue {
 	public static final String REQUEST_PARAM_ARRIVAL_DATE = "arrival_date";
 
 	public static final String REQUEST_PARAM_ERROR_MSG = "errog_msg";
-	public static final String PAGE_NO_FLIGHTS_ERROR = "/WEB-INF/jsp/error/error_no_flights.jsp";
 
+    public static final String PAGE_ERROR_ACCESS_DENIED="/WEB-INF/jsp/error_authentication.jsp";
+	public static final String PAGE_NO_FLIGHTS_ERROR= "/WEB-INF/jsp/error/error_no_flights.jsp";
 	public static final String PAGE_DEFAULT = "/default.jsp";
 	public static final String PAGE_AUTHORIZED = "/authorised.jsp";
 	public static final String PAGE_ERROR = "/error.jsp";
@@ -88,6 +90,8 @@ public class ConstantValue {
 
     public static final String NOTIFICATION_MESSAGE_CHANGE_DATA_FLIGHT="CHANGE_DATA_FLIGHT";
     public static final String NOTIFICATION_MESSAGE_CANCEL_FLIGHT="CANCEL_FLIGHT";
+
+    public static final String COOKIE_PARAM_USER_NAME="userName";
 
 	
 	

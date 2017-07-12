@@ -21,7 +21,13 @@
 						<!--Welcome-->
 						<h3>
 							<fmt:message key="welcome" />
-						</h3>
+                            <c:if test="${user_data != null}">
+                                <c:out value=" ${user_data}"/>
+                            </c:if>
+                            <c:if test="${user_data == null}">
+                                <c:out value=" ${userName}"/>
+                            </c:if>
+                        </h3>
 						
 				</div>
 				<c:if test="${user_data == null}">
