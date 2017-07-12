@@ -7,6 +7,7 @@
     <title><fmt:message key="title.cancelDone" /></title>
     <link rel="stylesheet" type="text/css" href="css/done.css"> 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js?ver=1.4.2"></script>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 </head>
 <body>
 

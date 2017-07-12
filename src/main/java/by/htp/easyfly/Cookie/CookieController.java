@@ -23,7 +23,7 @@ public class CookieController extends HttpServlet {
             HttpSession session = request.getSession(true);
             String cookieValue= (String) session.getAttribute(REQUEST_PARAM_SESSION_USERNAME);
             if(cookieValue!=null) {
-                setCookie(response, cookieValue); // create cookie
+                setCookie(response, cookieValue); // create Cookie
                 // Extracting cookies and adding information to the request
                 request.setAttribute(COOKIE_PARAM_USER_NAME, cookieValue);
             }
@@ -32,11 +32,11 @@ public class CookieController extends HttpServlet {
 
     private void setCookie(HttpServletResponse resp,String cookieValue){
         Cookie c = new Cookie(COOKIE_PARAM_USER_NAME, cookieValue);
-        c.setMaxAge(60 * 60); // lifecycle cookie 1 hour
+        c.setMaxAge(60 * 60); // lifecycle Cookie 1 hour
         c.setValue(cookieValue);
-        resp.addCookie(c); // Add a cookie to the response object
+        resp.addCookie(c); // Add a Cookie to the response object
     }
-    private static void searchCookie(Cookie[] cookies, HttpServletRequest request){
+    private void searchCookie(Cookie[] cookies, HttpServletRequest request){
         Cookie cookie;
         String param;
         for (Cookie cooky : cookies) {

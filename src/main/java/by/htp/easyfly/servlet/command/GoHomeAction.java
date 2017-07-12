@@ -10,8 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import by.htp.easyfly.cookie.CookieController;
+
 import by.htp.easyfly.bin.FlightDirection;
+import by.htp.easyfly.Cookie.CookieController;
 import by.htp.easyfly.exception.ServiceException;
 import by.htp.easyfly.service.DirectionService;
 import by.htp.easyfly.service.factory.ServiceFactory;
@@ -30,25 +31,23 @@ public class GoHomeAction implements CommandAction {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session = request.getSession();
+        CookieController cookieController= new CookieController();
 		try {
-			session.setAttribute(REQUEST_PARAM_LANGUAGE, "en_EN");
-			String page = PAGE_DEFAULT;
+			session.setAttribute(REQUEST_PARAM_LANGUAGE, "en_EN"); //default language
+			String page = PAGE_HOME;
 			List<FlightDirection> flightDirection = directionService.listDirections();
 			request.setAttribute(REQUEST_PARAM_LIST_DIRECTION, flightDirection);
             session.setAttribute(REQUEST_PARAM_LIST_DIRECTION, flightDirection);
-			page = PAGE_HOME;
-            CookieController cookieController= new CookieController();
-            try {
-                cookieController.doGet(request,response);
-            } catch (ServletException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+
+            cookieController.doGet(request,response);
             ForwardPage.forwardPage(request, response, page);
 		} catch (ServiceException e) {
 
-		}
-	}
+		} catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 }

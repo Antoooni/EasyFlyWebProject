@@ -15,36 +15,20 @@
 <div class="container">
         
     <header>
-        <%@include file="/WEB-INF/include/header.jspf"%>
+
     </header>
 
     <div class="main-and-sidebar-wrapper"> 
         <section class="main">
-            <!--<h2>FLEW ONCE IMPRESSIONS FOREVER </h2>-->  
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
+            <!--<h2>FLEW ONCE IMPRESSIONS FOREVER </h2>-->
+            <div class="name_company">
+                <h2>Easy Fly</h2>
+            </div>
             <div class="search_frame">
             <h3><fmt:message key="error.messageHead" /></h3>
             <a><fmt:message key="error.messageErrorFlightBody" /></a>
             </div>
-            <br>
-            <br>
-        </section> 
-
+        </section>
     </div>
     <%@include file="/WEB-INF/include/footer.jspf"%>
     </div>

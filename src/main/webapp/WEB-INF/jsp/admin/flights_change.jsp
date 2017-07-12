@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="css/flight_list.css"> 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js?ver=1.4.2"></script>
     <script type="text/javascript" src="js/script.js"></script>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 </head>
 <body>
 <div class="container_flights_list">

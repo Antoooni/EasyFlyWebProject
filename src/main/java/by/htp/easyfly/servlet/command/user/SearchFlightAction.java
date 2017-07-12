@@ -64,10 +64,10 @@ public class SearchFlightAction implements CommandAction {
 				page = PAGE_FLIGHT_LIST;
 			} else if (user.getRole() == null) {
 				page = PAGE_FLIGHT_LIST;
-			} else
+			} else{
 				page = PAGE_FLIGHT_LIST_CHANGING;
-			page = PAGE_NO_FLIGHTS_ERROR;
-			request.setAttribute(REQUEST_PARAM_ERROR_MSG, "error temp");
+//			page = PAGE_NO_FLIGHTS_ERROR;
+			request.setAttribute(REQUEST_PARAM_ERROR_MSG, "error temp");}
 			ForwardPage.forwardPage(request, response, page);
 		} catch (Exception e) {
 		}
