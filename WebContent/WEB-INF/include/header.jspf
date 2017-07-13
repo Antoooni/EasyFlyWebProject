@@ -69,7 +69,7 @@
 								<label for="l">
 									<fmt:message key="popup.login" />
 								</label>
-								 <input class="popupText" from type="text" name="login" id="l" />
+
 								 <br>
 							</div>
 							<div class="auth">

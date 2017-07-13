@@ -76,7 +76,6 @@ public class ConstantValue {
     public static final String PAGE_ERROR_ACCESS_DENIED="/WEB-INF/jsp/error_authentication.jsp";
 	public static final String PAGE_NO_FLIGHTS_ERROR= "/WEB-INF/jsp/error/error_no_flights.jsp";
 	public static final String PAGE_DEFAULT = "/default.jsp";
-	public static final String PAGE_AUTHORIZED = "/authorised.jsp";
 	public static final String PAGE_ERROR = "/error.jsp";
 	public static final String PAGE_HOME = "/WEB-INF/jsp/user/index.jsp";
 	public static final String PAGE_FLIGHT_LIST = "/WEB-INF/jsp/user/flight_list.jsp";

@@ -48,14 +48,14 @@
                     <h3>ENJOY YOUR FLIGHT</h3>
         		  </div>
           <div class= "baggage_img">
-                      <img src="enjoy.jpg" >
+                      <img src="../../../img/enjoy.jpg" >
                     </div>
         </section> 
 
     </div>
 	    <footer>
 	        <h3>Contact us</h3>
-	        <p>Copyright 2017 Â© mazets_anton@tut.by</p>
+	        <p>Copyright 2017 © mazets_anton@tut.by</p>
 	    </footer>
 	</div>
 	

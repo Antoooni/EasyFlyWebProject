@@ -42,7 +42,7 @@
                     <fmt:message key="purchase.passName" />
                   </div>
                   <div id="first_right">
-                      <input id="passenger_name" type="text" name="passenger_name"  required>
+                      <input id="passenger_name" type="text" name="passenger_name"  required  pattern="[A-Za-zА-Яа-яЁё]" title=" <fmt:message key="fieldPattern.AnyLetters"/>">
                   </div>
                 </div>
                 <!--Surname-->
@@ -51,7 +51,7 @@
                     <fmt:message key="purchase.passSurname" />
                   </div>
                   <div id="first_right">
-                      <input id="passenger_name" type="text" name="passenger_surname"  required>
+                      <input id="passenger_name" type="text" name="passenger_surname"  required pattern="[A-Za-zА-Яа-яЁё]" title=" <fmt:message key="fieldPattern.AnyLetters"/>">
                   </div>
                 </div>
                 <!--MiddleName-->
@@ -60,7 +60,7 @@
                     <fmt:message key="purchase.passMiddleName" />
                   </div>
                   <div id="first_right">
-                      <input id="passenger_name" type="text" name="passenger_midname" >
+                      <input id="passenger_name" type="text" name="passenger_midname" pattern="[A-Za-zА-Яа-яЁё]" title=" <fmt:message key="fieldPattern.AnyLetters"/>" >
                   </div>
                 </div>
                 <!--Age-->
@@ -69,7 +69,7 @@
                     <fmt:message key="purchase.age" />
                   </div>
                   <div id="first_right">
-                      <input id="passenger_age" type="number" size="3" min="1" max="100" value="1" name="passenger_age" pattern="[0-9]{2}">
+                      <input id="passenger_age" type="number" size="3" min="1" max="100" value="1" name="passenger_age" pattern="[0-9]{2}" title=" <fmt:message key="fieldPattern.Age"/>">
                   </div>
                 </div>
                 <!--Date of birth-->
@@ -108,7 +108,7 @@
                     <fmt:message key="purchase.passportExpiry" />
                   </div>
                   <div id="first_right">
-                      <input id="passenger_date" type="date" name="passenger_passport_expirty" required>
+                      <input id="passenger_date" type="date" name="passenger_passport_expirty" required pattern="[a-zA-Z]{2}[0-9]{7}" title=" <fmt:message key="fieldPattern.Passport"/>">
                   </div>
                 </div>
                 <div id="first">

@@ -1,4 +1,5 @@
 <%@include file="/WEB-INF/include/root.jspf"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head lang=${language}>
@@ -36,8 +37,10 @@
 				<div class="element-input">
 					<label class="title"> <span class="required">*</span>
 					</label>
+                    <!--login-->
 					<div class="item-cont">
 						<input class="large" type="text" name="create_login"
+                               pattern="[a-zA-Z0-9]+" title=" <fmt:message key="fieldPattern.LetterNumer"/>"
 							required="required" placeholder="<fmt:message key="registration.login" />" />
 						<!--<span class="icon-place"></span>-->
 					</div>
@@ -45,6 +48,7 @@
 				<div class="element-password">
 					<label class="title"> <span class="required">*</span>
 					</label>
+                    <!--password-->
 					<div class="item-cont">
 						<input class="large" type="password" name="create_password"
 							value="" required="required" placeholder="<fmt:message key="registration.password" />" />
@@ -53,6 +57,7 @@
 				</div>
 				<div class="element-password">
 					<label class="title"></label>
+                    <!--password confirm-->
 					<div class="item-cont">
 						<input class="large" type="password" name="create_password1"
 							value="" placeholder="<fmt:message key="registration.passwordConfirm" />" />
@@ -60,12 +65,18 @@
 					</div>
 				</div>
 				<div class="element-name">
-					<!--<label class="title"></label>-->
-					<span class="nameFirst"> <input placeholder="<fmt:message key="registration.name" />"
-						type="text" size="8" name="name[first]" /> <span
+                    <!--name-->
+					<span class="nameFirst">
+                        <input placeholder="<fmt:message key="registration.name" />"
+						type="text" size="8" name="name[first]" pattern="[А-Яа-яЁё]" title=" <fmt:message key="fieldPattern.AnyLetters"/>" />
+                        <span
 						class="icon-place"></span>
-					</span> <span class="nameLast"> <input placeholder="<fmt:message key="registration.surname" />"
-						type="text" size="14" name="name[last]" /> <span
+					</span>
+                    <!--surname-->
+                    <span class="nameLast">
+                        <input placeholder="<fmt:message key="registration.surname" />"
+						type="text" size="14" name="name[last]" pattern="[А-Яа-яЁё]" title=" <fmt:message key="fieldPattern.AnyLetters"/>" />
+                        <span
 						class="icon-place"></span>
 					</span>
 				</div>
