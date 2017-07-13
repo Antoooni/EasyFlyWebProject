@@ -6,7 +6,7 @@ import by.htp.easyfly.bin.User;
 import by.htp.easyfly.exception.ServiceException;
 
 public interface CreateTicketService {
-	public int ticket(Ticket ticket) throws ServiceException;
+	public int createTicket(Ticket ticket) throws ServiceException;
 
 	public int createTicketList(User user, int ticketId) throws ServiceException;
 

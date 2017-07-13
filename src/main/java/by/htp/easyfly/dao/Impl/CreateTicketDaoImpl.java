@@ -20,7 +20,7 @@ public class CreateTicketDaoImpl implements CreateTicketDao {
 	Connection connection;
 
 	@Override
-	public int ticket(Ticket ticket) throws DAOException {
+	public int createTicket(Ticket ticket) throws DAOException {
 		PreparedStatement ps;
 		int key = 0;
 		try (Connection connection = SQLConnectionPool.getDs().getConnection()) {
@@ -31,6 +31,7 @@ public class CreateTicketDaoImpl implements CreateTicketDao {
 				ps.setString(3, convertAnswerToString(ticket.isPrimaryBoarding()));
 				ps.setString(4, convertAnswerToString(ticket.isOnlineCheckIn()));
 				ps.setDouble(5, ticket.getTotalAmount());
+                ps.setInt(6, ticket.getUser().getUserId());
 				ps.executeUpdate();
 
 				ResultSet rs = ps.getGeneratedKeys();

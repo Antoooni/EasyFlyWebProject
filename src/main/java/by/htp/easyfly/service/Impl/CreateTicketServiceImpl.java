@@ -18,9 +18,9 @@ public class CreateTicketServiceImpl implements CreateTicketService {
 	}
 
 	@Override
-	public int ticket(Ticket ticket) throws ServiceException {
+	public int createTicket(Ticket ticket) throws ServiceException {
 		try {
-			return createTicketDao.ticket(ticket);
+			return createTicketDao.createTicket(ticket);
 		} catch (DAOException e) {
 			throw new ServiceException(e);
 		}

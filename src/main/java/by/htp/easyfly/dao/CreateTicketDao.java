@@ -6,7 +6,7 @@ import by.htp.easyfly.bin.User;
 import by.htp.easyfly.exception.DAOException;
 
 public interface CreateTicketDao {
-	public int ticket(Ticket ticket) throws DAOException;
+	public int createTicket(Ticket ticket) throws DAOException;
 	public int searchTicketList(User user) throws DAOException;
 	public boolean ticketListExists(User user) throws DAOException;
 	public int createTicketList(User user, int ticketId) throws DAOException;

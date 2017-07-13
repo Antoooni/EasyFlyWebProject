@@ -10,20 +10,12 @@ public class Ticket implements Serializable {
 	private boolean primaryBoarding;
 	private boolean onlineCheckIn;
 	private double totalAmount;
+    private User user;
 	
 	public Ticket(){
 		
 	}
-	
-	public Ticket(int flightId, int passengerId, boolean primaryBoarding, boolean onlineCheckIn,
-			double totalAmount) {
-		super();
-		this.flightId = flightId;
-		this.passengerId = passengerId;
-		this.primaryBoarding = primaryBoarding;
-		this.onlineCheckIn = onlineCheckIn;
-		this.totalAmount = totalAmount;
-	}
+
 
 	public int getFlightId() {
 		return flightId;
@@ -65,50 +57,54 @@ public class Ticket implements Serializable {
 		this.totalAmount = totalAmount;
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + flightId;
-		result = prime * result + (onlineCheckIn ? 1231 : 1237);
-		result = prime * result + passengerId;
-		result = prime * result + (primaryBoarding ? 1231 : 1237);
-		long temp;
-		temp = Double.doubleToLongBits(totalAmount);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
-		return result;
-	}
+    public User getUser() {
+        return user;
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Ticket other = (Ticket) obj;
-		if (flightId != other.flightId)
-			return false;
-		if (onlineCheckIn != other.onlineCheckIn)
-			return false;
-		if (passengerId != other.passengerId)
-			return false;
-		if (primaryBoarding != other.primaryBoarding)
-			return false;
-		if (Double.doubleToLongBits(totalAmount) != Double.doubleToLongBits(other.totalAmount))
-			return false;
-		return true;
-	}
+    public void setUser(User user) {
+        this.user = user;
+    }
 
-	@Override
-	public String toString() {
-		return "Ticket [flightId=" + flightId + ", passengerId=" + passengerId + ", primaryBoarding=" + primaryBoarding
-				+ ", onlineCheckIn=" + onlineCheckIn + ", totalAmount=" + totalAmount + "]";
-	}
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
-	
+        Ticket ticket = (Ticket) o;
 
-	
+        if (flightId != ticket.flightId) return false;
+        if (onlineCheckIn != ticket.onlineCheckIn) return false;
+        if (passengerId != ticket.passengerId) return false;
+        if (primaryBoarding != ticket.primaryBoarding) return false;
+        if (Double.compare(ticket.totalAmount, totalAmount) != 0) return false;
+        if (!user.equals(ticket.user)) return false;
 
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result;
+        long temp;
+        result = flightId;
+        result = 31 * result + passengerId;
+        result = 31 * result + (primaryBoarding ? 1 : 0);
+        result = 31 * result + (onlineCheckIn ? 1 : 0);
+        temp = Double.doubleToLongBits(totalAmount);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + user.hashCode();
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Ticket{" +
+                "flightId=" + flightId +
+                ", passengerId=" + passengerId +
+                ", primaryBoarding=" + primaryBoarding +
+                ", onlineCheckIn=" + onlineCheckIn +
+                ", totalAmount=" + totalAmount +
+                ", user=" + user +
+                '}';
+    }
 }
