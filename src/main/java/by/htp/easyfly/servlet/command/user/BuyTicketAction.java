@@ -12,7 +12,6 @@ import by.htp.easyfly.bin.Baggage;
 import by.htp.easyfly.bin.Flight;
 import by.htp.easyfly.bin.Passenger;
 import by.htp.easyfly.bin.Ticket;
-import by.htp.easyfly.bin.TicketList;
 import by.htp.easyfly.bin.User;
 import by.htp.easyfly.exception.ServiceException;
 import by.htp.easyfly.service.CreatePassengerService;
