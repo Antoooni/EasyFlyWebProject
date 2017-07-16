@@ -28,11 +28,11 @@ public class CreatePassengerDaoImpl implements CreatePassengerDao {
 				ps.setString(1, passenger.getName());
 				ps.setString(2, passenger.getSurname());
 				ps.setString(3, passenger.getMiddleName());
-				ps.setString(4, passenger.getDateOfBirth());
+				ps.setString(4, String.valueOf(passenger.getDateOfBirth()));
 				ps.setInt(5, passenger.getAge());
 				ps.setString(6, passenger.getSex());
 				ps.setString(7, passenger.getPassportId());
-				ps.setDate(8, passenger.getPassportExpiry());
+				ps.setString(8, String.valueOf(passenger.getPassportExpiry()));
 				ps.setString(9, passenger.getBaggage().toString());
 				ps.executeUpdate();
 

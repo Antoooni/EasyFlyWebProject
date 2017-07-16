@@ -51,7 +51,7 @@ public class ConstantValue {
 	public static final String REQUEST_PARAM_PASSENGER_BIRTH = "passenger_birth";
 	public static final String REQUEST_PARAM_PASSENGER_SEX = "passenger_sex";
 	public static final String REQUEST_PARAM_PASSENGER_PASSPORT_NUMBER = "passenger_passport_number";
-	public static final String REQUEST_PARAM_PASSENGER_PASSPORT_EXPIRTY = "passenger_passport_expirty";
+	public static final String REQUEST_PARAM_PASSENGER_PASSPORT_EXPIRY = "passenger_passport_expiry";
 	public static final String REQUEST_PARAM_PASSENGER_BAGGAGE = "passenger_baggage";
 	public static final String REQUEST_PARAM_TICKET_PRIMARY_BOARDING ="passenger_boarding";
 	public static final String REQUEST_PARAM_TICKET_CHECKIN="passenger_checkin";
@@ -68,10 +68,23 @@ public class ConstantValue {
 	// request parameters from main search
 	public static final String REQUEST_PARAM_DIRECTION_FROM = "direction_from";
 	public static final String REQUEST_PARAM_DIRECTION_TO = "direction_to";
-	public static final String REQUEST_PARAM_DEPARTURE_DATE = "departure_date";
+    public static final String REQUEST_PARAM_DEPARTURE_DATE = "departure_date";
 	public static final String REQUEST_PARAM_ARRIVAL_DATE = "arrival_date";
 
+    //error statement
 	public static final String REQUEST_PARAM_ERROR_MSG = "errog_msg";
+    public static final String ERROR_INPUT ="input_error";
+    public static final String ERROR_SAME_DIRECTION ="same_direction";
+    public static final String ERROR_INVALID_DATES ="invalid_dates";
+    public static final String ERROR_INVALID_ARRIVAL_DATE ="invalid_arrival";
+    public static final String ERROR_BIRTHDAY_DATE="birthday_date";
+    public static final String ERROR_EXPIRY_DATE="expiry_date";
+    public static final String INVALID_INPUT ="Inv_pass_data";
+    public static final String INVALID_DIRECTION ="same direction code";
+    public static final String INVALID_DATES ="date in the past";
+    public static final String INVALID_ARRIVAL_DATE ="arrival date less than departure";
+    public static final String INVALID_BIRTHDAY_DATE="birthday less flight date";
+    public static final String INVALID_EXPIRY_DATE="expiry less arrival date";
 
     public static final String PAGE_ERROR_ACCESS_DENIED="/WEB-INF/jsp/error_authentication.jsp";
 	public static final String PAGE_NO_FLIGHTS_ERROR= "/WEB-INF/jsp/error/error_no_flights.jsp";

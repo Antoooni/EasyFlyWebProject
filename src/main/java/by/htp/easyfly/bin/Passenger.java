@@ -1,7 +1,7 @@
 package by.htp.easyfly.bin;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 
 public class Passenger implements Serializable {
 	private static final long serialVersionUID = 6003874035003055719L;
@@ -12,7 +12,7 @@ public class Passenger implements Serializable {
 	private String name;
 	private String surname;
 	private String middleName;
-	private String dateOfBirth;
+	private Date dateOfBirth;
 	private String passportId;
 	private String sex;
 
@@ -23,7 +23,7 @@ public class Passenger implements Serializable {
 
 	}
 
-	public Passenger(int age, String name, String surname, String middleName, String dateOfBirth, String passportId, String sex, 
+	public Passenger(int age, String name, String surname, String middleName, Date dateOfBirth, String passportId, String sex,
 			Date passportExpiry, Baggage baggage) {
 		super();
 		this.age = age;
@@ -37,7 +37,7 @@ public class Passenger implements Serializable {
 		this.baggage = baggage;
 	}
 
-	public Passenger(int passengerId, int age, String name, String surname, String middleName, String dateOfBirth,
+	public Passenger(int passengerId, int age, String name, String surname, String middleName, Date dateOfBirth,
 			String passportId, Date passportExpiry, Baggage baggage) {
 		super();
 		this.passengerId = passengerId;
@@ -91,11 +91,11 @@ public class Passenger implements Serializable {
 		this.middleName = middleName;
 	}
 
-	public String getDateOfBirth() {
+	public Date getDateOfBirth() {
 		return dateOfBirth;
 	}
 
-	public void setDateOfBirth(String dateOfBirth) {
+	public void setDateOfBirth(Date dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
 

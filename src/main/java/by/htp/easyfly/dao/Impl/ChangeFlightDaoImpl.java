@@ -36,10 +36,10 @@ public class ChangeFlightDaoImpl implements ChangeFlightDao {
 		try (Connection connection = SQLConnectionPool.getDs().getConnection()){
 				if (!connection.isClosed()) {
 					ps = connection.prepareStatement(SQL_STATEMENT_CHANGE_FLIGHT_DATA);
-					ps.setString(1, flight.getDepartureDate());
-					ps.setString(2, flight.getDepartureTime());
-					ps.setString(3, flight.getArrivalDate());
-					ps.setString(4, flight.getArrivalTime());
+					ps.setString(1, String.valueOf(flight.getDepartureDate()));
+					ps.setString(2, String.valueOf(flight.getDepartureTime()));
+					ps.setString(3, String.valueOf(flight.getArrivalDate()));
+					ps.setString(4, String.valueOf(flight.getArrivalTime()));
 					ps.setInt(5, flight.getFlightId());
 					ps.executeUpdate();
 				}

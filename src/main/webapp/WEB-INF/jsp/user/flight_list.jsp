@@ -31,11 +31,11 @@
                     <tr>
                       <th>#</th>
                       <th><fmt:message key="flight.selection" /></th>
-                      <th><fmt:message key="flight.airpotCode" /></th>
+                      <th><fmt:message key="flight.airportCode" /></th>
                       <th><fmt:message key="flight.fromCity" /></th>
                       <th><fmt:message key="flight.departureDate" /></th>
                       <th><fmt:message key="flight.departureTime" /></th>
-                      <th><fmt:message key="flight.airpotCode" /></th>
+                      <th><fmt:message key="flight.airportCode" /></th>
                       <th><fmt:message key="flight.toCity" /></th>
                       <th><fmt:message key="flight.arrivalDate" /></th>
                       <th><fmt:message key="flight.arrivalTime" /></th>
@@ -78,7 +78,6 @@
             <c:if test="${logged_user == false}">
               <div class="nonlogged">
                 <div class="alertloggin"><fmt:message key="alert.login" />
-                  <!--<c:out value="You are not logged-in yet. Please LOG IN" />-->
                 </div>
               </div>
             </c:if>
@@ -87,22 +86,6 @@
     </div>
 	    <%@include file="/WEB-INF/include/footer.jspf"%>
 	</div>
-	
- <!--  <script type="text/javascript"> <!--
-        function validate_form() {
-            valid = true;
-            if (document.val_form.login.value == "") {
-                alert("Пожалуйста заполните поле 'Login'.");
-                valid = false;
-                return valid;
-            }
-            if (document.val_form.pass.value == "") {
-                alert("Пожалуйста заполните поле 'Password'.");
-                valid = false;
-            return valid;
-            }
-        }
-   </script>-->
 
     <script>
         // Get the modal

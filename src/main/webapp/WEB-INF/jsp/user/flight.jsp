@@ -31,7 +31,9 @@
                <!--Flight info-->
                   <%@include file="/WEB-INF/include/flight_info.jspf"%>
    </div>
-              </section> 
+              </section>
+              <!--Check input fields-->
+              <%@include file="/WEB-INF/include/alert.jspf"%>
               <!--Spoiler-->
               <details id="details_first">
                 <summary class="spoiler">
@@ -70,7 +72,7 @@
                     <fmt:message key="purchase.age" />
                   </div>
                   <div id="first_right">
-                      <input id="passenger_age" type="number" size="3" min="1" max="100" value="1" name="passenger_age" pattern="[0-9]{2}">
+                      <input id="passenger_age" type="number" size="3" min="0" max="100" value="1" name="passenger_age" pattern="[0-9]{2}">
                   </div>
                 </div>
                 <!--Date of birth-->
@@ -109,7 +111,7 @@
                     <fmt:message key="purchase.passportExpiry" />
                   </div>
                   <div id="first_right">
-                      <input id="passenger_date" type="date" name="passenger_passport_expirty" required>
+                      <input id="passenger_date" type="date" name="passenger_passport_expiry" required>
                   </div>
                 </div>
                 <div id="first">

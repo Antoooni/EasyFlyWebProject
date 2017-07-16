@@ -26,11 +26,11 @@
                     <tr>
                       <th>#</th>
                       <th><fmt:message key="flight.selection" /></th>
-                      <th><fmt:message key="flight.airpotCode" /></th>
+                      <th><fmt:message key="flight.airportCode" /></th>
                       <th><fmt:message key="flight.fromCity" /></th>
                       <th><fmt:message key="flight.departureDate" /></th>
                       <th><fmt:message key="flight.departureDate" /></th>
-                      <th><fmt:message key="flight.airpotCode" /></th>
+                      <th><fmt:message key="flight.airportCode" /></th>
                       <th><fmt:message key="flight.toCity" /></th>
                       <th><fmt:message key="flight.arrivalDate" /></th>
                       <th><fmt:message key="flight.arrivalTime" /></th>

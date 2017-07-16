@@ -91,6 +91,7 @@ padding-top: 10px;
     text-shadow: aqua;
     padding-top: 7px;
 }
+
 .greeting{
     color: #e64d4d;
     display: flex;
@@ -164,7 +165,6 @@ header button {
     color:#ef5350;
     cursor: pointer;
     text-transform: uppercase;
-    text-transform: 
     width: 30px;
     height:  30px;
 }
@@ -219,7 +219,7 @@ header button {
   /*margin-top: 27%;*/
   width: 750px;
   padding: 30px;
-  text-align: left: ;
+  text-align: left ;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
@@ -270,7 +270,7 @@ header button {
   }
 
 
-/* Sidebar 
+/* Sidebar
 
 .sidebar {
     border: 1px solid #a2a2a2;
@@ -390,7 +390,7 @@ footer p {
         background: #FFF;
 
     }
-}
+
 /*для кнопок заказа
 https://habrahabr.ru/post/64530/
 */
@@ -431,13 +431,34 @@ label {
 .circle {
     width: 30px;
     height: 30px;
-    background-color: rgba(255,255,255,0.9); 
+    background-color: rgba(255,255,255,0.9);
     border-color: rgba(255,255,255, 0.9);
     -moz-border-radius: 25px;
     -webkit-border-radius: 25px;
     border-style: solid;
     border-radius: 50px;
     border-width: 1px 1px 1px 1px;
+}
+.alertFrame {
+    width: 750px;
+    height: 30px;
+    background-color: rgba(255, 61, 2, 0.43);
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+    color: rgba(255, 255, 255, 0.7);
+    text-shadow: azure;
+    font-family: verdana;
+    padding-top: 5px;
+}
+.alertbodyFrame {
+    color: #ffbcbc;
+    cursor: pointer;
+    text-transform: uppercase;
+    text-shadow: aqua;
+    /* padding-top: 7px; */
+    text-align: center;
 }
 
 

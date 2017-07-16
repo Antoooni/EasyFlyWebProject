@@ -1,5 +1,8 @@
 package by.htp.easyfly.util;
 
+import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.regex.Pattern;
 
 import static by.htp.easyfly.util.RegularExpression.*;
@@ -19,10 +22,7 @@ public class InputDataValidator {
     }
 
     public static boolean isValidPassword(String password) {
-        if (null != password) {
-            return Pattern.matches(PASSWORD, password);
-        }
-        return false;
+        return null != password && Pattern.matches(PASSWORD, password);
     }
 
     //Checking incoming parameters when creating a ticket
@@ -38,13 +38,51 @@ public class InputDataValidator {
         return false;
     }
     public static boolean isValidPassenger(String name, String surname, int age, String passportNumber){
-        if(null!=name && null!=surname && age!=0 &&null!=passportNumber){
-            return
-                    Pattern.matches(NAME, name) &&
-                    Pattern.matches(SURNAME, surname) &&
-                    Pattern.matches(PASSPORT, passportNumber) &&
-                    Pattern.matches(AGE, String.valueOf(age));
-        }
-        return false;
+        return null != name
+                && null != surname
+                && age != 0
+                && null != passportNumber
+                && Pattern.matches(NAME, name)
+                && Pattern.matches(SURNAME, surname)
+                && Pattern.matches(PASSPORT, passportNumber)
+                && Pattern.matches(AGE, String.valueOf(age));
     }
+    public static boolean isSameDestination(String departure, String arrival) {
+        return departure.equals(arrival);
+    }
+    public static boolean dateInPast(Date departureDate, Date arrivalDate){
+        Date currentDate = new Date();
+        int resultForDeparture =departureDate.compareTo(currentDate);
+        int resultForArrival =arrivalDate.compareTo(currentDate);
+        if (resultForDeparture<0||resultForArrival<0){
+            return true;
+        }
+        else
+            return false;
+    }
+    public static boolean isArrivalBeforeDeparture(Date departureDate, Date arrivalDate){
+        int resultForDeparture =arrivalDate.compareTo(departureDate);
+        if (resultForDeparture<0){
+            return true;
+        }
+        else
+            return false;
+    }
+    public static boolean isBirthdayLessDeparture(Date departureDate, Date birthday){
+        int resultCompare=birthday.compareTo(departureDate);
+        if (resultCompare<0){
+            return true;
+        }
+        else
+            return false;
+    }
+    public static boolean isExpiryLessArrival(Date arrivalDate, Date expiry){
+        int resultCompare=expiry.compareTo(arrivalDate);
+        if (resultCompare<0){
+            return true;
+        }
+        else
+            return false;
+    }
+
 }

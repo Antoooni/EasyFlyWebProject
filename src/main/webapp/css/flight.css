@@ -637,8 +637,8 @@ footer p {
 	cursor: pointer;
 }
 
-}
-* /
+
+
 .field {
 	clear: both;
 	text-align: left;
@@ -661,31 +661,22 @@ label {
 	line-height: 25px;
 	/*border:1px solid #9E9E9E;*/
 	border-radius: 3px;
-	//
-	закругление
-	углов
-	(общее)
+
 	-webkit-border-radius
 	:
 	3px;
-	//
-	закругление
-	углов
+
 	(Google
 	Chrome)
 	-moz-border-radius
 	:
 	3px;
-	//
-	закругление
-	углов
+
 	(FireFox)
 	-khtml-border-radius
 	:
 	3px;
-	//
-	закругление
-	углов
+
 	(Safari)
 }
 
@@ -709,7 +700,8 @@ label {
 .go_search {
 	width: 100px;
 	height: 30px;
-	background-color: #ef5350;
+	/*background-color: #ef5350;*/
+    background-color: #70c177;
 	border-radius: 3px;
 	border: none;
 	padding: 8px 25px;
@@ -735,4 +727,24 @@ label {
 	margin-left: auto;
 	margin-right: auto;
 	padding-top: 7px;
+}
+.alert {
+    width: 500px;
+    height: 30px;
+    background-color: #f9e0e6;
+    /* margin: auto; */
+    /* padding-top: 20px; */
+    margin-top: 20px;
+    /* margin-bottom: 20px; */
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+}
+.alertbody {
+    color: #f72525;
+    cursor: pointer;
+    text-transform: uppercase;
+    text-shadow: aqua;
+    padding-top: 7px;
+    text-align: center;
 }

@@ -1,5 +1,6 @@
 package by.htp.easyfly.service.Impl;
 
+import java.util.Date;
 import java.util.List;
 
 import by.htp.easyfly.bin.Flight;
@@ -18,7 +19,7 @@ public class FlightListServiceImpl implements FlightListService {
 	}
 
 	@Override
-	public List<Flight> flightList(String fromSQL, String toSQL, String departureDateSQL, String arrivalDateSQL)
+	public List<Flight> flightList(String fromSQL, String toSQL, Date departureDateSQL, Date arrivalDateSQL)
 			throws ServiceException {
 		try{
 		List<Flight>flightList=daoFlightList.flightList( fromSQL,  toSQL,  departureDateSQL,  arrivalDateSQL);

@@ -2,7 +2,9 @@ package by.htp.easyfly.servlet.command.user;
 
 import static by.htp.easyfly.util.ConstantValue.*;
 
-import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,6 +21,8 @@ import by.htp.easyfly.service.CreateTicketService;
 import by.htp.easyfly.service.factory.ServiceFactory;
 import by.htp.easyfly.servlet.ForwardPage;
 import by.htp.easyfly.servlet.command.CommandAction;
+import by.htp.easyfly.util.ConvertingValues;
+import by.htp.easyfly.util.InputDataValidator;
 
 public class BuyTicketAction implements CommandAction {
 	// ServiceFactory serviceFactory = new ServiceFactory();
@@ -34,30 +38,41 @@ public class BuyTicketAction implements CommandAction {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		String page = PAGE_DONE;
-
 		HttpSession session = request.getSession(true);
+        Passenger passenger = new Passenger();
+        Ticket ticket = new Ticket();
+        session.getAttribute(REQUEST_PARAM_SESSION_FLIGHT);
+        Flight flight = (Flight) session.getAttribute(REQUEST_PARAM_SESSION_FLIGHT);
 		try {
-			session.getAttribute(REQUEST_PARAM_SESSION_FLIGHT);
-			Flight flight = (Flight) session.getAttribute(REQUEST_PARAM_SESSION_FLIGHT);
-			System.out.println("flight " + flight.getDepartureDate() + " " + flight.getFlightCode());
-
-			// create passenger
-			Passenger passenger = new Passenger();
+            //initialization passenger fields
             passenger = initPassengerFields(request, passenger);
+            //check if fields are correct
+            if(InputDataValidator.isValidPassenger(passenger.getName(), passenger.getSurname(), passenger.getAge(), passenger.getPassportId())) {
+                // create passenger
+                passenger.setPassengerId(createPassengerService.passenger(passenger));
 
-//			int passengerId = createPassengerService.passenger(passenger);
-            //get created passenger id
-            passenger.setPassengerId(createPassengerService.passenger(passenger));
-			System.out.println(passenger.toString());
+                // create ticket
+                ticket = initTicketFields(request, flight, passenger.getPassengerId(), ticket, session);
+                int ticketId = createTicketService.createTicket(ticket);
 
-			// create ticket
-            Ticket ticket = new Ticket();
-            ticket = initTicketFields(request,  flight,  passenger.getPassengerId(), ticket, session );
-			// ticket.setTotalAmount(request.getParameter());
-			System.out.println(ticket.toString());
-			int ticketId = createTicketService.createTicket(ticket);
-
-			ForwardPage.forwardPage(request, response, page);
+                ForwardPage.forwardPage(request, response, page);
+            }
+            else if(InputDataValidator.isBirthdayLessDeparture(flight.getDepartureDate(),passenger.getDateOfBirth())){
+                page = PAGE_FLIGHT_INFO;
+                request.setAttribute(ERROR_BIRTHDAY_DATE, INVALID_BIRTHDAY_DATE);
+                ForwardPage.forwardPage(request, response, page);
+            }
+            else if(InputDataValidator.isExpiryLessArrival(flight.getArrivalDate(),passenger.getPassportExpiry())){
+                page = PAGE_FLIGHT_INFO;
+                request.setAttribute(ERROR_EXPIRY_DATE, INVALID_EXPIRY_DATE);
+                ForwardPage.forwardPage(request, response, page);
+            }
+            else{
+                page = PAGE_FLIGHT_INFO;
+                request.setAttribute(ERROR_INPUT, INVALID_INPUT);
+                session.setAttribute(ERROR_INPUT, INVALID_INPUT);
+                ForwardPage.forwardPage(request, response, page);
+            }
 		} catch (ServiceException e) {
 
 		}
@@ -72,10 +87,10 @@ public class BuyTicketAction implements CommandAction {
         passenger.setSurname(request.getParameter(REQUEST_PARAM_PASSENGER_SURNAME));
         passenger.setMiddleName(request.getParameter(REQUEST_PARAM_PASSENGER_MIDNAME));
         passenger.setAge(Integer.valueOf(request.getParameter(REQUEST_PARAM_PASSENGER_AGE)));
-        passenger.setDateOfBirth(request.getParameter(REQUEST_PARAM_PASSENGER_BIRTH));
+        passenger.setDateOfBirth(ConvertingValues.convertDate(request.getParameter(REQUEST_PARAM_PASSENGER_BIRTH)));
         passenger.setSex(request.getParameter(REQUEST_PARAM_PASSENGER_SEX));
         passenger.setPassportId(request.getParameter(REQUEST_PARAM_PASSENGER_PASSPORT_NUMBER));
-        passenger.setPassportExpiry(Date.valueOf(request.getParameter(REQUEST_PARAM_PASSENGER_PASSPORT_EXPIRTY)));
+        passenger.setPassportExpiry(ConvertingValues.convertDate(request.getParameter(REQUEST_PARAM_PASSENGER_PASSPORT_EXPIRY)));
         passenger.setBaggage(Baggage.valueOf(request.getParameter(REQUEST_PARAM_PASSENGER_BAGGAGE).toUpperCase()));
         return passenger;
     }
@@ -87,4 +102,5 @@ public class BuyTicketAction implements CommandAction {
         ticket.setUser((User) session.getAttribute(REQUEST_PARAM_SESSION_USER));
         return ticket;
     }
+
 }

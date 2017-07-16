@@ -8,7 +8,7 @@ public interface RegularExpression {
     String PASSWORD="[A-z0-9_-]{6,20}";
     String EMAIL="[A-z0-9_\\\\.-]+@[a-z]+\\\\.[a-z]{2,4}";
     String NAME="[A-zА-я]+";
-    String AGE="[0-9]{2}";
+    String AGE="[0-9]{3}";
     String SURNAME ="[A-zА-я]+";
     String USERNAME="[A-Za-z]";
     String USERSURNAME="[A-Za-z]";

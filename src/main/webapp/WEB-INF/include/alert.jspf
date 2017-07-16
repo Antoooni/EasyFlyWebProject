@@ -1,0 +1,37 @@
+<c:if test="${same_direction != null}">
+    <div class="alertFrame">
+        <div class="alertbodyFrame"><fmt:message key="alert.sameDirection" />
+        </div>
+    </div>
+</c:if>
+<c:if test="${invalid_dates != null}">
+    <div class="alertFrame">
+        <div class="alertbodyFrame"><fmt:message key="alert.previousDate" />
+        </div>
+    </div>
+</c:if>
+<c:if test="${invalid_arrival != null}">
+    <div class="alertFrame">
+        <div class="alertbodyFrame"><fmt:message key="alert.arrivalInPast" />
+        </div>
+    </div>
+</c:if>
+<!--Passenger data-->
+<c:if test="${expiry_date!= null}">
+    <div class="alert">
+        <div class="alertbody"><fmt:message key="alert.passportData" />
+        </div>
+    </div>
+</c:if>
+<c:if test="${birthday_date != null}">
+    <div class="alert">
+        <div class="alertbody"><fmt:message key="alert.birthdayData" />
+        </div>
+    </div>
+</c:if>
+<c:if test="${input_error != null}">
+    <div class="alert">
+        <div class="alertbody"><fmt:message key="alert.inputError" />
+        </div>
+    </div>
+</c:if>

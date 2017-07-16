@@ -1,6 +1,9 @@
 package by.htp.easyfly.bin;
 
 import java.io.Serializable;
+import java.sql.Time;
+import java.util.Date;
+
 public class Flight implements Serializable {
 	/**
 	 * 
@@ -8,13 +11,13 @@ public class Flight implements Serializable {
 	private static final long serialVersionUID = -8813143772387838912L;
 	private int flightId;
 	private Direction fromDirection;
-	private String departureDate;
-	private String departureTime;
+	private Date departureDate;
+	private Time departureTime;
 	private Direction fromCode;
 
 	private Direction toDirection;
-	private String arrivalDate;
-	private String arrivalTime;
+	private Date arrivalDate;
+	private Time arrivalTime;
 	private Plane plane;
 	private double basicTariff;
 	private String flightCode;
@@ -22,8 +25,8 @@ public class Flight implements Serializable {
 	public Flight() {
 
 	}
-	public Flight(Direction fromCode, Direction fromDirection, String departureDate, String departureTime, Direction toDirection,
-			String arrivalDate, String arrivalTime, int flightId, String flightCode) {
+	public Flight(Direction fromCode, Direction fromDirection, Date departureDate, Time departureTime, Direction toDirection,
+                  Date arrivalDate, Time arrivalTime, int flightId, String flightCode) {
 		super(); 
 		this.fromCode = fromCode;
 		this.fromDirection = fromDirection;
@@ -36,8 +39,8 @@ public class Flight implements Serializable {
 		this.flightCode=flightCode;
 	}
 
-	public Flight(Direction fromCode, Direction fromDirection, String departureDate, String departureTime, Direction toDirection,
-			String arrivalDate, String arrivalTime, int flightId, Plane plane, String flightCode) {
+	public Flight(Direction fromCode, Direction fromDirection, Date departureDate, Time departureTime, Direction toDirection,
+			Date arrivalDate, Time arrivalTime, int flightId, Plane plane, String flightCode) {
 		super();
 		this.fromCode = fromCode;
 		this.fromDirection = fromDirection;
@@ -83,19 +86,19 @@ public class Flight implements Serializable {
 		this.toDirection = toDirection;
 	}
 
-	public String getDepartureDate() {
+	public Date getDepartureDate() {
 		return departureDate;
 	}
 
-	public void setDepartureDate(String departureDate) {
+	public void setDepartureDate(Date departureDate) {
 		this.departureDate = departureDate;
 	}
 
-	public String getDepartureTime() {
+	public Time getDepartureTime() {
 		return departureTime;
 	}
 
-	public void setDepartureTime(String departureTime) {
+	public void setDepartureTime(Time departureTime) {
 		this.departureTime = departureTime;
 	}
 
@@ -107,19 +110,19 @@ public class Flight implements Serializable {
 		this.fromCode = fromCode;
 	}
 
-	public String getArrivalDate() {
+	public Date getArrivalDate() {
 		return arrivalDate;
 	}
 
-	public void setArrivalDate(String arrivalDate) {
+	public void setArrivalDate(Date arrivalDate) {
 		this.arrivalDate = arrivalDate;
 	}
 
-	public String getArrivalTime() {
+	public Time getArrivalTime() {
 		return arrivalTime;
 	}
 
-	public void setArrivalTime(String arrivalTime) {
+	public void setArrivalTime(Time arrivalTime) {
 		this.arrivalTime = arrivalTime;
 	}
 

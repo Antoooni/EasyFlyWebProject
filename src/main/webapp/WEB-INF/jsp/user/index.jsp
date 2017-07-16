@@ -46,6 +46,7 @@
 						<button class="go_search" id="go_search"><fmt:message key="search.go" /></button>
 					</form>
 				</div>
+                <%@include file="/WEB-INF/include/alert.jspf"%>
 			</section>
 		</div>
 		<!-- FOOTER -->
