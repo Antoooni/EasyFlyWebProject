@@ -1,3 +1,4 @@
+<%--suppress ALL --%>
 <%@include file="/WEB-INF/include/root.jspf"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -45,7 +46,10 @@
                     <fmt:message key="purchase.passName" />
                   </div>
                   <div id="first_right">
-                      <input id="passenger_name" type="text" name="passenger_name"  required>
+                      <input id="passenger_name" type="text" name="passenger_name"  required
+                             pattern="^[a-zA-Z\s]+$"
+                             title="<fmt:message key="fieldPattern.LatinLetters" />"
+                      >
                   </div>
                 </div>
                 <!--Surname-->
@@ -54,7 +58,10 @@
                     <fmt:message key="purchase.passSurname" />
                   </div>
                   <div id="first_right">
-                      <input id="passenger_name" type="text" name="passenger_surname"  required>
+                      <input id="passenger_name" type="text" name="passenger_surname"  required
+                             pattern="^[a-zA-Z\s]+$"
+                             title="<fmt:message key="fieldPattern.LatinLetters" />"
+                      >
                   </div>
                 </div>
                 <!--MiddleName-->
@@ -63,7 +70,10 @@
                     <fmt:message key="purchase.passMiddleName" />
                   </div>
                   <div id="first_right">
-                      <input id="passenger_name" type="text" name="passenger_midname" >
+                      <input id="passenger_name" type="text" name="passenger_midname"
+                             pattern="^[a-zA-Z\s]+$"
+                             title="<fmt:message key="fieldPattern.LatinLetters" />"
+                      >
                   </div>
                 </div>
                 <!--Age-->
@@ -72,7 +82,9 @@
                     <fmt:message key="purchase.age" />
                   </div>
                   <div id="first_right">
-                      <input id="passenger_age" type="number" size="3" min="0" max="100" value="1" name="passenger_age" pattern="[0-9]{2}">
+                      <input id="passenger_age" type="number" size="3" min="0" max="100" value="1" name="passenger_age"
+                             pattern="[0-9]{2}"
+                      >
                   </div>
                 </div>
                 <!--Date of birth-->
@@ -102,7 +114,10 @@
                     <fmt:message key="purchase.passport" />
                   </div>
                   <div id="first_right">
-                      <input id="passenger_name" type="text" name="passenger_passport_number" required>
+                      <input id="passenger_name" type="text" name="passenger_passport_number" required
+                             pattern="[A-Za-z]{2}[0-9]{7}"
+                             title="<fmt:message key="fieldPattern.Passport" />"
+                      >
                   </div>
                 </div>
                 <!--passport expiry-->

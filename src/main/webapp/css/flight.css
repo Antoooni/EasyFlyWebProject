@@ -40,18 +40,12 @@ a {
 	margin-right: 10px;
 }
 
+/*noinspection CssInvalidElement*/
 #iside_header {
 	height: 45px;
 	width: 1080px;
-	border-bottom: 1px;
-	border-top-color: initial;
-	border-right-color: initial;
-	border-bottom-color: rgba(0, 0, 0, 0.2);
-	border-left-color: initial;
-	border-style: solid;
-	border-top: 0px;
-	border-left: 0px;
-	border-right: 0px;
+    border: 0px solid initial;
+    border-bottom: 1px rgba(0, 0, 0, 0.2);
 }
 
 #left_iside_header {
@@ -429,8 +423,8 @@ body {
 }
 
 #first_left_baggage {
-	padding-left: 80px;
-	padding-top: 10px;
+	padding-left: 30px;
+	padding-top: 1px;
 	width: 200px;
 	height: 40px;
 	float: left;
