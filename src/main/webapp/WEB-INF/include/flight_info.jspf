@@ -1,3 +1,4 @@
+<%--suppress ALL --%>
 <div id="content">
 	<div class="position_head">
 		<div class="position_head_inside"><fmt:message key="flight.details" /></div>
@@ -19,7 +20,7 @@
 			,
 			<c:out value="${flight.getFromDirection().getDirectionName()}" />
 		</div>
-		<div id="blok2_third">→</div>
+		<div id="blok2_third"><img src="img/arrow.png" style="width: 50%"></div>
 		<div id="blok3_third">
 			<c:out value="${flight.getToDirection().getDirectionCode()}" />
 			,
@@ -34,7 +35,7 @@
 		</div>
 		<div id="sub_block2">
 			<!--15 июня, четверг-->
-			<c:out value="${flight.getDepartureDate()}" />
+            <fmt:formatDate type="date" value="${flight.getDepartureDate()}" />
 		</div>
 		<div id="sub_block3">
 			<!--Минск-->
@@ -51,7 +52,7 @@
 		</div>
 		<div id="sub_block2">
 			<!--15 июня, четверг-->
-			<c:out value="${flight.getArrivalDate()}" />
+            <fmt:formatDate type="date" value="${flight.getArrivalDate()}" />
 		</div>
 		<div id="sub_block3">
 			<!--Москва-->
@@ -80,7 +81,14 @@
 <div class="position">
 	<div id="blok1_five">
 		<fmt:message key="flightInfo.duration" />
-		<div id="sub__five_block1">1 час 25 мин!!!</div>
+		<div id="sub__five_block1">
+
+                <c:out value="${duration[0]}" />
+                <fmt:message key="reduction.hour" />
+                <c:out value="${duration[1]}" />
+                <fmt:message key="reduction.minutes" />
+
+		</div>
 	</div>
 	<div id="blok2_five">
 		<fmt:message key="flightInfo.class" />

@@ -58,13 +58,13 @@
                            </td>
                            <td><c:out value="${i.getFromDirection().getDirectionCode()}" /></td>
                            <td><c:out value="${i.getFromDirection().getCity()}" /></td>
-                           <td><c:out value="${i.getDepartureDate()}" /> </td>
+                           <td> <fmt:formatDate value="${i.getDepartureDate()}" pattern="yyyy-MM-dd" /></td>
                            <td><c:out value="${i.getDepartureTime()}" /></td>
                            <td><c:out value="${i.getToDirection().getDirectionCode()}" /> </td>
                            <td><c:out value="${i.getToDirection().getCity()}" /></td>
-                           <td><c:out value="${i.getArrivalDate()}" /> </td>
+                           <td> <fmt:formatDate value="${i.getArrivalDate()}" pattern="yyyy-MM-dd" /></td>
                            <td><c:out value="${i.getArrivalTime()}" /></td>
-                            <td><c:out value="${i.getArrivalTime()}" /></td>
+                           <td><c:out value="${i.getArrivalTime()}" /></td>
                          </tr>
                        </tbody>
                       </h3>

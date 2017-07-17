@@ -31,6 +31,7 @@ public class ConstantValue {
 	public static final String REQUEST_PARAM_LIST_DIRECTION = "list_directions";
 	public static final String REQUEST_PARAM_FLIGHTS_LIST = "list_flights";
 	public static final String REQUEST_PARAM_FLIGHT_INFO = "flight";
+    public static final String REQUEST_PARAM_FLIGHT_DURATION="duration";
 	public static final String REQUEST_PARAM_EXIST_USER = "user_exist";
 	public static final String REQUEST_PARAM_EXIST_EMAIL = "email_exist";
 	public static final String REQUEST_PARAM_CREATED_SUCCESSFULLY ="success";

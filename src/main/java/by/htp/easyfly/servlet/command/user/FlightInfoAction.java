@@ -12,6 +12,7 @@ import by.htp.easyfly.service.SelectedFlightService;
 import by.htp.easyfly.service.factory.ServiceFactory;
 import by.htp.easyfly.servlet.ForwardPage;
 import by.htp.easyfly.servlet.command.CommandAction;
+import by.htp.easyfly.util.DateTimeTransform;
 
 public class FlightInfoAction implements CommandAction {
 
@@ -35,9 +36,13 @@ public class FlightInfoAction implements CommandAction {
 
 				Flight flight = selectedFlightService.flight(flightId);
 				request.setAttribute(REQUEST_PARAM_FLIGHT_INFO, flight);
-				session.setAttribute("flight", flight);
+				session.setAttribute(REQUEST_PARAM_FLIGHT_INFO, flight);
+                int[] duration=new int[2];
+                duration= DateTimeTransform.duration(flight.getDepartureDate(),flight.getDepartureTime(),flight.getArrivalDate(),flight.getArrivalTime());
+                request.setAttribute(REQUEST_PARAM_FLIGHT_DURATION, duration);
+                session.setAttribute(REQUEST_PARAM_FLIGHT_DURATION, duration);
 
-				System.out.println(flight.toString());
+                System.out.println(flight.toString());
 				request.setAttribute(REQUEST_PARAM_USER_LOGGED, true);
 				System.out.println("LOGGED");
 			} else {

@@ -11,7 +11,7 @@ import by.htp.easyfly.bin.Direction;
 import by.htp.easyfly.bin.Flight;
 import by.htp.easyfly.bin.Plane;
 import by.htp.easyfly.dao.SelectedFlightDao;
-import by.htp.easyfly.util.ConvertingValues;
+import by.htp.easyfly.util.DateTimeTransform;
 import by.htp.easyfly.util.SQLConnectionPool;
 import by.htp.easyfly.exception.*;
 
@@ -40,15 +40,15 @@ public class SelectedFlightDaoImpl implements SelectedFlightDao {
 					fromDirection.setDirectionName(rs.getString(2));
 					selectedFlight.setFromDirection(fromDirection);
 					
-					selectedFlight.setDepartureDate(ConvertingValues.convertDate(rs.getString(3)));
-					selectedFlight.setDepartureTime(ConvertingValues.convertTime(rs.getString(4)));
+					selectedFlight.setDepartureDate(DateTimeTransform.convertDate(rs.getString(3)));
+					selectedFlight.setDepartureTime(DateTimeTransform.convertTime(rs.getString(4)));
 					
 					toDirection.setDirectionCode(rs.getString(5));
 					toDirection.setDirectionName(rs.getString(6));
 					selectedFlight.setToDirection(toDirection);
 					
-					selectedFlight.setArrivalDate(ConvertingValues.convertDate(rs.getString(7)));
-					selectedFlight.setArrivalTime(ConvertingValues.convertTime(rs.getString(8)));
+					selectedFlight.setArrivalDate(DateTimeTransform.convertDate(rs.getString(7)));
+					selectedFlight.setArrivalTime(DateTimeTransform.convertTime(rs.getString(8)));
 					
 					selectedFlight.setFlightId( rs.getInt(9));
 					

@@ -2,10 +2,6 @@ package by.htp.easyfly.servlet.command.user;
 
 import static by.htp.easyfly.util.ConstantValue.*;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -21,7 +17,7 @@ import by.htp.easyfly.service.CreateTicketService;
 import by.htp.easyfly.service.factory.ServiceFactory;
 import by.htp.easyfly.servlet.ForwardPage;
 import by.htp.easyfly.servlet.command.CommandAction;
-import by.htp.easyfly.util.ConvertingValues;
+import by.htp.easyfly.util.DateTimeTransform;
 import by.htp.easyfly.util.InputDataValidator;
 
 public class BuyTicketAction implements CommandAction {
@@ -87,10 +83,10 @@ public class BuyTicketAction implements CommandAction {
         passenger.setSurname(request.getParameter(REQUEST_PARAM_PASSENGER_SURNAME));
         passenger.setMiddleName(request.getParameter(REQUEST_PARAM_PASSENGER_MIDNAME));
         passenger.setAge(Integer.valueOf(request.getParameter(REQUEST_PARAM_PASSENGER_AGE)));
-        passenger.setDateOfBirth(ConvertingValues.convertDate(request.getParameter(REQUEST_PARAM_PASSENGER_BIRTH)));
+        passenger.setDateOfBirth(DateTimeTransform.convertDate(request.getParameter(REQUEST_PARAM_PASSENGER_BIRTH)));
         passenger.setSex(request.getParameter(REQUEST_PARAM_PASSENGER_SEX));
         passenger.setPassportId(request.getParameter(REQUEST_PARAM_PASSENGER_PASSPORT_NUMBER));
-        passenger.setPassportExpiry(ConvertingValues.convertDate(request.getParameter(REQUEST_PARAM_PASSENGER_PASSPORT_EXPIRY)));
+        passenger.setPassportExpiry(DateTimeTransform.convertDate(request.getParameter(REQUEST_PARAM_PASSENGER_PASSPORT_EXPIRY)));
         passenger.setBaggage(Baggage.valueOf(request.getParameter(REQUEST_PARAM_PASSENGER_BAGGAGE).toUpperCase()));
         return passenger;
     }

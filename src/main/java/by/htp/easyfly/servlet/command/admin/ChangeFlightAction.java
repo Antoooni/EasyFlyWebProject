@@ -3,11 +3,7 @@ package by.htp.easyfly.servlet.command.admin;
 import static by.htp.easyfly.util.ConstantValue.*;
 
 import java.sql.Time;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,7 +16,7 @@ import by.htp.easyfly.service.SendEmailService;
 import by.htp.easyfly.service.factory.ServiceFactory;
 import by.htp.easyfly.servlet.ForwardPage;
 import by.htp.easyfly.servlet.command.CommandAction;
-import by.htp.easyfly.util.ConvertingValues;
+import by.htp.easyfly.util.DateTimeTransform;
 
 public class ChangeFlightAction implements CommandAction {
 	private ChangeFlightService changeFlightService;
@@ -39,10 +35,10 @@ public class ChangeFlightAction implements CommandAction {
 		try {
 			Flight selectedFlight = (Flight) session.getAttribute(REQUEST_PARAM_SESSION_FLIGHT_CHANGING_INFO);
 
-			Date departureDate = ConvertingValues.convertDate(request.getParameter(REQUEST_PARAM_CHANGE_DEPARTURE_DATE));
-			Time departureTime = ConvertingValues.convertTime(request.getParameter(REQUEST_PARAM_CHANGE_DEPARTURE_TIME));
-			Date arrivalDate = ConvertingValues.convertDate(request.getParameter(REQUEST_PARAM_CHANGE_ARRIVAL_DATE));
-			Time arrivalTime = ConvertingValues.convertTime(request.getParameter(REQUEST_PARAM_CHANGE_ARRIVAL_TIME));
+			Date departureDate = DateTimeTransform.convertDate(request.getParameter(REQUEST_PARAM_CHANGE_DEPARTURE_DATE));
+			Time departureTime = DateTimeTransform.convertTime(request.getParameter(REQUEST_PARAM_CHANGE_DEPARTURE_TIME));
+			Date arrivalDate = DateTimeTransform.convertDate(request.getParameter(REQUEST_PARAM_CHANGE_ARRIVAL_DATE));
+			Time arrivalTime = DateTimeTransform.convertTime(request.getParameter(REQUEST_PARAM_CHANGE_ARRIVAL_TIME));
 
 			selectedFlight = defineFlightFields(selectedFlight, departureDate, departureTime, arrivalDate, arrivalTime);
 			System.out.println(selectedFlight.toString());

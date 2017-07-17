@@ -3,9 +3,6 @@ package by.htp.easyfly.dao.Impl;
 import static by.htp.easyfly.util.SQLConstantValue.*;
 
 import java.sql.*;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -13,7 +10,7 @@ import java.util.List;
 import by.htp.easyfly.bin.Direction;
 import by.htp.easyfly.bin.Flight;
 import by.htp.easyfly.dao.FlightListDao;
-import by.htp.easyfly.util.ConvertingValues;
+import by.htp.easyfly.util.DateTimeTransform;
 import by.htp.easyfly.util.SQLConnectionPool;
 import by.htp.easyfly.exception.*;
 
@@ -50,14 +47,14 @@ public class FlightListDaoImpl implements FlightListDao {
 					fromDirection.setDirectionCode(rs.getString(1));
 					fromDirection.setCity(rs.getString(2));
 
-					Date departureDate = ConvertingValues.convertDate(rs.getString(3));
-					Time departureTime = ConvertingValues.convertTime(rs.getString(4));
+					Date departureDate = DateTimeTransform.convertDate(rs.getString(3));
+					Time departureTime = DateTimeTransform.convertTime(rs.getString(4));
 
 					toDirection.setDirectionCode(rs.getString(5));
 					toDirection.setCity(rs.getString(6));
 
-					Date arrivalDate = ConvertingValues.convertDate(rs.getString(7));
-					Time arrivalTime = ConvertingValues.convertTime(rs.getString(8));
+					Date arrivalDate = DateTimeTransform.convertDate(rs.getString(7));
+					Time arrivalTime = DateTimeTransform.convertTime(rs.getString(8));
 					int flightId = rs.getInt(9);
 					String flightCode = rs.getString(10);
 					flightList.add(new Flight(fromDirectionCode, fromDirection, departureDate, departureTime,

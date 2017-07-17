@@ -2,12 +2,7 @@ package by.htp.easyfly.servlet.command.user;
 
 import static by.htp.easyfly.util.ConstantValue.*;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
+import java.util.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,7 +15,7 @@ import by.htp.easyfly.service.FlightListService;
 import by.htp.easyfly.service.factory.ServiceFactory;
 import by.htp.easyfly.servlet.ForwardPage;
 import by.htp.easyfly.servlet.command.CommandAction;
-import by.htp.easyfly.util.ConvertingValues;
+import by.htp.easyfly.util.DateTimeTransform;
 import by.htp.easyfly.util.InputDataValidator;
 
 public class SearchFlightAction implements CommandAction {
@@ -42,8 +37,8 @@ public class SearchFlightAction implements CommandAction {
 		String departureCity = request.getParameter(REQUEST_PARAM_DIRECTION_FROM);
 		String arrivalCity = request.getParameter(REQUEST_PARAM_DIRECTION_TO);
         if(null!=departureCity || null!=arrivalCity) {
-            Date departureDateSQL = ConvertingValues.convertDate(request.getParameter(REQUEST_PARAM_DEPARTURE_DATE));
-            Date arrivalDateSQL = ConvertingValues.convertDate(request.getParameter(REQUEST_PARAM_ARRIVAL_DATE));
+            Date departureDateSQL = DateTimeTransform.convertDate(request.getParameter(REQUEST_PARAM_DEPARTURE_DATE));
+            Date arrivalDateSQL = DateTimeTransform.convertDate(request.getParameter(REQUEST_PARAM_ARRIVAL_DATE));
 
             // String userRole=request.getParameter(REQUEST_PARAM_SESSION_USERNAME);
             if(!InputDataValidator.dateInPast(departureDateSQL, arrivalDateSQL)){
@@ -58,7 +53,6 @@ public class SearchFlightAction implements CommandAction {
 
                         List<Flight> listFlight = flightListService.flightList(departureCode, arrivalCode, departureDateSQL,
                                 arrivalDateSQL);
-
                         request.setAttribute(REQUEST_PARAM_FLIGHTS_LIST, listFlight);
                         session.setAttribute(REQUEST_PARAM_SESSION_FLIGHTLIST, listFlight);
                         User user = (User) session.getAttribute(REQUEST_PARAM_SESSION_USER);
@@ -68,7 +62,6 @@ public class SearchFlightAction implements CommandAction {
                             page = PAGE_FLIGHT_LIST;
                         } else {
                             page = PAGE_FLIGHT_LIST_CHANGING;
-//			page = PAGE_NO_FLIGHTS_ERROR;
                             request.setAttribute(REQUEST_PARAM_ERROR_MSG, "error temp");
                         }
                         ForwardPage.forwardPage(request, response, page);
@@ -94,5 +87,4 @@ public class SearchFlightAction implements CommandAction {
             ForwardPage.forwardPage(request, response, page);
         }
 	}
-
 }
