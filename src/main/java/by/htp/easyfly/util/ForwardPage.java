@@ -1,4 +1,4 @@
-package by.htp.easyfly.servlet;
+package by.htp.easyfly.util;
 
 import java.io.IOException;
 

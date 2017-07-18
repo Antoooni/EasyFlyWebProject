@@ -10,7 +10,7 @@ import by.htp.easyfly.bin.User;
 import by.htp.easyfly.exception.ServiceException;
 import by.htp.easyfly.service.UserCreateService;
 import by.htp.easyfly.service.factory.ServiceFactory;
-import by.htp.easyfly.servlet.ForwardPage;
+import by.htp.easyfly.util.ForwardPage;
 import by.htp.easyfly.servlet.command.CommandAction;
 
 public class CreateNewUserAction implements CommandAction {

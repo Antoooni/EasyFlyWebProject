@@ -15,7 +15,7 @@ import by.htp.easyfly.exception.ServiceException;
 import by.htp.easyfly.service.CreatePassengerService;
 import by.htp.easyfly.service.CreateTicketService;
 import by.htp.easyfly.service.factory.ServiceFactory;
-import by.htp.easyfly.servlet.ForwardPage;
+import by.htp.easyfly.util.ForwardPage;
 import by.htp.easyfly.servlet.command.CommandAction;
 import by.htp.easyfly.util.DateTimeTransform;
 import by.htp.easyfly.util.InputDataValidator;

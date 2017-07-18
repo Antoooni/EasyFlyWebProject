@@ -6,7 +6,7 @@ import static by.htp.easyfly.util.ConstantValue.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import by.htp.easyfly.servlet.ForwardPage;
+import by.htp.easyfly.util.ForwardPage;
 import by.htp.easyfly.servlet.command.CommandAction;
 
 public class RegistrationAction implements CommandAction {

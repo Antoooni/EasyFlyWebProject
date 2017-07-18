@@ -36,37 +36,59 @@
 				<div class="element-input">
 					<label class="title"> <span class="required">*</span>
 					</label>
+                    <!--Login-->
 					<div class="item-cont">
 						<input class="large" type="text" name="create_login"
-							required="required" placeholder="<fmt:message key="registration.login" />" />
+							required="required"
+                            pattern="[A-z0-9_-]{3,16}"
+                            title="<fmt:message key="fieldPattern.Login" />"
+                            placeholder="<fmt:message key="registration.login" />" />
 						<!--<span class="icon-place"></span>-->
 					</div>
 				</div>
+                <!--Password-->
 				<div class="element-password">
 					<label class="title"> <span class="required">*</span>
 					</label>
 					<div class="item-cont">
 						<input class="large" type="password" name="create_password"
-							value="" required="required" placeholder="<fmt:message key="registration.password" />" />
+							value="" required="required"
+                            pattern="(?=^.{6,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*"
+                            title="<fmt:message key="fieldPattern.Password" />"
+                            placeholder="<fmt:message key="registration.password" />" />
 						<!--<span class="icon-place"></span>-->
 					</div>
 				</div>
+                <!--Password confirmation-->
 				<div class="element-password">
 					<label class="title"></label>
 					<div class="item-cont">
 						<input class="large" type="password" name="create_password1"
-							value="" placeholder="<fmt:message key="registration.passwordConfirm" />" />
+							value="" required
+                            pattern="(?=^.{6,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*"
+                            title="<fmt:message key="fieldPattern.Password" />"
+                            placeholder="<fmt:message key="registration.passwordConfirm" />" />
 						<!-- <span class="icon-place"></span>-->
 					</div>
 				</div>
+                <!--name $ surname-->
 				<div class="element-name">
 					<!--<label class="title"></label>-->
-					<span class="nameFirst"> <input placeholder="<fmt:message key="registration.name" />"
-						type="text" size="8" name="name[first]" /> <span
-						class="icon-place"></span>
-					</span> <span class="nameLast"> <input placeholder="<fmt:message key="registration.surname" />"
-						type="text" size="14" name="name[last]" /> <span
-						class="icon-place"></span>
+					<span class="nameFirst">
+                        <input placeholder="<fmt:message key="registration.name" />"
+						type="text" size="8"
+                        pattern="^[A-Za-zА-Яа-яЁё\s]+$"
+                        title="<fmt:message key="fieldPattern.AnyLetters" />"
+                        name="name[first]" />
+                        <span class="icon-place"></span>
+					</span>
+                    <span class="nameLast">
+                        <input placeholder="<fmt:message key="registration.surname" />"
+						type="text" size="14"
+                        pattern="^[A-Za-zА-Яа-яЁё\s]+$"
+                        title="<fmt:message key="fieldPattern.AnyLetters" />"
+                        name="name[last]" />
+                        <span class="icon-place"></span>
 					</span>
 				</div>
 				<div class="element-email">

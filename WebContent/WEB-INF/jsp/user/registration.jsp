@@ -40,7 +40,7 @@
                     <!--login-->
 					<div class="item-cont">
 						<input class="large" type="text" name="create_login"
-                               pattern="[a-zA-Z0-9]+" title=" <fmt:message key="fieldPattern.LetterNumer"/>"
+                               pattern="[a-zA-Z0-9]+" title=" <fmt:message key="fieldPattern.LetterNumber"/>"
 							required="required" placeholder="<fmt:message key="registration.login" />" />
 						<!--<span class="icon-place"></span>-->
 					</div>

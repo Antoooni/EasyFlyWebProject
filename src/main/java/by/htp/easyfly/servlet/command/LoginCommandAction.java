@@ -18,7 +18,7 @@ import by.htp.easyfly.exception.ServiceException;
 import by.htp.easyfly.service.AuthorizationService;
 import by.htp.easyfly.service.DirectionService;
 import by.htp.easyfly.service.factory.ServiceFactory;
-import by.htp.easyfly.servlet.ForwardPage;
+import by.htp.easyfly.util.ForwardPage;
 
 public class LoginCommandAction implements CommandAction {
 

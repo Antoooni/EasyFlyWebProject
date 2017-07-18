@@ -11,7 +11,7 @@ import by.htp.easyfly.exception.ServiceException;
 import by.htp.easyfly.service.ChangeFlightService;
 import by.htp.easyfly.service.SendEmailService;
 import by.htp.easyfly.service.factory.ServiceFactory;
-import by.htp.easyfly.servlet.ForwardPage;
+import by.htp.easyfly.util.ForwardPage;
 import by.htp.easyfly.servlet.command.CommandAction;
 
 public class CancelFlightAction implements CommandAction {

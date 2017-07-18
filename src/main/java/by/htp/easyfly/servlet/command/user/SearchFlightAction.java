@@ -13,7 +13,7 @@ import by.htp.easyfly.bin.User;
 import by.htp.easyfly.service.DirectionCodeService;
 import by.htp.easyfly.service.FlightListService;
 import by.htp.easyfly.service.factory.ServiceFactory;
-import by.htp.easyfly.servlet.ForwardPage;
+import by.htp.easyfly.util.ForwardPage;
 import by.htp.easyfly.servlet.command.CommandAction;
 import by.htp.easyfly.util.DateTimeTransform;
 import by.htp.easyfly.util.InputDataValidator;

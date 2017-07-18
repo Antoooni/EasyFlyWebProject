@@ -4,15 +4,12 @@ import by.htp.easyfly.bin.FlightDirection;
 import by.htp.easyfly.exception.ServiceException;
 import by.htp.easyfly.service.DirectionService;
 import by.htp.easyfly.service.factory.ServiceFactory;
-import by.htp.easyfly.servlet.ForwardPage;
+import by.htp.easyfly.util.ForwardPage;
 
 import static by.htp.easyfly.util.ConstantValue.*;
 
-import java.io.IOException;
 import java.util.List;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
