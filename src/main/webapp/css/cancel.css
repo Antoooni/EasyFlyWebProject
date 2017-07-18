@@ -814,3 +814,4 @@ label {
     /* padding-top: 7px; */
     text-align: center;
 }
+details summary::-webkit-details-marker { display:none; }

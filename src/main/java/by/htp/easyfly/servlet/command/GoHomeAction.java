@@ -19,31 +19,30 @@ import by.htp.easyfly.service.factory.ServiceFactory;
 import by.htp.easyfly.util.ForwardPage;
 
 public class GoHomeAction implements CommandAction {
-	// ServiceFactory serviceFactory = new ServiceFactory();
-	private DirectionService directionService;
+    private DirectionService directionService;
 
-	public GoHomeAction() {
+    public GoHomeAction() {
+        directionService = ServiceFactory.getInstance().getDirectionService();
+    }
 
-		directionService = ServiceFactory.getInstance().getDirectionService();
+    @Override
+    public void execute(HttpServletRequest request, HttpServletResponse response) {
+        HttpSession session = request.getSession();
+        CookieController cookieController = new CookieController();
+        try {
+            session.setAttribute(REQUEST_PARAM_LANGUAGE, "en_EN"); //default language
+            String page = PAGE_HOME;
+            session.setAttribute(REQUEST_PARAM_SESSION_CURRENT_PAGE, page);
 
-	}
-
-	@Override
-	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		HttpSession session = request.getSession();
-        CookieController cookieController= new CookieController();
-		try {
-			session.setAttribute(REQUEST_PARAM_LANGUAGE, "en_EN"); //default language
-			String page = PAGE_HOME;
-			List<FlightDirection> flightDirection = directionService.listDirections();
-			request.setAttribute(REQUEST_PARAM_LIST_DIRECTION, flightDirection);
+            List<FlightDirection> flightDirection = directionService.listDirections();
+            request.setAttribute(REQUEST_PARAM_LIST_DIRECTION, flightDirection);
             session.setAttribute(REQUEST_PARAM_LIST_DIRECTION, flightDirection);
 
-            cookieController.doGet(request,response);
+            cookieController.doGet(request, response);
             ForwardPage.forwardPage(request, response, page);
-		} catch (ServiceException e) {
+        } catch (ServiceException e) {
 
-		} catch (ServletException e) {
+        } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();

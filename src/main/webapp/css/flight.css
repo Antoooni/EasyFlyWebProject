@@ -76,6 +76,7 @@ body {
     border-top-right-radius: 5px;
 }
 
+/*noinspection ALL*/
 .position {
     background-color: #fbfbfb;
     width: 850px;
@@ -322,7 +323,7 @@ body {
 	border-bottom-width: 1px;
 	border-left-width: 0px;
 	border-right-width: 0px;
-	border-top-width: 0px;
+	border-top-width: 0;
 	border-bottom-color: #e0d7d7;
 }
 
@@ -399,6 +400,7 @@ body {
 	margin-top: 25px;
 }
 
+/*noinspection ALL*/
 #spoiler_head {
 	text-align: left;
 	font-family: verdana;
@@ -424,7 +426,7 @@ body {
 
 #first_left_baggage {
 	padding-left: 30px;
-	padding-top: 1px;
+	padding-top: 12px;
 	width: 200px;
 	height: 40px;
 	float: left;
@@ -567,6 +569,7 @@ header button {
 	width: 100%;
 }
 
+/*noinspection ALL*/
 footer {
 	color: #ef5350;
     text-align: center;
@@ -749,3 +752,6 @@ label {
     padding-top: 7px;
     text-align: center;
 }
+
+/*noinspection ALL*/
+details summary::-webkit-details-marker { display:none; }
