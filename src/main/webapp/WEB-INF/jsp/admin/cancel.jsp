@@ -26,7 +26,9 @@
             <!--Flight info-->
                   <%@include file="/WEB-INF/include/flight_info.jspf"%>
    </div>
-        </section> 
+        </section>
+        <!--ALERT-->
+        <%@include file="/WEB-INF/include/alert.jspf"%>
         <!--Spoiler-->
         <details id="details_first">
           <summary class="spoiler">
@@ -34,7 +36,7 @@
           </summary>
           <form name="change_flight_data" action="Main" method="GET" id="change_flight_data">
 	      <input type="hidden" name="action" value="change_flight_data">
-	          <!--Date of birth-->
+	          <!--Departure date-->
 	          <div id="first">
 	            <div id="first_left">
 	              <fmt:message key="cancel.depDate" />
@@ -43,7 +45,7 @@
 	                <input id="passenger_date" type="date" name="change_dept_date" required>
 	            </div>
 	          </div>
-	
+              <!--Departure time-->
 	          <div id="first">
 	            <div id="first_left">
 	              <fmt:message key="cancel.depTime" />
@@ -52,7 +54,7 @@
 	                <input id="passenger_date" type="time" name="change_dept_time" required>
 	            </div>
 	          </div>
-	          <!--passport expiry-->
+              <!--Arrival date-->
 	          <div id="first">
 	            <div id="first_left">
 	              <fmt:message key="cancel.arrDate" />
@@ -61,6 +63,7 @@
 	                <input id="passenger_date" type="date" name="change_arr_date" required>
 	            </div>
 	          </div>
+              <!--Arrival time-->
 	          <div id="first">
 	            <div id="first_left">
 	              <fmt:message key="cancel.arrTime" />
@@ -69,12 +72,6 @@
 	                <input id="passenger_date" type="time" name="change_arr_time" required>
 	            </div>
 	          </div>
-	          <c:if test="${empty_data == true}">
-	          <div class="empty_data">
-                <div class="alert_empty_data"><fmt:message key="alert.cancellation" />
-                </div>
-              </div>
-	          </c:if>
 	          <div id="buy_it">
 		           <div id="buy_it_button">
 		          	 <button class="go_search" id="go_search" name="change_date"><fmt:message key="button.changeData" /></button>

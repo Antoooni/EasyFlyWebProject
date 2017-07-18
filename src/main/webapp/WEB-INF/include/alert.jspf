@@ -1,3 +1,4 @@
+<%--suppress ALL --%>
 <c:if test="${same_direction != null}">
     <div class="alertFrame">
         <div class="alertbodyFrame"><fmt:message key="alert.sameDirection" />
@@ -32,6 +33,19 @@
 <c:if test="${input_error != null}">
     <div class="alert">
         <div class="alertbody"><fmt:message key="alert.inputError" />
+        </div>
+    </div>
+</c:if>
+
+<c:if test="${empty_data == true}">
+    <div class="empty_data">
+        <div class="alert_empty_data"><fmt:message key="alert.cancellation" />
+        </div>
+    </div>
+</c:if>
+<c:if test="${invalid_arrival_date != null}">
+    <div class="alert">
+        <div class="alertbody"><fmt:message key="alert.arrivalInPast" />
         </div>
     </div>
 </c:if>

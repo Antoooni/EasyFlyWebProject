@@ -10,6 +10,7 @@ import by.htp.easyfly.bin.Flight;
 import by.htp.easyfly.exception.ServiceException;
 import by.htp.easyfly.service.SelectedFlightService;
 import by.htp.easyfly.service.factory.ServiceFactory;
+import by.htp.easyfly.util.DateTimeTransform;
 import by.htp.easyfly.util.ForwardPage;
 import by.htp.easyfly.servlet.command.CommandAction;
 
@@ -33,6 +34,11 @@ public class GoToCancellation implements CommandAction {
 			Flight flight = selectedFlightService.flight(flightId);
 			request.setAttribute(REQUEST_PARAM_FLIGHT_INFO, flight);
 			session.setAttribute(REQUEST_PARAM_SESSION_FLIGHT_CHANGING_INFO, flight);
+            //get flight duration
+            int[] duration=new int[2];
+            duration= DateTimeTransform.duration(flight.getDepartureDate(), flight.getDepartureTime(), flight.getArrivalDate(), flight.getArrivalTime());
+            request.setAttribute(REQUEST_PARAM_FLIGHT_DURATION, duration);
+            session.setAttribute(REQUEST_PARAM_FLIGHT_DURATION, duration);
 
 			System.out.println(flight.toString());
 			request.setAttribute(REQUEST_PARAM_USER_LOGGED, true);

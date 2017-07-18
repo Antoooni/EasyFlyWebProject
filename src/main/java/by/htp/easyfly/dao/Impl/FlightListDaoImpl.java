@@ -48,13 +48,13 @@ public class FlightListDaoImpl implements FlightListDao {
 					fromDirection.setCity(rs.getString(2));
 
 					Date departureDate = DateTimeTransform.convertDate(rs.getString(3));
-					Time departureTime = DateTimeTransform.convertTime(rs.getString(4));
+					Time departureTime = DateTimeTransform.convertTimeHHMMSS(rs.getString(4));
 
 					toDirection.setDirectionCode(rs.getString(5));
 					toDirection.setCity(rs.getString(6));
 
 					Date arrivalDate = DateTimeTransform.convertDate(rs.getString(7));
-					Time arrivalTime = DateTimeTransform.convertTime(rs.getString(8));
+					Time arrivalTime = DateTimeTransform.convertTimeHHMMSS(rs.getString(8));
 					int flightId = rs.getInt(9);
 					String flightCode = rs.getString(10);
 					flightList.add(new Flight(fromDirectionCode, fromDirection, departureDate, departureTime,

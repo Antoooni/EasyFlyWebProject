@@ -41,14 +41,14 @@ public class SelectedFlightDaoImpl implements SelectedFlightDao {
 					selectedFlight.setFromDirection(fromDirection);
 					
 					selectedFlight.setDepartureDate(DateTimeTransform.convertDate(rs.getString(3)));
-					selectedFlight.setDepartureTime(DateTimeTransform.convertTime(rs.getString(4)));
+					selectedFlight.setDepartureTime(DateTimeTransform.convertTimeHHMMSS(rs.getString(4)));
 					
 					toDirection.setDirectionCode(rs.getString(5));
 					toDirection.setDirectionName(rs.getString(6));
 					selectedFlight.setToDirection(toDirection);
 					
 					selectedFlight.setArrivalDate(DateTimeTransform.convertDate(rs.getString(7)));
-					selectedFlight.setArrivalTime(DateTimeTransform.convertTime(rs.getString(8)));
+					selectedFlight.setArrivalTime(DateTimeTransform.convertTimeHHMMSS(rs.getString(8)));
 					
 					selectedFlight.setFlightId( rs.getInt(9));
 					

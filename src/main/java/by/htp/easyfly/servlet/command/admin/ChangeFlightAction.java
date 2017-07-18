@@ -17,6 +17,7 @@ import by.htp.easyfly.service.factory.ServiceFactory;
 import by.htp.easyfly.util.ForwardPage;
 import by.htp.easyfly.servlet.command.CommandAction;
 import by.htp.easyfly.util.DateTimeTransform;
+import by.htp.easyfly.util.InputDataValidator;
 
 public class ChangeFlightAction implements CommandAction {
 	private ChangeFlightService changeFlightService;
@@ -36,22 +37,30 @@ public class ChangeFlightAction implements CommandAction {
 			Flight selectedFlight = (Flight) session.getAttribute(REQUEST_PARAM_SESSION_FLIGHT_CHANGING_INFO);
 
 			Date departureDate = DateTimeTransform.convertDate(request.getParameter(REQUEST_PARAM_CHANGE_DEPARTURE_DATE));
-			Time departureTime = DateTimeTransform.convertTime(request.getParameter(REQUEST_PARAM_CHANGE_DEPARTURE_TIME));
+			Time departureTime = DateTimeTransform.convertTimeHHMM(request.getParameter(REQUEST_PARAM_CHANGE_DEPARTURE_TIME));
 			Date arrivalDate = DateTimeTransform.convertDate(request.getParameter(REQUEST_PARAM_CHANGE_ARRIVAL_DATE));
-			Time arrivalTime = DateTimeTransform.convertTime(request.getParameter(REQUEST_PARAM_CHANGE_ARRIVAL_TIME));
+			Time arrivalTime = DateTimeTransform.convertTimeHHMM(request.getParameter(REQUEST_PARAM_CHANGE_ARRIVAL_TIME));
 
 			selectedFlight = defineFlightFields(selectedFlight, departureDate, departureTime, arrivalDate, arrivalTime);
 			System.out.println(selectedFlight.toString());
 
-			if (isValidDates(departureDate, departureTime, arrivalDate, arrivalTime)) {
-				changeFlightService.changeFlightData(selectedFlight);
-                //sendEmail email about changes or cancellation
-                sendEmailService.sendEmail(selectedFlight,textEmail);
-                //attribute to notification
-                request.setAttribute(NOTIFICATION_MESSAGE_CHANGE_DATA_FLIGHT, true);
-				ForwardPage.forwardPage(request, response, page);
-			} else {
-				request.setAttribute(REQUEST_PARAM_IS_CHANGE_DATA_INVALID, true);
+			if (!InputDataValidator.isEmptyDate(departureDate, departureTime, arrivalDate, arrivalTime)) {
+                if(InputDataValidator.isValidDates(departureDate, departureTime, arrivalDate, arrivalTime)) {
+                    changeFlightService.changeFlightData(selectedFlight);
+                    //sendEmail email about changes or cancellation
+                    sendEmailService.sendEmail(selectedFlight, textEmail);
+                    //attribute to notification
+                    request.setAttribute(NOTIFICATION_MESSAGE_CHANGE_DATA_FLIGHT, true);
+                    ForwardPage.forwardPage(request, response, page);
+                }
+                else{
+                    request.setAttribute(ERROR_INVALID_ARRIVAL, INVALID_ARRIVAL_DATE);
+                    page = PAGE_CANCELLATION;
+                    ForwardPage.forwardPage(request, response, page);
+                }
+			}
+            else {
+				request.setAttribute(ERROR_CHANGE_DATA_INVALID, true);
 				page = PAGE_CANCELLATION;
 				ForwardPage.forwardPage(request, response, page);
 			}
@@ -78,26 +87,7 @@ public class ChangeFlightAction implements CommandAction {
 		return flight;
 	}
 
-	private boolean isValidDates(Date departureDate, Time departureTime, Date arrivalDate, Time arrivalTime) {
 
-		if (departureDate.getTime() < arrivalDate.getTime()) {
-			return false;
-		}
-		if (departureDate.getTime() == arrivalDate.getTime()) {
-			if (departureTime.getTime() < arrivalTime.getTime()) {
-				return false;
-			}
-		}
-		if (!isEmptyFields(departureDate, departureTime, arrivalDate, arrivalTime)) {
-			return false;
-		}
-		return true;
-	}
 
-	private boolean isEmptyFields(Date departureDate, Time departureTime, Date arrivalDate, Time arrivalTime) {
-		if (departureDate == null && departureTime == null && arrivalDate == null && arrivalTime == null) {
-			return true;
-		} else
-			return false;
-	}
+
 }

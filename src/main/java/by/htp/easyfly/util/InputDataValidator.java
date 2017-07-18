@@ -1,5 +1,6 @@
 package by.htp.easyfly.util;
 
+import java.sql.Time;
 import java.util.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -84,5 +85,27 @@ public class InputDataValidator {
         else
             return false;
     }
+    public static boolean isValidDates(Date departureDate, Time departureTime, Date arrivalDate, Time arrivalTime) {
+
+        if (departureDate.getTime() > arrivalDate.getTime()) {
+            return false;
+        }
+        if (departureDate.getTime() == arrivalDate.getTime()) {
+            if (departureTime.getTime() > arrivalTime.getTime()) {
+                return false;
+            }
+            else
+                return true;
+        }
+        else
+            return true;
+	}
+
+    public static boolean isEmptyDate(Date departureDate, Time departureTime, Date arrivalDate, Time arrivalTime) {
+		if (departureDate == null || departureTime == null || arrivalDate == null || arrivalTime == null) {
+			return true;
+		} else
+			return false;
+	}
 
 }

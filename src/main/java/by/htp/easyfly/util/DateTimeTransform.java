@@ -24,9 +24,20 @@ public class DateTimeTransform {
         }
         return outputDate;
     }
-    public static Time convertTime(String inputStringTime){
+    public static Time convertTimeHHMMSS(String inputStringTime){
         Time outputTime=null;
         DateFormat formatter = new SimpleDateFormat("hh:mm:ss");
+        try {
+            Date date = formatter.parse(inputStringTime);
+            outputTime = new Time(date.getTime());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return outputTime;
+    }
+    public static Time convertTimeHHMM(String inputStringTime){
+        Time outputTime=null;
+        DateFormat formatter = new SimpleDateFormat("hh:mm");
         try {
             Date date = formatter.parse(inputStringTime);
             outputTime = new Time(date.getTime());

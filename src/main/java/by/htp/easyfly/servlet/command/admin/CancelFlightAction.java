@@ -11,6 +11,7 @@ import by.htp.easyfly.exception.ServiceException;
 import by.htp.easyfly.service.ChangeFlightService;
 import by.htp.easyfly.service.SendEmailService;
 import by.htp.easyfly.service.factory.ServiceFactory;
+import by.htp.easyfly.util.DateTimeTransform;
 import by.htp.easyfly.util.ForwardPage;
 import by.htp.easyfly.servlet.command.CommandAction;
 
@@ -31,6 +32,7 @@ public class CancelFlightAction implements CommandAction {
 		try {
 			flight = (Flight) session.getAttribute(REQUEST_PARAM_SESSION_FLIGHT_CHANGING_INFO);
 			changeFlightService.cancelFlight(flight);
+
             //sendEmail email about cancellation
             sendEmailService.sendEmail(flight,textEmail);
             //attribute to notification

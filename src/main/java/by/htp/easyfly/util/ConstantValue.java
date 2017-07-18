@@ -36,7 +36,6 @@ public class ConstantValue {
 	public static final String REQUEST_PARAM_EXIST_EMAIL = "email_exist";
 	public static final String REQUEST_PARAM_CREATED_SUCCESSFULLY ="success";
 	public static final String REQUEST_PARAM_USER_LOGGED= "logged_user";
-	public static final String REQUEST_PARAM_IS_CHANGE_DATA_INVALID="empty_data";
 
 	public static final String REQUEST_PARAM_USER_LOGIN = "create_login";
 	public static final String REQUEST_PARAM_USER_USER_EMAIL = "create_email";
@@ -80,12 +79,15 @@ public class ConstantValue {
     public static final String ERROR_INVALID_ARRIVAL_DATE ="invalid_arrival";
     public static final String ERROR_BIRTHDAY_DATE="birthday_date";
     public static final String ERROR_EXPIRY_DATE="expiry_date";
+    public static final String ERROR_CHANGE_DATA_INVALID ="empty_data";
+    public static final String ERROR_INVALID_ARRIVAL ="invalid_arrival_date";
     public static final String INVALID_INPUT ="Inv_pass_data";
     public static final String INVALID_DIRECTION ="same direction code";
     public static final String INVALID_DATES ="date in the past";
     public static final String INVALID_ARRIVAL_DATE ="arrival date less than departure";
     public static final String INVALID_BIRTHDAY_DATE="birthday less flight date";
     public static final String INVALID_EXPIRY_DATE="expiry less arrival date";
+    public static final String INVALID_CHANGE_DATA_INVALID ="empty date or time data";
 
     public static final String PAGE_ERROR_ACCESS_DENIED="/WEB-INF/jsp/error_authentication.jsp";
 	public static final String PAGE_NO_FLIGHTS_ERROR= "/WEB-INF/jsp/error/error_no_flights.jsp";
