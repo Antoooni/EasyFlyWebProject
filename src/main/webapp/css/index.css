@@ -12,9 +12,9 @@ a {
 body {
     background-color: #eee;
     color: #4e4544;
-    font: normal 16px sans-serif;
+    /*font: normal 16px sans-serif;*/
 }
-#blok0{
+#block0 {
     
     width: 70px;
     height: 50px;
@@ -22,30 +22,76 @@ body {
     /* background-color: #fff; */
     padding-top: 20px;
 }
-#blok1{
+#block1 {
     
-    width: 750px;
+    width: 520px;
     height: 50px;
     float: left;
     /* background-color: #fff; */
     padding-top: 20px;
 }
-#blok2{
+.block_alert {
+    width: 220px;
+    height: 50px;
+    float: left;
+    /* background-color: #fff; */
+    /* text-decoration: underline; */
+    color: #636363;
+    font-size: 12px;
+    font-family: verdana;
+    padding-top: 28px;
+}
+.descr{
+    border-radius: 3px;
+    display: none;
+    /* margin-left: -350px; */
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 17px;
+    background: rgb(255, 255, 255);
+    /* height: 200px; */
+    -moz-box-shadow: 0 5px 5px rgba(0,0,0,0.3);
+    -webkit-box-shadow: 0 5px 5px rgba(0,0,0,0.3);
+    box-shadow: 0 5px 5px rgba(0,0,0,0.3);
+}
+.block_alert:hover .descr{
+    display:block;
+    position:absolute;
+    top:50px;
+    z-index:9999;
+    /*width:400px;*/
+}
+#blink {
+    -webkit-animation: blink1 3s linear infinite;
+    animation: blink1 3s linear infinite;
+}
+@-webkit-keyframes blink1 {
+    0% { color: rgb(239, 83, 80); }
+    50% { color: rgba(34, 34, 34, 0); }
+    100% { color: rgb(239, 83, 80); }
+}
+@keyframes blink1 {
+    0% { color: rgb(239, 83, 80); }
+    50% { color: rgba(34, 34, 34, 0); }
+    100% { color: rgb(239, 83, 80); }
+}
+#block2 {
     padding-top: 10px;
     width: 100px;
     height: 50px;
     float: right;
 }
-#blok3{
+#block3 {
 
-width:150px;
-height:50px;
-float:right;
-padding-top: 10px;
+    width:150px;
+    height:50px;
+    float:right;
+    padding-top: 10px;
     margin-right: 10px;
 }
 
-#iside_header{
+#inside_header {
     height: 45px;
     width: 1080px;
     border-bottom: 1px;
@@ -60,12 +106,12 @@ padding-top: 10px;
     font-family: verdana;
 
 }
-#left_iside_header{
+#left_inside_header {
     height: 40px;
     width: 600px;
     padding-top: 5px;
 }
-#center_iside_header{
+#center_inside_header {
     height: 40px;
     width: 600px;
     padding-top: 5px;

@@ -1,7 +1,7 @@
  <nav> </nav>
-			<div id="iside_header">
+			<div id="inside_header">
 				<!--LANGUAGE-->
-				<div id="blok0">
+				<div id="block0">
 					<%--<form name="change_Lang" action="Main" method="GET" id="language">
 	                            <input type="hidden" name="action" value="ru_RU">--%>
 					<table>
@@ -16,7 +16,7 @@
 					<%--</form>--%>
 				</div>
 				<!--LOGIN-->
-				<div id="blok1">
+				<div id="block1">
 					
 						<!--Welcome-->
 						<h3>
@@ -25,7 +25,7 @@
 						
 				</div>
 				<c:if test="${user_data == null}">
-					<div id="blok2">
+					<div id="block2">
 						<button id="myBtn">
 							<fmt:message key="button.login" />
 						</button>
@@ -33,7 +33,7 @@
 				</c:if>
 				<!--LOGOUT-->
 				<c:if test="${user_data != null}">
-					<div id="blok2">
+					<div id="block2">
 						<form name="val_form" action="Main" method="GET">
 							<input type="hidden" value="logout" name="action" />
 							<button class="left" onClick="return Formdata(this.form)" id="logout">
@@ -44,7 +44,7 @@
 				</c:if>
 				<!--REGISTRATION-->
 				<c:if test="${user_data == null}">
-					<div id="blok3">
+					<div id="block3">
 						<form name="registration" action="Main" method="GET"
 							id="registration">
 							<input type="hidden" name="action" value="registration">

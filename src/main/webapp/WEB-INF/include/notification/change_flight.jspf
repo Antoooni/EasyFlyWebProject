@@ -1,0 +1,8 @@
+
+<fmt:message key="notification.YourFlight" /> <b> <c:out value="${flight_changing.getFlightCode()}"/> </b> <fmt:message key="notification.Changed" /><br>
+<fmt:message key="notification.Now" />
+<fmt:message key="notification.DepDate" /> <b><c:out value="${flight_changing.getDepartureDate()}"/> </b> <br>
+<fmt:message key="notification.DepTime" /> <b> <c:out value="${flight_changing.getDepartureTime()}"/> </b><br>
+<fmt:message key="notification.ArrDate" /> <b><c:out value="${flight_changing.getArrivalDate()}"/> </b><br>
+<fmt:message key="notification.ArrTime" /> <b> <c:out value="${flight_changing.getArrivalTime()}"/> </b><br>
+<fmt:message key="notification.Regards" />

@@ -12,11 +12,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import by.htp.easyfly.Cookie.CookieController;
+import by.htp.easyfly.bin.Flight;
 import by.htp.easyfly.bin.FlightDirection;
 import by.htp.easyfly.bin.User;
 import by.htp.easyfly.exception.ServiceException;
 import by.htp.easyfly.service.AuthorizationService;
 import by.htp.easyfly.service.DirectionService;
+import by.htp.easyfly.service.SearchChangedFlightService;
 import by.htp.easyfly.service.factory.ServiceFactory;
 import by.htp.easyfly.util.ForwardPage;
 
@@ -26,10 +28,12 @@ public class LoginCommandAction implements CommandAction {
 
 	private AuthorizationService authorizationService;
 	private DirectionService directionService;
+    private SearchChangedFlightService searchChangedFlightService;
 
 	public LoginCommandAction() {
 		authorizationService = ServiceFactory.getInstance().getAuthorizationService();
 		directionService = ServiceFactory.getInstance().getDirectionService();
+        searchChangedFlightService=ServiceFactory.getInstance().getSearchChangedFlightService();
 
 	}
 
@@ -40,7 +44,7 @@ public class LoginCommandAction implements CommandAction {
 
 		HttpSession session = request.getSession(true);
 		String page = PAGE_DEFAULT;
-		User user = new User();
+		User user;
         CookieController cookieController= new CookieController();
 		try {
 			user = authorizationService.userData(login, password);
@@ -51,6 +55,17 @@ public class LoginCommandAction implements CommandAction {
 				session.setAttribute(REQUEST_PARAM_LIST_DIRECTION, flightDirection);
 				session.setAttribute(REQUEST_PARAM_SESSION_USERNAME, user.getUserName());
 				session.setAttribute(REQUEST_PARAM_SESSION_USER, user);
+                //alert message
+                Flight selectedChangedFlight =searchChangedFlightService.searchCancelledFlight(user);
+                if (selectedChangedFlight!=null) {
+                    session.setAttribute(REQUEST_PARAM_SESSION_CANCELLED_FLIGHT, selectedChangedFlight);
+                    request.setAttribute(REQUEST_PARAM_SESSION_CANCELLED_FLIGHT, selectedChangedFlight);
+                }
+                else  {
+                    selectedChangedFlight = searchChangedFlightService.searchChangedFlight(user);
+                    session.setAttribute(REQUEST_PARAM_SESSION_CHANGED_FLIGHT, selectedChangedFlight);
+                    request.setAttribute(REQUEST_PARAM_SESSION_CHANGED_FLIGHT, selectedChangedFlight);
+                }
 
                 cookieController.doGet(request,response);
 
@@ -66,7 +81,7 @@ public class LoginCommandAction implements CommandAction {
 				page = PAGE_ERROR;
 			}
 		} catch (ServiceException e) {
-
+            e.printStackTrace();
 		} catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {

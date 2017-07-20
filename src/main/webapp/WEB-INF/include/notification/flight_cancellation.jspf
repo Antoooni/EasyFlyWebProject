@@ -1,0 +1,3 @@
+<fmt:message key="notification.YourFlight" /> <b> <c:out value="${flight_changing.getFlightCode()}"/> </b>
+<fmt:message key="notification.Cancel" /><br>
+<fmt:message key="notification.CancelRegards" />

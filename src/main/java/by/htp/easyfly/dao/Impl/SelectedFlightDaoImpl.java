@@ -22,7 +22,6 @@ public class SelectedFlightDaoImpl implements SelectedFlightDao {
 	@Override
 	public Flight flight(int flightId) throws DAOException {
 		Flight selectedFlight = null;
-//		Connection connection = null;
 		try (Connection connection = SQLConnectionPool.getDs().getConnection()){
 				
 				PreparedStatement ps = connection.prepareStatement(SQL_STATEMENT_SEARCH_SELECTED_FLIGHT);

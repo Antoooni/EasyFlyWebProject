@@ -14,9 +14,10 @@ public class DaoFactory {
 	private final static CreateTicketDao createTicketDao = new CreateTicketDaoImpl();
 	private final static ChangeFlightDao changeFlightDao = new ChangeFlightDaoImpl();
     private final static EmailChangedFlightDao emailChangedFlightDao = new EmailChangedFlightDaoImpl();
-	
+    private final static SearchChangedFlightDao searchChangedFlightDao = new SearchChangedFlightDaoImpl();
 
-	private DaoFactory() {
+
+    private DaoFactory() {
 
 	}
 
@@ -57,5 +58,8 @@ public class DaoFactory {
 	}
     public EmailChangedFlightDao getEmailChangedFlightDao() {
         return emailChangedFlightDao;
+    }
+    public SearchChangedFlightDao getSearchChangedFlightDao() {
+        return searchChangedFlightDao;
     }
 }

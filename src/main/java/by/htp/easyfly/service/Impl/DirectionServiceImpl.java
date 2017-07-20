@@ -19,7 +19,6 @@ public class DirectionServiceImpl implements DirectionService {
 
 	@Override
 	public List<FlightDirection> listDirections() throws ServiceException {
-		/* List<FlightDirection> directions = */
 		try {
 			return daoDirection.flightDirection();
 

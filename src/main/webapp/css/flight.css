@@ -9,7 +9,7 @@ a {
 	text-decoration: none;
 }
 
-#blok0 {
+#block0 {
 	width: 70px;
 	height: 50px;
 	float: left;
@@ -17,7 +17,7 @@ a {
 	padding-top: 20px;
 }
 
-#blok1 {
+#block1 {
 	width: 750px;
 	height: 50px;
 	float: left;
@@ -25,14 +25,14 @@ a {
 	padding-top: 20px;
 }
 
-#blok2 {
+#block2 {
 	padding-top: 10px;
 	width: 100px;
 	height: 50px;
 	float: right;
 }
 
-#blok3 {
+#block3 {
 	width: 150px;
 	height: 50px;
 	float: right;
@@ -41,20 +41,20 @@ a {
 }
 
 /*noinspection CssInvalidElement*/
-#iside_header {
+#inside_header {
 	height: 45px;
 	width: 1080px;
     border: 0px solid initial;
     border-bottom: 1px rgba(0, 0, 0, 0.2);
 }
 
-#left_iside_header {
+#left_inside_header {
 	height: 40px;
 	width: 600px;
 	padding-top: 5px;
 }
 
-#center_iside_header {
+#center_inside_header {
 	height: 40px;
 	width: 600px;
 	padding-top: 5px;

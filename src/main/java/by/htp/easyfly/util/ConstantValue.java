@@ -25,6 +25,8 @@ public class ConstantValue {
 	public static final String REQUEST_PARAM_SESSION_FLIGHTLIST="flight_list";
 	public static final String REQUEST_PARAM_SESSION_FLIGHT_CHANGING_INFO = "charging_flight";
     public static final String REQUEST_PARAM_SESSION_CURRENT_PAGE = "current_page";
+    public static final String REQUEST_PARAM_SESSION_CHANGED_FLIGHT="flight_changing";
+    public static final String REQUEST_PARAM_SESSION_CANCELLED_FLIGHT="flight_cancellation";
 
     public static final String REQUEST_PARAM_COOKIE="cookie";
 	public static final String REQUEST_PARAM_LOGIN = "login";

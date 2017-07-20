@@ -14,6 +14,7 @@ public class ServiceFactory {
 	private static final CreatePassengerService createPassengerService = new CreatePassengerServiceImpl();
 	private static final CreateTicketService createTicketService = new CreateTicketServiceImpl();
 	private static final ChangeFlightService changeFlightService = new ChangeFlightServiceImpl();
+    private static final SearchChangedFlightService searchChangedFlightService = new SearchChangedFlightServiceImpl();
     private static final SendEmailService sendEmailService =new EmailServiceImpl("easyfly.info@gmail.com", "easyflyPASSWORD");
 
 	private ServiceFactory() { 
@@ -56,5 +57,8 @@ public class ServiceFactory {
 	}
     public SendEmailService getSendEmailService(){
         return sendEmailService;
+    }
+    public SearchChangedFlightService getSearchChangedFlightService() {
+        return searchChangedFlightService;
     }
 }
