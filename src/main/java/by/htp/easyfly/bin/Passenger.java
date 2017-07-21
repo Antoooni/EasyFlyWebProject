@@ -15,6 +15,7 @@ public class Passenger implements Serializable {
 	private Date dateOfBirth;
 	private String passportId;
 	private String sex;
+    private String email;
 
 	private Date passportExpiry;
 	private Baggage baggage;
@@ -24,7 +25,7 @@ public class Passenger implements Serializable {
 	}
 
 	public Passenger(int age, String name, String surname, String middleName, Date dateOfBirth, String passportId, String sex,
-			Date passportExpiry, Baggage baggage) {
+			Date passportExpiry, Baggage baggage, String email) {
 		super();
 		this.age = age;
 		this.name = name;
@@ -35,6 +36,7 @@ public class Passenger implements Serializable {
 		this.sex=sex;
 		this.passportExpiry = passportExpiry;
 		this.baggage = baggage;
+        this.email=email;
 	}
 
 	public Passenger(int passengerId, int age, String name, String surname, String middleName, Date dateOfBirth,
@@ -131,82 +133,67 @@ public class Passenger implements Serializable {
 		this.baggage = baggage;
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + age;
-		result = prime * result + ((baggage == null) ? 0 : baggage.hashCode());
-		result = prime * result + ((dateOfBirth == null) ? 0 : dateOfBirth.hashCode());
-		result = prime * result + ((middleName == null) ? 0 : middleName.hashCode());
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + passengerId;
-		result = prime * result + ((passportExpiry == null) ? 0 : passportExpiry.hashCode());
-		result = prime * result + ((passportId == null) ? 0 : passportId.hashCode());
-		result = prime * result + ((sex == null) ? 0 : sex.hashCode());
-		result = prime * result + ((surname == null) ? 0 : surname.hashCode());
-		return result;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Passenger other = (Passenger) obj;
-		if (age != other.age)
-			return false;
-		if (baggage != other.baggage)
-			return false;
-		if (dateOfBirth == null) {
-			if (other.dateOfBirth != null)
-				return false;
-		} else if (!dateOfBirth.equals(other.dateOfBirth))
-			return false;
-		if (middleName == null) {
-			if (other.middleName != null)
-				return false;
-		} else if (!middleName.equals(other.middleName))
-			return false;
-		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
-			return false;
-		if (passengerId != other.passengerId)
-			return false;
-		if (passportExpiry == null) {
-			if (other.passportExpiry != null)
-				return false;
-		} else if (!passportExpiry.equals(other.passportExpiry))
-			return false;
-		if (passportId == null) {
-			if (other.passportId != null)
-				return false;
-		} else if (!passportId.equals(other.passportId))
-			return false;
-		if (sex == null) {
-			if (other.sex != null)
-				return false;
-		} else if (!sex.equals(other.sex))
-			return false;
-		if (surname == null) {
-			if (other.surname != null)
-				return false;
-		} else if (!surname.equals(other.surname))
-			return false;
-		return true;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	@Override
-	public String toString() {
-		return "Passenger [passengerId=" + passengerId + ", age=" + age + ", name=" + name + ", surname=" + surname
-				+ ", middleName=" + middleName + ", dateOfBirth=" + dateOfBirth + ", passportId=" + passportId
-				+ ", sex=" + sex + ", passportExpiry=" + passportExpiry + ", baggage=" + baggage + "]";
-	}
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
-	
+        Passenger passenger = (Passenger) o;
+
+        if (age != passenger.age) return false;
+        if (passengerId != passenger.passengerId) return false;
+        if (baggage != passenger.baggage) return false;
+        if (dateOfBirth != null ? !dateOfBirth.equals(passenger.dateOfBirth) : passenger.dateOfBirth != null)
+            return false;
+        if (email != null ? !email.equals(passenger.email) : passenger.email != null) return false;
+        if (middleName != null ? !middleName.equals(passenger.middleName) : passenger.middleName != null) return false;
+        if (name != null ? !name.equals(passenger.name) : passenger.name != null) return false;
+        if (passportExpiry != null ? !passportExpiry.equals(passenger.passportExpiry) : passenger.passportExpiry != null)
+            return false;
+        if (passportId != null ? !passportId.equals(passenger.passportId) : passenger.passportId != null) return false;
+        if (sex != null ? !sex.equals(passenger.sex) : passenger.sex != null) return false;
+        return !(surname != null ? !surname.equals(passenger.surname) : passenger.surname != null);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = passengerId;
+        result = 31 * result + age;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (surname != null ? surname.hashCode() : 0);
+        result = 31 * result + (middleName != null ? middleName.hashCode() : 0);
+        result = 31 * result + (dateOfBirth != null ? dateOfBirth.hashCode() : 0);
+        result = 31 * result + (passportId != null ? passportId.hashCode() : 0);
+        result = 31 * result + (sex != null ? sex.hashCode() : 0);
+        result = 31 * result + (email != null ? email.hashCode() : 0);
+        result = 31 * result + (passportExpiry != null ? passportExpiry.hashCode() : 0);
+        result = 31 * result + (baggage != null ? baggage.hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Passenger{" +
+                "passengerId=" + passengerId +
+                ", age=" + age +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", middleName='" + middleName + '\'' +
+                ", dateOfBirth=" + dateOfBirth +
+                ", passportId='" + passportId + '\'' +
+                ", sex='" + sex + '\'' +
+                ", email='" + email + '\'' +
+                ", passportExpiry=" + passportExpiry +
+                ", baggage=" + baggage +
+                '}';
+    }
 }

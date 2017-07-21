@@ -34,6 +34,7 @@ public class CreatePassengerDaoImpl implements CreatePassengerDao {
 				ps.setString(7, passenger.getPassportId());
 				ps.setString(8, String.valueOf(passenger.getPassportExpiry()));
 				ps.setString(9, passenger.getBaggage().toString());
+                ps.setString(10, passenger.getEmail());
 				ps.executeUpdate();
 
 				ResultSet rs = ps.getGeneratedKeys();

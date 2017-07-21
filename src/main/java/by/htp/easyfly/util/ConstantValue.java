@@ -53,6 +53,7 @@ public class ConstantValue {
 	public static final String REQUEST_PARAM_PASSENGER_AGE = "passenger_age";
 	public static final String REQUEST_PARAM_PASSENGER_BIRTH = "passenger_birth";
 	public static final String REQUEST_PARAM_PASSENGER_SEX = "passenger_sex";
+    public static final String REQUEST_PARAM_PASSENGER_EMAIL = "passenger_email";
 	public static final String REQUEST_PARAM_PASSENGER_PASSPORT_NUMBER = "passenger_passport_number";
 	public static final String REQUEST_PARAM_PASSENGER_PASSPORT_EXPIRY = "passenger_passport_expiry";
 	public static final String REQUEST_PARAM_PASSENGER_BAGGAGE = "passenger_baggage";

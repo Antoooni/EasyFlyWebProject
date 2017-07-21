@@ -62,6 +62,8 @@ public class SearchChangedFlightDaoImpl implements SearchChangedFlightDao {
                 selectedChangedFlight.setArrivalDate(DateTimeTransform.convertDate(rs.getString(4)));
                 selectedChangedFlight.setArrivalTime(DateTimeTransform.convertTimeHHMMSS(rs.getString(5)));
                 selectedChangedFlight.setFlightCode(rs.getString(6));
+                selectedChangedFlight.setDepartureAirport(rs.getString(8));
+                selectedChangedFlight.setArrivalAirport(rs.getString(9));
             }
         } catch (SQLException e) {
             throw new DAOException("SQLException in method searchCancelledFlight(): " + e);

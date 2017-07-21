@@ -129,6 +129,16 @@
                       <input id="passenger_date" type="date" name="passenger_passport_expiry" required>
                   </div>
                 </div>
+                  <!--Email-->
+                  <div id="first">
+                      <div id="first_left">
+                          <fmt:message key="registration.email" />
+                      </div>
+                      <div id="first_right">
+                          <input id="passenger_date" type="email" name="passenger_email" required >
+                      </div>
+                  </div>
+                  <!--primary boarding-->
                 <div id="first">
                   <div id="first_left">
                     <fmt:message key="purchase.boarding" />
@@ -140,6 +150,7 @@
                       </select>
                   </div>
                 </div>
+                  <!--On-line check in-->
                 <div id="first">
                   <div id="first_left">
                     <fmt:message key="purchase.checkIn" />

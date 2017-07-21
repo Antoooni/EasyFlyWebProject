@@ -20,6 +20,7 @@ import by.htp.easyfly.service.AuthorizationService;
 import by.htp.easyfly.service.DirectionService;
 import by.htp.easyfly.service.SearchChangedFlightService;
 import by.htp.easyfly.service.factory.ServiceFactory;
+import by.htp.easyfly.util.DateTimeTransform;
 import by.htp.easyfly.util.ForwardPage;
 
 public class LoginCommandAction implements CommandAction {
@@ -57,14 +58,16 @@ public class LoginCommandAction implements CommandAction {
 				session.setAttribute(REQUEST_PARAM_SESSION_USER, user);
                 //alert message
                 Flight selectedChangedFlight =searchChangedFlightService.searchCancelledFlight(user);
-                if (selectedChangedFlight!=null) {
+                if (selectedChangedFlight!=null && DateTimeTransform.checkDateNotInPast(selectedChangedFlight.getDepartureDate())) {
                     session.setAttribute(REQUEST_PARAM_SESSION_CANCELLED_FLIGHT, selectedChangedFlight);
                     request.setAttribute(REQUEST_PARAM_SESSION_CANCELLED_FLIGHT, selectedChangedFlight);
                 }
                 else  {
-                    selectedChangedFlight = searchChangedFlightService.searchChangedFlight(user);
-                    session.setAttribute(REQUEST_PARAM_SESSION_CHANGED_FLIGHT, selectedChangedFlight);
-                    request.setAttribute(REQUEST_PARAM_SESSION_CHANGED_FLIGHT, selectedChangedFlight);
+                    if(DateTimeTransform.checkDateNotInPast(selectedChangedFlight.getDepartureDate())){
+                        selectedChangedFlight = searchChangedFlightService.searchChangedFlight(user);
+                        session.setAttribute(REQUEST_PARAM_SESSION_CHANGED_FLIGHT, selectedChangedFlight);
+                        request.setAttribute(REQUEST_PARAM_SESSION_CHANGED_FLIGHT, selectedChangedFlight);
+                    }
                 }
 
                 cookieController.doGet(request,response);
@@ -90,5 +93,4 @@ public class LoginCommandAction implements CommandAction {
 
         ForwardPage.forwardPage(request, response, page);
 	}
-
 }

@@ -75,8 +75,8 @@ public class BuyTicketAction implements CommandAction {
 	}
 
 	private boolean convertAnswer(String s) {
-		s.toUpperCase();
-        return s.equals("YES");
+		String upperS =s.toUpperCase();
+        return upperS.equals("YES");
 	}
     private Passenger initPassengerFields(HttpServletRequest request, Passenger passenger){
         passenger.setName(request.getParameter(REQUEST_PARAM_PASSENGER_NAME));
@@ -88,6 +88,7 @@ public class BuyTicketAction implements CommandAction {
         passenger.setPassportId(request.getParameter(REQUEST_PARAM_PASSENGER_PASSPORT_NUMBER));
         passenger.setPassportExpiry(DateTimeTransform.convertDate(request.getParameter(REQUEST_PARAM_PASSENGER_PASSPORT_EXPIRY)));
         passenger.setBaggage(Baggage.valueOf(request.getParameter(REQUEST_PARAM_PASSENGER_BAGGAGE).toUpperCase()));
+        passenger.setEmail(request.getParameter(REQUEST_PARAM_PASSENGER_EMAIL));
         return passenger;
     }
     private Ticket initTicketFields(HttpServletRequest request, Flight flight, int passengerId,Ticket ticket, HttpSession session){

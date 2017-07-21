@@ -72,4 +72,8 @@ public class DateTimeTransform {
         arrayHourMin[1]=difference.get(Calendar.MINUTE);
         return arrayHourMin;
     }
+    public static boolean checkDateNotInPast(Date departureDate){
+        Date currDate= new Date();
+        return departureDate.compareTo(currDate) >= 0;
+    }
 }
