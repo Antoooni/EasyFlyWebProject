@@ -53,12 +53,12 @@ public class BuyTicketAction implements CommandAction {
 
                 ForwardPage.forwardPage(request, response, page);
             }
-            else if(InputDataValidator.isBirthdayLessDeparture(flight.getDepartureDate(),passenger.getDateOfBirth())){
+            else if(!InputDataValidator.isBirthdayLessDeparture(flight.getDepartureDate(),passenger.getDateOfBirth())){
                 page = PAGE_FLIGHT_INFO;
                 request.setAttribute(ERROR_BIRTHDAY_DATE, INVALID_BIRTHDAY_DATE);
                 ForwardPage.forwardPage(request, response, page);
             }
-            else if(InputDataValidator.isExpiryLessArrival(flight.getArrivalDate(),passenger.getPassportExpiry())){
+            else if(!InputDataValidator.isExpiryLessArrival(flight.getArrivalDate(),passenger.getPassportExpiry())){
                 page = PAGE_FLIGHT_INFO;
                 request.setAttribute(ERROR_EXPIRY_DATE, INVALID_EXPIRY_DATE);
                 ForwardPage.forwardPage(request, response, page);

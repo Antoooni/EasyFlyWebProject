@@ -50,7 +50,7 @@ public class CreateTicketDaoImpl implements CreateTicketDao {
 
 		return key;
 	}
-
+/*
 	@Override
 	public int createTicketList(User user, int ticketId) throws DAOException {
 		PreparedStatement ps;
@@ -157,7 +157,7 @@ public class CreateTicketDaoImpl implements CreateTicketDao {
 			throw new DAOException("SQLException in method searchTicketList(): " + e);
 		}
 		return ticketListId;
-	}
+	}*/
 
 	private String convertAnswerToString(boolean expresion) {
 		if (expresion)

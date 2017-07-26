@@ -24,6 +24,11 @@ public class DateTimeTransform {
         }
         return outputDate;
     }
+    public static String convertDateToString(Date inputDate){
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String s = String.valueOf(sdf.toPattern());
+        return s;
+    }
     public static Time convertTimeHHMMSS(String inputStringTime){
         Time outputTime=null;
         DateFormat formatter = new SimpleDateFormat("hh:mm:ss");

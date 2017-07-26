@@ -25,7 +25,7 @@ public class CreateTicketServiceImpl implements CreateTicketService {
 			throw new ServiceException(e);
 		}
 	}
-
+/*
 	@Override
 	public int createTicketList(User user, int ticketId) throws ServiceException {
 		// TODO Auto-generated method stub
@@ -64,6 +64,6 @@ public class CreateTicketServiceImpl implements CreateTicketService {
 		} catch (DAOException e) {
 			throw new ServiceException(e);
 		}
-	}
+	}*/
 
 }

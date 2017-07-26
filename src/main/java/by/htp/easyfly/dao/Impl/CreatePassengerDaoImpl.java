@@ -2,12 +2,11 @@ package by.htp.easyfly.dao.Impl;
 
 import static by.htp.easyfly.util.SQLConstantValue.*;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.Date;
 
 import by.htp.easyfly.dao.CreatePassengerDao;
+import by.htp.easyfly.util.DateTimeTransform;
 import com.mysql.jdbc.Statement;
 
 import by.htp.easyfly.bin.Passenger;
@@ -27,12 +26,13 @@ public class CreatePassengerDaoImpl implements CreatePassengerDao {
 				ps = connection.prepareStatement(SQL_STATEMENT_CREATE_PASSENGER, Statement.RETURN_GENERATED_KEYS);
 				ps.setString(1, passenger.getName());
 				ps.setString(2, passenger.getSurname());
-				ps.setString(3, passenger.getMiddleName());
-				ps.setString(4, String.valueOf(passenger.getDateOfBirth()));
+                if(null!=passenger.getMiddleName()) ps.setString(3, passenger.getMiddleName());
+                    else  ps.setString(3, null);
+				ps.setTimestamp(4, new Timestamp(passenger.getDateOfBirth().getTime()));// String.valueOf(passenger.getDateOfBirth()));
 				ps.setInt(5, passenger.getAge());
 				ps.setString(6, passenger.getSex());
 				ps.setString(7, passenger.getPassportId());
-				ps.setString(8, String.valueOf(passenger.getPassportExpiry()));
+				ps.setTimestamp(8, new Timestamp(passenger.getPassportExpiry().getTime()));
 				ps.setString(9, passenger.getBaggage().toString());
                 ps.setString(10, passenger.getEmail());
 				ps.executeUpdate();

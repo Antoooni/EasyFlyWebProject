@@ -14,7 +14,7 @@ public interface SQLConstantValue {
 	String SQL_STATEMENT_IF_USER_LOGIN_EXIST = "select count(*) from logon_data where login=?;";
 	String SQL_STATEMENT_IF_USER_EMAIL_EXIST="select count(*) from user where user_email=?;";
 	String SQL_STATEMENT_CREATE_PASSENGER ="INSERT INTO passenger (name, surname, middlename, birthday, age, gender, passport_number, passport_expiry, baggage, email) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
-	String SQL_STATEMENT_CREATE_TICKET = "INSERT INTO ticket (flight_id, passenger_id, primary_boarding, online_checkin, total_amount) VALUES (?, ?, ?, ?, ?);";
+	String SQL_STATEMENT_CREATE_TICKET = "INSERT INTO ticket (flight_id, passenger_id, primary_boarding, online_checkin, total_amount, user_id) VALUES (?, ?, ?, ?, ?, ?);";
 	String SQL_STATEMENT_CREATE_TICKET_LIST ="INSERT INTO ticket_list (ticket_list_id, ticket_id, user_id) VALUES (?,?,?);";
 	String SQL_STATEMENT_CREATE_TICKET_IF_TICKETLIST_EXISTS="select count(*) from ticket_list where user_id=?";
 	String SQL_STATEMENT_CREATE_TICKET_UPDATE_USER=" UPDATE user SET ticket_list_id=? WHERE  user_id=?;";

@@ -614,7 +614,7 @@ header button {
 }
 
 .main img {
-	width: 100%;
+	/*width: 100%;*/
 }
 
 /*noinspection ALL*/
@@ -803,3 +803,18 @@ label {
 
 /*noinspection ALL*/
 details summary::-webkit-details-marker { display:none; }
+.enjoy{
+	width: 10%;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+#text_passenger_color{
+	color: #ef5350;
+	padding-bottom: 10px;
+	font-family: verdana;
+}
+#text_passenger_color_print{
+	color: #d2d2d2;
+	padding-bottom: 10px;
+	font-family: verdana;
+}

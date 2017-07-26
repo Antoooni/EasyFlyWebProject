@@ -12,5 +12,6 @@ enum Action {
 	change_flight_data,
 	cancel_flight,
 	change_language,
-	change_flight;
+	change_flight,
+    print;
 }

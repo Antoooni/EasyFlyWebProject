@@ -8,12 +8,13 @@ import by.htp.easyfly.exception.ServiceException;
 public interface CreateTicketService {
 	public int createTicket(Ticket ticket) throws ServiceException;
 
-	public int createTicketList(User user, int ticketId) throws ServiceException;
+	/*public int createTicketList(User user, int ticketId) throws ServiceException;
 
 	public void updateUser(int userId, TicketList ticketList) throws ServiceException;
 
 	public boolean ticketListExists(User user) throws ServiceException;
 
 	public int searchTicketList(User user) throws ServiceException;
+	*/
 
 }

@@ -96,6 +96,7 @@ public class ConstantValue {
     public static final String PAGE_ERROR_ACCESS_DENIED="/WEB-INF/jsp/error_authentication.jsp";
 	public static final String PAGE_NO_FLIGHTS_ERROR= "/WEB-INF/jsp/error/error_no_flights.jsp";
 	public static final String PAGE_DEFAULT = "/default.jsp";
+    public static final String PAGE_PRINT_TICKET = "/WEB-INF/jsp/user/ticket.jsp";
 	public static final String PAGE_ERROR = "/error.jsp";
 	public static final String PAGE_HOME = "/WEB-INF/jsp/user/index.jsp";
 	public static final String PAGE_FLIGHT_LIST = "/WEB-INF/jsp/user/flight_list.jsp";
@@ -103,7 +104,7 @@ public class ConstantValue {
 	public static final String PAGE_FLIGHT_LIST_CHANGING = "/WEB-INF/jsp/admin/flights_change.jsp";
 	public static final String PAGE_REGISTRATION = "/WEB-INF/jsp/user/registration.jsp";
 	public static final String PAGE_REGISTRATION_SUCCESS = "/registration_ok.jsp";
-	public static final String PAGE_DONE = "/done.jsp";
+	public static final String PAGE_DONE = "/WEB-INF/jsp/user/done.jsp";
 	public static final String PAGE_DONE_CANCELLATION = "/WEB-INF/jsp/admin/cancel_done.jsp";
 	public static final String PAGE_CANCELLATION = "/WEB-INF/jsp/admin/cancel.jsp";
 

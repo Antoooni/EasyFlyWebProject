@@ -10,11 +10,7 @@ import by.htp.easyfly.servlet.command.LogoutCommandAction;
 import by.htp.easyfly.servlet.command.admin.CancelFlightAction;
 import by.htp.easyfly.servlet.command.admin.ChangeFlightAction;
 import by.htp.easyfly.servlet.command.admin.GoToCancellation;
-import by.htp.easyfly.servlet.command.user.BuyTicketAction;
-import by.htp.easyfly.servlet.command.user.CreateNewUserAction;
-import by.htp.easyfly.servlet.command.user.FlightInfoAction;
-import by.htp.easyfly.servlet.command.user.RegistrationAction;
-import by.htp.easyfly.servlet.command.user.SearchFlightAction;
+import by.htp.easyfly.servlet.command.user.*;
 
 public final class FillAndChooseAction {
 	public HashMap<String, CommandAction> map() {
@@ -30,7 +26,8 @@ public final class FillAndChooseAction {
 		actionsMap.put(Action.change_flight_data.toString(), new ChangeFlightAction());
 		actionsMap.put(Action.cancel_flight.toString(), new CancelFlightAction());
 		actionsMap.put(Action.change_language.toString(), new ChangeLanguageAction());
-		actionsMap.put (Action.change_flight.toString(), new GoToCancellation());
+		actionsMap.put(Action.change_flight.toString(), new GoToCancellation());
+        actionsMap.put(Action.print.toString(), new PrintTicketAction());
 		
 		return actionsMap;
 	}
