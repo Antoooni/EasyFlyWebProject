@@ -18,8 +18,11 @@ import by.htp.easyfly.util.ForwardPage;
 import by.htp.easyfly.servlet.command.CommandAction;
 import by.htp.easyfly.util.DateTimeTransform;
 import by.htp.easyfly.util.InputDataValidator;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class ChangeFlightAction implements CommandAction {
+    private static final Logger LOG = LogManager.getLogger(ChangeFlightAction.class.getName());
 	private ChangeFlightService changeFlightService;
     private SendEmailService sendEmailService;
 
@@ -31,7 +34,7 @@ public class ChangeFlightAction implements CommandAction {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		String page = PAGE_DONE_CANCELLATION;
-        String textEmail= "Dear customer, you flight data has been changed. Please check you data before check-in.  Best regards, EasyFly.";
+        String textEmail= EMAIL_BODY_CHANGING;
 		HttpSession session = request.getSession(true);
 		try {
 			Flight selectedFlight = (Flight) session.getAttribute(REQUEST_PARAM_SESSION_FLIGHT_CHANGING_INFO);
@@ -42,7 +45,6 @@ public class ChangeFlightAction implements CommandAction {
 			Time arrivalTime = DateTimeTransform.convertTimeHHMM(request.getParameter(REQUEST_PARAM_CHANGE_ARRIVAL_TIME));
 
 			selectedFlight = defineFlightFields(selectedFlight, departureDate, departureTime, arrivalDate, arrivalTime);
-			System.out.println(selectedFlight.toString());
 
 			if (!InputDataValidator.isEmptyDate(departureDate, departureTime, arrivalDate, arrivalTime)) {
                 if(InputDataValidator.isValidDates(departureDate, departureTime, arrivalDate, arrivalTime)) {
@@ -51,6 +53,7 @@ public class ChangeFlightAction implements CommandAction {
                     sendEmailService.sendEmail(selectedFlight, textEmail);
                     //attribute to notification
                     request.setAttribute(NOTIFICATION_MESSAGE_CHANGE_DATA_FLIGHT, true);
+                    LOG.info("Flight #"+selectedFlight.getFlightId()+" has been changed");
                     ForwardPage.forwardPage(request, response, page);
                 }
                 else{
@@ -65,8 +68,8 @@ public class ChangeFlightAction implements CommandAction {
 				ForwardPage.forwardPage(request, response, page);
 			}
 		} catch (ServiceException e) {
-
-		}
+            LOG.error("Change flight error " + e);
+        }
 	}
 
 	private Flight defineFlightFields(Flight flight, Date departureDate, Time departureTime, Date arrivalDate,

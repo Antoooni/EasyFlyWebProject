@@ -6,6 +6,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import by.htp.easyfly.bin.Baggage;
 import by.htp.easyfly.bin.Flight;
 import by.htp.easyfly.bin.Passenger;
@@ -21,7 +24,7 @@ import by.htp.easyfly.util.DateTimeTransform;
 import by.htp.easyfly.util.InputDataValidator;
 
 public class BuyTicketAction implements CommandAction {
-	// ServiceFactory serviceFactory = new ServiceFactory();
+    private static final Logger LOG = LogManager.getLogger(BuyTicketAction.class.getName());
 
 	private CreatePassengerService createPassengerService;
 	private CreateTicketService createTicketService;
@@ -46,11 +49,11 @@ public class BuyTicketAction implements CommandAction {
             if(InputDataValidator.isValidPassenger(passenger.getName(), passenger.getSurname(), passenger.getAge(), passenger.getPassportId())) {
                 // create passenger
                 passenger.setPassengerId(createPassengerService.passenger(passenger));
-
+                LOG.info("Passenger "+passenger.getPassengerId()+" was created");
                 // create ticket
                 ticket = initTicketFields(request, flight, passenger.getPassengerId(), ticket, session);
-                int ticketId = createTicketService.createTicket(ticket);
-
+                createTicketService.createTicket(ticket);
+                LOG.info("Ticket was purchased!");
                 ForwardPage.forwardPage(request, response, page);
             }
             else if(!InputDataValidator.isBirthdayLessDeparture(flight.getDepartureDate(),passenger.getDateOfBirth())){
@@ -67,10 +70,11 @@ public class BuyTicketAction implements CommandAction {
                 page = PAGE_FLIGHT_INFO;
                 request.setAttribute(ERROR_INPUT, INVALID_INPUT);
                 session.setAttribute(ERROR_INPUT, INVALID_INPUT);
+                LOG.info("Ticket was not purchased");
                 ForwardPage.forwardPage(request, response, page);
             }
 		} catch (ServiceException e) {
-
+            LOG.error("Buy ticket action error " + e);
 		}
 	}
 

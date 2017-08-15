@@ -5,6 +5,9 @@ import static by.htp.easyfly.util.ConstantValue.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import by.htp.easyfly.bin.LogonData;
 import by.htp.easyfly.bin.User;
 import by.htp.easyfly.exception.ServiceException;
@@ -14,8 +17,8 @@ import by.htp.easyfly.util.ForwardPage;
 import by.htp.easyfly.servlet.command.CommandAction;
 
 public class CreateNewUserAction implements CommandAction {
+    private static final Logger LOG = LogManager.getLogger(CreateNewUserAction.class.getName());
 	private UserCreateService userCreateService;
-	// private ServiceFactory serviceFactory = new ServiceFactory();
 
 	public CreateNewUserAction() {
 		userCreateService = ServiceFactory.getInstance().getUserCreateService();
@@ -23,7 +26,7 @@ public class CreateNewUserAction implements CommandAction {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		String page = PAGE_REGISTRATION_SUCCESS;
+		String page;
 
 		String login = request.getParameter(REQUEST_PARAM_USER_LOGIN);
 		String input_email = request.getParameter(REQUEST_PARAM_USER_USER_EMAIL);
@@ -44,29 +47,24 @@ public class CreateNewUserAction implements CommandAction {
 		user.setLogonData(userLogonData);
 
 		try {
-			if (userCreateService.checkUserExist(login) == false) {
-
-				if (userCreateService.checkUserEmailExist(input_email) == false) {
-					userCreateService.createNewUser(user); // create new user
-					request.setAttribute(REQUEST_PARAM_CREATED_SUCCESSFULLY, user);
-					page = PAGE_REGISTRATION;
-					System.out.println("User created successfully");
-				} else {
-
-					boolean existEmail = true;
-					request.setAttribute(REQUEST_PARAM_EXIST_EMAIL, existEmail);
-					page = PAGE_REGISTRATION;
-					System.out.println("This email is already busy");
-				}
-			} else {
-				boolean existUser = true;
-				request.setAttribute(REQUEST_PARAM_EXIST_USER, existUser);
+			if (!userCreateService.checkUserExist(login)) {
+                if (!userCreateService.checkUserEmailExist(input_email)) {
+                    userCreateService.createNewUser(user); // create new user
+                    request.setAttribute(REQUEST_PARAM_CREATED_SUCCESSFULLY, user);
+                    page = PAGE_REGISTRATION;
+                    LOG.info("User " + user.getUserId() + " was created successfully");
+                } else {
+                    request.setAttribute(REQUEST_PARAM_EXIST_EMAIL, true);
+                    page = PAGE_REGISTRATION;
+                }
+            }
+            else {
+				request.setAttribute(REQUEST_PARAM_EXIST_USER, true);
 				page = PAGE_REGISTRATION;
-				System.out.println("This user is already exist");
 			}
 			ForwardPage.forwardPage(request, response, page);
 		} catch (ServiceException e) {
-
+            LOG.error("Create user error " + e);
 		}
 	}
 

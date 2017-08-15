@@ -4,12 +4,14 @@ import static by.htp.easyfly.util.ConstantValue.*;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.logging.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import by.htp.easyfly.Cookie.CookieController;
 import by.htp.easyfly.bin.Flight;
@@ -25,7 +27,7 @@ import by.htp.easyfly.util.ForwardPage;
 
 public class LoginCommandAction implements CommandAction {
 
-	private static final Logger log = Logger.getLogger(LoginCommandAction.class.getName());
+    private static final Logger LOG = LogManager.getLogger(LoginCommandAction.class.getName());
 
 	private AuthorizationService authorizationService;
 	private DirectionService directionService;
@@ -49,7 +51,6 @@ public class LoginCommandAction implements CommandAction {
         CookieController cookieController= new CookieController();
 		try {
 			user = authorizationService.userData(login, password);
-			// try {
 			if (user != null) {
 				List<FlightDirection> flightDirection = directionService.listDirections();
 				// dropdown
@@ -58,39 +59,31 @@ public class LoginCommandAction implements CommandAction {
 				session.setAttribute(REQUEST_PARAM_SESSION_USER, user);
                 //alert message
                 Flight selectedChangedFlight =searchChangedFlightService.searchCancelledFlight(user);
+                LOG.info(user.getUserName()+" has been logged-in");
                 if (selectedChangedFlight!=null && DateTimeTransform.checkDateNotInPast(selectedChangedFlight.getDepartureDate())) {
                     session.setAttribute(REQUEST_PARAM_SESSION_CANCELLED_FLIGHT, selectedChangedFlight);
                     request.setAttribute(REQUEST_PARAM_SESSION_CANCELLED_FLIGHT, selectedChangedFlight);
                 }
-                else  {
-                    if(DateTimeTransform.checkDateNotInPast(selectedChangedFlight.getDepartureDate())){
+                else {
+                    if (selectedChangedFlight!=null && DateTimeTransform.checkDateNotInPast(selectedChangedFlight.getDepartureDate())) {
                         selectedChangedFlight = searchChangedFlightService.searchChangedFlight(user);
                         session.setAttribute(REQUEST_PARAM_SESSION_CHANGED_FLIGHT, selectedChangedFlight);
                         request.setAttribute(REQUEST_PARAM_SESSION_CHANGED_FLIGHT, selectedChangedFlight);
                     }
                 }
-
                 cookieController.doGet(request,response);
-
-				String workingDir = System.getProperty("user.dir");
-
-				System.out.println(workingDir);
-				// config.init();
-				// DOMConfigurator.configure("log4j.xml");
-				log.info("Информационное сообщение");
-				// log.fine("!!!!!!!!!");
 				page = PAGE_HOME;
 			} else {
 				page = PAGE_ERROR;
+                LOG.info("Was attempt made to sign in");
 			}
 		} catch (ServiceException e) {
-            e.printStackTrace();
+            LOG.error("Authorization error "+e);
 		} catch (ServletException e) {
-            e.printStackTrace();
+            LOG.error("Cookie error " + e);
         } catch (IOException e) {
-            e.printStackTrace();
+            LOG.error("Cookie IO error " + e);
         }
-
         ForwardPage.forwardPage(request, response, page);
 	}
 }

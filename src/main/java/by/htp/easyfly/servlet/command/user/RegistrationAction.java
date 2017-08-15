@@ -5,6 +5,8 @@ import static by.htp.easyfly.util.ConstantValue.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import by.htp.easyfly.util.ForwardPage;
 import by.htp.easyfly.servlet.command.CommandAction;
@@ -14,10 +16,6 @@ public class RegistrationAction implements CommandAction {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		//page = request.getParameter(PAGE_REGISTRATION);
-//		request.setAttribute(REQUEST_PARAM_EXIST_USER, existUser);
-//		HttpSession session = request.getSession(true);
-//		session.setAttribute(REQUEST_PARAM_EXIST_USER, false);
 		request.setAttribute(REQUEST_PARAM_EXIST_USER, false); 
 		page= PAGE_REGISTRATION;
 		ForwardPage.forwardPage(request, response, page);

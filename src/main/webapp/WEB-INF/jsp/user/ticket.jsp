@@ -1,5 +1,5 @@
 <%--suppress ALL --%>
-
+<%@include file="/WEB-INF/include/root.jspf"%>
 <html>
 <head lang="en">
     <meta charset="UTF-8">
@@ -32,15 +32,25 @@
                             <div id="block7">
                                 <div id="block9">
                                     <div id="block9i">From</div>
-                                    <div id="block9main">Minsk</div>
+                                    <div id="block9main">
+                                        <c:out value="${flight.getFromDirection().getDirectionCode()}" />
+                                        ,
+                                        <c:out value="${flight.getFromDirection().getDirectionName()}" />
+                                    </div>
                                 </div>
                                 <div id="block9">
                                     <div id="block9i">To</div>
-                                    <div id="block9main">Moscow</div>
+                                    <div id="block9main">
+                                        <c:out value="${flight.getToDirection().getDirectionCode()}" />
+                                        ,
+                                        <c:out value="${flight.getToDirection().getDirectionName()}" />
+                                    </div>
                                 </div>
                                 <div id="block10">
                                     <div id="block10i">Flight</div>
-                                    <div id="block10main">EF 5400</div>
+                                    <div id="block10main">
+                                        <c:out value="${flight.getFlightCode()}" />
+                                    </div>
                                 </div>
                                 <div id="block11">
                                     <div id="block10i">Seat</div>
@@ -54,11 +64,15 @@
                                 </div>
                                 <div id="block10">
                                     <div id="block10i">Date</div>
-                                    <div id="block10main">09 JUN</div>
+                                    <div id="block10main">
+                                        <fmt:formatDate type="date" value="${flight.getDepartureDate()}" />
+                                    </div>
                                 </div>
                                 <div id="block11">
                                     <div id="block10i">Time</div>
-                                    <div id="block10main">08:40</div>
+                                    <div id="block10main">
+                                        <c:out value="${flight.getDepartureTime()}" />
+                                    </div>
                                 </div>
                                 <div id="block12">
                                     <div id="block10i">Gate</div>
@@ -82,20 +96,28 @@
                     </div>
                     <div id="block16">
                         <div id="block16i">From</div>
-                        <div id="block16main">Minsk</div>
+                        <div id="block16main">
+                            <c:out value="${flight.getFromDirection().getDirectionName()}" />
+                        </div>
                     </div>
                     <div id="block16">
                         <div id="block16i">To</div>
-                        <div id="block16main">Moscow</div>
+                        <div id="block16main">
+                            <c:out value="${flight.getToDirection().getDirectionName()}" />
+                        </div>
                     </div>
                     <div id="block16">
                         <div id="block17">
                             <div id="block17i">Date</div>
-                            <div id="block17main">09 JUN</div>
+                            <div id="block17main">
+                                <fmt:formatDate type="date" value="${flight.getDepartureDate()}" />
+                            </div>
                         </div>
                         <div id="block17">
                             <div id="block17i">Time</div>
-                            <div id="block17main">08:10</div>
+                            <div id="block17main">
+                                <c:out value="${flight.getDepartureTime()}" />
+                            </div>
                         </div>
                         <div id="block17">
                             <div id="block17i">Gate</div>
@@ -105,7 +127,9 @@
                     <div id="block16">
                         <div id="block17">
                             <div id="block17i">Flight</div>
-                            <div id="block17main">EF 5400</div>
+                            <div id="block17main">
+                                <c:out value="${flight.getFlightCode()}" />
+                            </div>
                         </div>
                         <div id="block17">
                             <div id="block17i">Seat</div>

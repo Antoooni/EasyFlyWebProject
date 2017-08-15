@@ -8,6 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import by.htp.easyfly.bin.Flight;
 import by.htp.easyfly.bin.User;
 import by.htp.easyfly.service.DirectionCodeService;
@@ -19,7 +22,7 @@ import by.htp.easyfly.util.DateTimeTransform;
 import by.htp.easyfly.util.InputDataValidator;
 
 public class SearchFlightAction implements CommandAction {
-	// ServiceFactory serviceFactory = new ServiceFactory();
+    private static final Logger LOG = LogManager.getLogger(SearchFlightAction.class.getName());
 
 	private FlightListService flightListService;
 	private DirectionCodeService directionCodeService;
@@ -33,19 +36,18 @@ public class SearchFlightAction implements CommandAction {
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 
 		HttpSession session = request.getSession(true);
-		String page = request.getParameter(PAGE_FLIGHT_LIST);
+		String page;
 		String departureCity = request.getParameter(REQUEST_PARAM_DIRECTION_FROM);
 		String arrivalCity = request.getParameter(REQUEST_PARAM_DIRECTION_TO);
         if(null!=departureCity || null!=arrivalCity) {
             Date departureDateSQL = DateTimeTransform.convertDate(request.getParameter(REQUEST_PARAM_DEPARTURE_DATE));
             Date arrivalDateSQL = DateTimeTransform.convertDate(request.getParameter(REQUEST_PARAM_ARRIVAL_DATE));
 
-            // String userRole=request.getParameter(REQUEST_PARAM_SESSION_USERNAME);
             if(!InputDataValidator.dateInPast(departureDateSQL, arrivalDateSQL)){
                 if(!InputDataValidator.isArrivalBeforeDeparture(departureDateSQL,arrivalDateSQL)) {
                     try {
-                        String departureCode = null;
-                        String arrivalCode = null;
+                        String departureCode;
+                        String arrivalCode;
                         //convert departure city to city code
                         departureCode = directionCodeService.directionCode(departureCity);
                         //convert arrival city to city code
@@ -67,6 +69,7 @@ public class SearchFlightAction implements CommandAction {
                         ForwardPage.forwardPage(request, response, page);
 
                     } catch (Exception e) {
+                        LOG.error("Search flight error " + e);
                     }
                 }
                 else{

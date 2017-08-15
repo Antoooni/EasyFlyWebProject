@@ -11,11 +11,13 @@ import by.htp.easyfly.exception.ServiceException;
 import by.htp.easyfly.service.ChangeFlightService;
 import by.htp.easyfly.service.SendEmailService;
 import by.htp.easyfly.service.factory.ServiceFactory;
-import by.htp.easyfly.util.DateTimeTransform;
 import by.htp.easyfly.util.ForwardPage;
 import by.htp.easyfly.servlet.command.CommandAction;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class CancelFlightAction implements CommandAction {
+    private static final Logger LOG = LogManager.getLogger(CancelFlightAction.class.getName());
 	private ChangeFlightService changeFlightService;
     private SendEmailService sendEmailService;
 
@@ -26,21 +28,22 @@ public class CancelFlightAction implements CommandAction {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
-        String textEmail= "Dear customer, you flight has been cancel.We are so sorry.";
+        String textEmail= EMAIL_BODY_CANCELLATION;
 		HttpSession session = request.getSession(true);
-		Flight flight = new Flight();
+		Flight flight;
 		try {
 			flight = (Flight) session.getAttribute(REQUEST_PARAM_SESSION_FLIGHT_CHANGING_INFO);
 			changeFlightService.cancelFlight(flight);
 
-            //sendEmail email about cancellation
+            //send cancellation email
             sendEmailService.sendEmail(flight,textEmail);
             //attribute to notification
             request.setAttribute(NOTIFICATION_MESSAGE_CANCEL_FLIGHT, true);
 			String page = PAGE_DONE_CANCELLATION;
+            LOG.info("Flight #"+flight.getFlightId()+" is cancel");
 			ForwardPage.forwardPage(request, response, page);
 		} catch (ServiceException e) {
-
+            LOG.error("Cancellation error " + e);
 		}
 	}
 

@@ -113,6 +113,7 @@ public class ConstantValue {
 
     public static final String COOKIE_PARAM_USER_NAME="userName";
 
-	
-	
+    public static final String EMAIL_BODY_CANCELLATION ="Dear customer, you flight has been cancel.We are so sorry";
+    public static final String EMAIL_BODY_CHANGING ="Dear customer, you flight data has been changed. Please check you data before check-in.  Best regards, EasyFly";
+
 }
