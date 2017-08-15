@@ -105,28 +105,12 @@
 				</div>
 			</form>
 		</div>
-		<div>
-			<!-- FOOTER -->
-			<%@include file="/WEB-INF/include/footer.jspf"%>
-	</div>
-	<c:if test="${user_exist == true}">
-		<div class="message_registartion">
-			<c:out value="This user is already exists!" />
-		</div>
-	</c:if>
-	<c:if test="${email_exist == true}">
-		<div class="message_registartion">
-			<c:out value="This email is already busy!!!" />
-		</div>
-	</c:if>
-	<c:if test="${success != null}">
-		<div class="message_registartion_success">
-			<c:out value="User created successfully" />
-		</div>
-	</c:if>
-	<p class="frmd">
-		<a href="http://formoid.com/v29.php">html form</a> Formoid.com 2.9
-	</p>
+
+        <%@include file="/WEB-INF/include/alert.jspf"%>
+        <div>
+            <!-- FOOTER -->
+            <%@include file="/WEB-INF/include/footer.jspf"%>
+        </div>
 	<script type="text/javascript"
 		src="registration_files/formoid1/formoid-solid-red.js"></script>
 	<!-- Stop Formoid form-->

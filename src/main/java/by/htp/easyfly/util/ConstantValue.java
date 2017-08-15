@@ -39,6 +39,7 @@ public class ConstantValue {
 	public static final String REQUEST_PARAM_EXIST_EMAIL = "email_exist";
 	public static final String REQUEST_PARAM_CREATED_SUCCESSFULLY ="success";
 	public static final String REQUEST_PARAM_USER_LOGGED= "logged_user";
+    public static final String REQUEST_PARAM_DIFFERENT_PASSWORDS= "dif_pass";
 
 	public static final String REQUEST_PARAM_USER_LOGIN = "create_login";
 	public static final String REQUEST_PARAM_USER_USER_EMAIL = "create_email";

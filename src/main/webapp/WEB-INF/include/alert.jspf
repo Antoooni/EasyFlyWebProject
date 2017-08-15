@@ -49,3 +49,24 @@
         </div>
     </div>
 </c:if>
+
+<c:if test="${user_exist == true}">
+    <div class="message_registration">
+        <c:out value="This user is already exists!" />
+    </div>
+</c:if>
+<c:if test="${email_exist == true}">
+    <div class="message_registration">
+        <c:out value="This email is already busy!!!" />
+    </div>
+</c:if>
+<c:if test="${success != null}">
+    <div class="message_registration_success">
+        <c:out value="User created successfully" />
+    </div>
+</c:if>
+<c:if test="${dif_pass == true}">
+    <div class="message_registration">
+        <fmt:message key="alert.differentPassword" />
+    </div>
+</c:if>

@@ -2,3 +2,31 @@ INFO  | 2017-08-14 16:58:12 | [http-nio-8080-exec-4] command.LoginCommandAction 
 INFO  | 2017-08-15 08:59:51 | [http-nio-8080-exec-1] command.GoHomeAction (GoHomeAction.java:40) - AZAZAZ 
 INFO  | 2017-08-15 08:59:53 | [http-nio-8080-exec-2] command.GoHomeAction (GoHomeAction.java:40) - AZAZAZ 
 INFO  | 2017-08-15 08:59:53 | [http-nio-8080-exec-3] command.GoHomeAction (GoHomeAction.java:40) - AZAZAZ 
+INFO  | 2017-08-15 12:29:43 | [http-nio-8080-exec-2] command.GoHomeAction (GoHomeAction.java:40) - AZAZAZ 
+INFO  | 2017-08-15 12:29:45 | [http-nio-8080-exec-1] command.GoHomeAction (GoHomeAction.java:40) - AZAZAZ 
+INFO  | 2017-08-15 12:29:45 | [http-nio-8080-exec-3] command.GoHomeAction (GoHomeAction.java:40) - AZAZAZ 
+INFO  | 2017-08-15 12:32:06 | [http-nio-8080-exec-4] command.LoginCommandAction (LoginCommandAction.java:65) - null has been logged-in
+INFO  | 2017-08-15 12:32:44 | [http-nio-8080-exec-10] command.LoginCommandAction (LoginCommandAction.java:65) - null has been logged-in
+INFO  | 2017-08-15 12:33:28 | [http-nio-8080-exec-2] command.LoginCommandAction (LoginCommandAction.java:65) - null has been logged-in
+INFO  | 2017-08-15 12:34:56 | [http-nio-8080-exec-2] command.GoHomeAction (GoHomeAction.java:40) - AZAZAZ 
+INFO  | 2017-08-15 12:34:57 | [http-nio-8080-exec-1] command.GoHomeAction (GoHomeAction.java:40) - AZAZAZ 
+INFO  | 2017-08-15 12:34:58 | [http-nio-8080-exec-4] command.GoHomeAction (GoHomeAction.java:40) - AZAZAZ 
+INFO  | 2017-08-15 12:35:15 | [http-nio-8080-exec-3] command.LoginCommandAction (LoginCommandAction.java:65) - ANTON has been logged-in
+INFO  | 2017-08-15 13:07:47 | [http-nio-8080-exec-1] command.GoHomeAction (GoHomeAction.java:40) - AZAZAZ 
+INFO  | 2017-08-15 13:07:48 | [http-nio-8080-exec-2] command.GoHomeAction (GoHomeAction.java:40) - AZAZAZ 
+INFO  | 2017-08-15 13:07:49 | [http-nio-8080-exec-5] command.GoHomeAction (GoHomeAction.java:40) - AZAZAZ 
+INFO  | 2017-08-15 13:10:41 | [http-nio-8080-exec-1] command.GoHomeAction (GoHomeAction.java:40) - AZAZAZ 
+INFO  | 2017-08-15 13:10:43 | [http-nio-8080-exec-2] command.GoHomeAction (GoHomeAction.java:40) - AZAZAZ 
+INFO  | 2017-08-15 13:10:43 | [http-nio-8080-exec-4] command.GoHomeAction (GoHomeAction.java:40) - AZAZAZ 
+INFO  | 2017-08-15 13:13:01 | [http-nio-8080-exec-2] command.GoHomeAction (GoHomeAction.java:40) - AZAZAZ 
+INFO  | 2017-08-15 13:13:03 | [http-nio-8080-exec-1] command.GoHomeAction (GoHomeAction.java:40) - AZAZAZ 
+INFO  | 2017-08-15 13:13:03 | [http-nio-8080-exec-3] command.GoHomeAction (GoHomeAction.java:40) - AZAZAZ 
+INFO  | 2017-08-15 13:17:54 | [http-nio-8080-exec-2] command.GoHomeAction (GoHomeAction.java:40) - AZAZAZ 
+INFO  | 2017-08-15 13:17:56 | [http-nio-8080-exec-3] command.GoHomeAction (GoHomeAction.java:40) - AZAZAZ 
+INFO  | 2017-08-15 13:17:56 | [http-nio-8080-exec-1] command.GoHomeAction (GoHomeAction.java:40) - AZAZAZ 
+INFO  | 2017-08-15 13:19:55 | [http-nio-8080-exec-1] command.GoHomeAction (GoHomeAction.java:40) - AZAZAZ 
+INFO  | 2017-08-15 13:19:56 | [http-nio-8080-exec-2] command.GoHomeAction (GoHomeAction.java:40) - AZAZAZ 
+INFO  | 2017-08-15 13:19:56 | [http-nio-8080-exec-3] command.GoHomeAction (GoHomeAction.java:40) - AZAZAZ 
+INFO  | 2017-08-15 13:24:03 | [http-nio-8080-exec-1] command.GoHomeAction (GoHomeAction.java:40) - AZAZAZ 
+INFO  | 2017-08-15 13:24:04 | [http-nio-8080-exec-2] command.GoHomeAction (GoHomeAction.java:40) - AZAZAZ 
+INFO  | 2017-08-15 13:24:05 | [http-nio-8080-exec-3] command.GoHomeAction (GoHomeAction.java:40) - AZAZAZ 

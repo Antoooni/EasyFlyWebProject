@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import by.htp.easyfly.util.Hashing;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -50,7 +51,9 @@ public class LoginCommandAction implements CommandAction {
 		User user;
         CookieController cookieController= new CookieController();
 		try {
-			user = authorizationService.userData(login, password);
+//            String hashingPass= Hashing.passwordHashing(password);
+//            System.out.println("Password after hashing: "+hashingPass);
+            user = authorizationService.userData(login, Hashing.passwordHashing(password));
 			if (user != null) {
 				List<FlightDirection> flightDirection = directionService.listDirections();
 				// dropdown
