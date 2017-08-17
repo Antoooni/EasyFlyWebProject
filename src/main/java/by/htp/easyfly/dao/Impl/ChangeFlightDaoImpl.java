@@ -2,14 +2,11 @@ package by.htp.easyfly.dao.Impl;
 
 import static by.htp.easyfly.util.SQLConstantValue.*;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 import by.htp.easyfly.dao.ChangeFlightDao;
 
 import by.htp.easyfly.bin.Flight;
-//import by.htp.easyfly.util.SQLConnectionPool;
 import by.htp.easyfly.exception.*;
 import by.htp.easyfly.util.SQLConnectionPool;
 
@@ -36,9 +33,13 @@ public class ChangeFlightDaoImpl implements ChangeFlightDao {
 		try (Connection connection = SQLConnectionPool.getDs().getConnection()){
 				if (!connection.isClosed()) {
 					ps = connection.prepareStatement(SQL_STATEMENT_CHANGE_FLIGHT_DATA);
-					ps.setString(1, String.valueOf(flight.getDepartureDate()));
+                    Date d1= new java.sql.Date(flight.getDepartureDate().getTime());
+                    String departure=d1.toString();
+                    ps.setString(1,departure);
 					ps.setString(2, String.valueOf(flight.getDepartureTime()));
-					ps.setString(3, String.valueOf(flight.getArrivalDate()));
+                    Date d2=new java.sql.Date(flight.getArrivalDate().getTime());
+                    String arrival=d2.toString();
+                    ps.setString(3, arrival);
 					ps.setString(4, String.valueOf(flight.getArrivalTime()));
 					ps.setInt(5, flight.getFlightId());
 					ps.executeUpdate();

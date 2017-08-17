@@ -43,7 +43,7 @@
 		</div>
 	</div>
 	<div id="blok2_fourth">
-		<img src="img/direction.jpg" style="padding-top: 10px;">
+		<img src="img/direction.jpg" style="padding-top: 10px; width: 100%;">
 	</div>
 	<div id="blok3_fourth">
 		<div id="sub_block1">

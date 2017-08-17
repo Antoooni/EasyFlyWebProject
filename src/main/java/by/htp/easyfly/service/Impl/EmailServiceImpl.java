@@ -28,9 +28,17 @@ public class EmailServiceImpl implements SendEmailService {
         emailChangedFlight = DaoFactory.getInstance().getEmailChangedFlightDao();
     }
 
-    public EmailServiceImpl(String username, String password) {
-        this.username = username;
-        this.password = password;
+//    public EmailServiceImpl() {
+//        this.username = username;
+//        this.password = password;
+//
+//
+//    }
+
+    @Override
+    public void sendEmail(Flight flight, String emailText) throws ServiceException {
+        username="easyfly.info@gmail.com";
+        password= "easyflyPASSWORD";
 
         props = new Properties();
         props.put("mail.smtp.host", "smtp.gmail.com");
@@ -38,19 +46,12 @@ public class EmailServiceImpl implements SendEmailService {
         props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.port", "465");
-    }
-
-    @Override
-    public void sendEmail(Flight flight, String emailText) throws ServiceException {
         Session session = Session.getInstance(props, new Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication(username, password);
             }
         });
         String headerMessage = "This is Subject";
-//        String textMessage = "TLS: This is text!";
-//        String emailFrom = "easyfly.info@gmail.com";
-//        String emailTo = "mazets_anton@tut.by";
 
         List<User> listUser= null;
         try {
