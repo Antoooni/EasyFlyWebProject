@@ -99,3 +99,40 @@ INFO  | 2017-08-17 16:47:52 | [http-nio-8080-exec-1] command.GoHomeAction (GoHom
 INFO  | 2017-08-17 16:47:52 | [http-nio-8080-exec-3] command.GoHomeAction (GoHomeAction.java:40) - AZAZAZ 
 INFO  | 2017-08-17 16:47:59 | [http-nio-8080-exec-4] command.LoginCommandAction (LoginCommandAction.java:65) - Paul has been logged-in
 INFO  | 2017-08-17 16:49:52 | [http-nio-8080-exec-8] admin.ChangeFlightAction (ChangeFlightAction.java:56) - Flight #4 has been changed
+INFO  | 2017-08-18 13:01:20 | [http-nio-8080-exec-1] command.GoHomeAction (GoHomeAction.java:40) - AZAZAZ 
+INFO  | 2017-08-18 13:01:23 | [http-nio-8080-exec-2] command.GoHomeAction (GoHomeAction.java:40) - AZAZAZ 
+INFO  | 2017-08-18 13:01:23 | [http-nio-8080-exec-4] command.GoHomeAction (GoHomeAction.java:40) - AZAZAZ 
+INFO  | 2017-08-18 13:01:28 | [http-nio-8080-exec-10] command.LoginCommandAction (LoginCommandAction.java:65) - Paul has been logged-in
+INFO  | 2017-08-18 14:14:38 | [http-nio-8080-exec-3] command.GoHomeAction (GoHomeAction.java:40) - AZAZAZ 
+INFO  | 2017-08-18 14:14:40 | [http-nio-8080-exec-2] command.GoHomeAction (GoHomeAction.java:40) - AZAZAZ 
+INFO  | 2017-08-18 14:14:40 | [http-nio-8080-exec-1] command.GoHomeAction (GoHomeAction.java:40) - AZAZAZ 
+INFO  | 2017-08-18 14:15:11 | [http-nio-8080-exec-9] command.LoginCommandAction (LoginCommandAction.java:65) - Paul has been logged-in
+INFO  | 2017-08-18 14:19:18 | [http-nio-8080-exec-2] command.GoHomeAction (GoHomeAction.java:40) - AZAZAZ 
+INFO  | 2017-08-18 14:19:19 | [http-nio-8080-exec-1] command.GoHomeAction (GoHomeAction.java:40) - AZAZAZ 
+INFO  | 2017-08-18 14:19:20 | [http-nio-8080-exec-3] command.GoHomeAction (GoHomeAction.java:40) - AZAZAZ 
+INFO  | 2017-08-18 14:19:25 | [http-nio-8080-exec-5] command.LoginCommandAction (LoginCommandAction.java:65) - Paul has been logged-in
+INFO  | 2017-08-18 14:31:53 | [http-nio-8080-exec-1] command.GoHomeAction (GoHomeAction.java:40) - AZAZAZ 
+INFO  | 2017-08-18 14:31:55 | [http-nio-8080-exec-2] command.GoHomeAction (GoHomeAction.java:40) - AZAZAZ 
+INFO  | 2017-08-18 14:31:55 | [http-nio-8080-exec-3] command.GoHomeAction (GoHomeAction.java:40) - AZAZAZ 
+INFO  | 2017-08-18 14:32:02 | [http-nio-8080-exec-4] command.LoginCommandAction (LoginCommandAction.java:65) - Paul has been logged-in
+INFO  | 2017-08-18 14:55:15 | [http-nio-8080-exec-1] command.GoHomeAction (GoHomeAction.java:40) - AZAZAZ 
+INFO  | 2017-08-18 14:55:17 | [http-nio-8080-exec-2] command.GoHomeAction (GoHomeAction.java:40) - AZAZAZ 
+INFO  | 2017-08-18 14:55:17 | [http-nio-8080-exec-3] command.GoHomeAction (GoHomeAction.java:40) - AZAZAZ 
+INFO  | 2017-08-18 14:55:24 | [http-nio-8080-exec-4] command.LoginCommandAction (LoginCommandAction.java:65) - Paul has been logged-in
+INFO  | 2017-08-18 15:24:04 | [http-nio-8080-exec-1] command.GoHomeAction (GoHomeAction.java:40) - AZAZAZ 
+INFO  | 2017-08-18 15:24:06 | [http-nio-8080-exec-1] command.GoHomeAction (GoHomeAction.java:40) - AZAZAZ 
+INFO  | 2017-08-18 15:24:06 | [http-nio-8080-exec-4] command.GoHomeAction (GoHomeAction.java:40) - AZAZAZ 
+INFO  | 2017-08-18 15:24:56 | [http-nio-8080-exec-2] command.LoginCommandAction (LoginCommandAction.java:65) - Paul has been logged-in
+INFO  | 2017-08-18 15:33:31 | [http-nio-8080-exec-1] command.GoHomeAction (GoHomeAction.java:40) - AZAZAZ 
+INFO  | 2017-08-18 15:33:33 | [http-nio-8080-exec-2] command.GoHomeAction (GoHomeAction.java:40) - AZAZAZ 
+INFO  | 2017-08-18 15:33:34 | [http-nio-8080-exec-5] command.GoHomeAction (GoHomeAction.java:40) - AZAZAZ 
+INFO  | 2017-08-18 15:33:46 | [http-nio-8080-exec-4] command.LoginCommandAction (LoginCommandAction.java:65) - Paul has been logged-in
+INFO  | 2017-08-18 15:35:56 | [http-nio-8080-exec-1] command.GoHomeAction (GoHomeAction.java:40) - AZAZAZ 
+INFO  | 2017-08-18 15:35:58 | [http-nio-8080-exec-2] command.GoHomeAction (GoHomeAction.java:40) - AZAZAZ 
+INFO  | 2017-08-18 15:35:58 | [http-nio-8080-exec-3] command.GoHomeAction (GoHomeAction.java:40) - AZAZAZ 
+INFO  | 2017-08-18 15:36:05 | [http-nio-8080-exec-4] command.LoginCommandAction (LoginCommandAction.java:65) - Paul has been logged-in
+INFO  | 2017-08-18 15:37:44 | [http-nio-8080-exec-2] command.GoHomeAction (GoHomeAction.java:40) - AZAZAZ 
+INFO  | 2017-08-18 15:37:46 | [http-nio-8080-exec-1] command.GoHomeAction (GoHomeAction.java:40) - AZAZAZ 
+INFO  | 2017-08-18 15:37:46 | [http-nio-8080-exec-3] command.GoHomeAction (GoHomeAction.java:40) - AZAZAZ 
+INFO  | 2017-08-18 15:37:51 | [http-nio-8080-exec-5] command.LoginCommandAction (LoginCommandAction.java:65) - Paul has been logged-in
+INFO  | 2017-08-18 15:38:19 | [http-nio-8080-exec-1] admin.ChangeFlightAction (ChangeFlightAction.java:57) - Flight #4 has been changed

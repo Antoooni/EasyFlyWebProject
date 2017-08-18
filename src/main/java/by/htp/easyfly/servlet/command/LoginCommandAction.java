@@ -53,7 +53,7 @@ public class LoginCommandAction implements CommandAction {
 		try {
 //            String hashingPass= Hashing.passwordHashing(password);
 //            System.out.println("Password after hashing: "+hashingPass);
-            user = authorizationService.userData(login, Hashing.passwordHashing(password));
+            user = authorizationService.userData(login, Hashing.passwordEncode(password));
 			if (user != null) {
 				List<FlightDirection> flightDirection = directionService.listDirections();
 				// dropdown

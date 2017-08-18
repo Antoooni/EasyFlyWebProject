@@ -16,6 +16,8 @@ import by.htp.easyfly.servlet.command.CommandAction;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.io.IOException;
+
 public class CancelFlightAction implements CommandAction {
     private static final Logger LOG = LogManager.getLogger(CancelFlightAction.class.getName());
 	private ChangeFlightService changeFlightService;
@@ -44,7 +46,9 @@ public class CancelFlightAction implements CommandAction {
 			ForwardPage.forwardPage(request, response, page);
 		} catch (ServiceException e) {
             LOG.error("Cancellation error " + e);
-		}
-	}
+		} catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 }

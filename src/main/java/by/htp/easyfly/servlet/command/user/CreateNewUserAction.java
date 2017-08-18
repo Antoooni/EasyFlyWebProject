@@ -43,7 +43,7 @@ public class CreateNewUserAction implements CommandAction {
             user.setUserEmail(input_email);
 
             LogonData userLogonData = new LogonData();
-            userLogonData.setPassword(Hashing.passwordHashing(password));
+            userLogonData.setPassword(Hashing.passwordEncode(password));
             userLogonData.setLogin(login);
             user.setLogonData(userLogonData);
 
@@ -74,7 +74,7 @@ public class CreateNewUserAction implements CommandAction {
     }
 
     private boolean passwordsAreSame(String password, String confirmPAssword) {
-        return Hashing.passwordHashing(password).equals(Hashing.passwordHashing(confirmPAssword));
+        return Hashing.passwordEncode(password).equals(Hashing.passwordEncode(confirmPAssword));
     }
 
 }

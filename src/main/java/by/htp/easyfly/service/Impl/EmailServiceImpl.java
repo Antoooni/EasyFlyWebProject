@@ -11,6 +11,9 @@ import by.htp.easyfly.service.SendEmailService;
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 import java.util.Properties;
 
@@ -28,30 +31,32 @@ public class EmailServiceImpl implements SendEmailService {
         emailChangedFlight = DaoFactory.getInstance().getEmailChangedFlightDao();
     }
 
-//    public EmailServiceImpl() {
-//        this.username = username;
-//        this.password = password;
-//
-//
-//    }
-
     @Override
-    public void sendEmail(Flight flight, String emailText) throws ServiceException {
-        username="easyfly.info@gmail.com";
-        password= "easyflyPASSWORD";
+    public void sendEmail(Flight flight, String emailText) throws ServiceException, IOException {
+
+        Properties property = new Properties();
+        Thread currentThread = Thread.currentThread();
+        ClassLoader contextClassLoader = currentThread.getContextClassLoader();
+        InputStream is = contextClassLoader.getResourceAsStream("mailConfig.properties");
+        if (is != null) {
+            property.load(is);
+        } else {
+            throw (new FileNotFoundException());
+        }
+        username=property.getProperty("sender.mail");
+        password= property.getProperty("sender.pass");
 
         props = new Properties();
-        props.put("mail.smtp.host", "smtp.gmail.com");
-        props.put("mail.smtp.socketFactory.port", "465");
-        props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
-        props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.port", "465");
+        props.put(property.getProperty("smtp.host"), property.getProperty("smtp.hostValue"));
+        props.put(property.getProperty("smtp.socketFactoryPort"), property.getProperty("smtp.socketFactoryPortValue"));
+        props.put(property.getProperty("smtp.socketFactoryClass"), property.getProperty("smtp.socketFactoryClassValue"));
+        props.put(property.getProperty("smtp.auth"), property.getProperty("smtp.authValue"));
+        props.put(property.getProperty("smtp.port"), property.getProperty("smtp.portValue"));
         Session session = Session.getInstance(props, new Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication(username, password);
             }
         });
-        String headerMessage = "This is Subject";
 
         List<User> listUser= null;
         try {
@@ -69,7 +74,7 @@ public class EmailServiceImpl implements SendEmailService {
                         //кому
                         message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(aListUser.getUserEmail()));
                         //Заголовок письма
-                        message.setSubject(headerMessage);
+                        message.setSubject(property.getProperty("smtp.headerMessage"));
                         //Содержимое
                         message.setText(emailText);
 

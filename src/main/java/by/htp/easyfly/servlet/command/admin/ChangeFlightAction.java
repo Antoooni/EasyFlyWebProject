@@ -2,6 +2,7 @@ package by.htp.easyfly.servlet.command.admin;
 
 import static by.htp.easyfly.util.ConstantValue.*;
 
+import java.io.IOException;
 import java.sql.Time;
 import java.util.Date;
 
@@ -69,8 +70,10 @@ public class ChangeFlightAction implements CommandAction {
 			}
 		} catch (ServiceException e) {
             LOG.error("Change flight error " + e);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-	}
+    }
 
 	private Flight defineFlightFields(Flight flight, Date departureDate, Time departureTime, Date arrivalDate,
 			Time arrivalTime) {
