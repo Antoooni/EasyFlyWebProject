@@ -17,11 +17,12 @@ import java.util.Date;
  * @since 1.0
  */
 public class TestDateTimeTransform {
-
+    /**
+     *Tests the method which the date relating to the future is passed as a parameter
+     */
     @Test
     public void checkDateNotInPastTest(){
         /**
-         *Tests the method to which the date relating to the future is passed as a parameter
          *{@value #dateInFuture}  is a date relating to the future with which is compared the current date
          */
         Date date = null;
