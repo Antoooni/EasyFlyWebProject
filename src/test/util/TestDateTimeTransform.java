@@ -4,8 +4,10 @@ import by.htp.easyfly.util.DateTimeTransform;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.sql.Time;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -40,5 +42,57 @@ public class TestDateTimeTransform {
          */
         boolean result = DateTimeTransform.checkDateNotInPast(date);
         Assert.assertTrue(result);
+    }
+
+    /**
+     *Tests the method which calculate duration between two dates
+     */
+    @Test
+    public void durationTest(){
+        /**
+         *{@value #arrayHourMinExpected}  Expected result array which contains duration in hour and minutes
+         */
+        int []arrayHourMinExpected = new int[2];
+        arrayHourMinExpected[0]=3;//hours
+        arrayHourMinExpected[1]=10;//minutes
+        /**
+         *{@value #departureDate}  departure date
+         *{@value #arrivalDate}  arrival date
+         *{@value #departureTime}  departure time
+         *{@value #arrivalTime}  arrival date
+         */
+        Date departureDate;
+        Date arrivalDate;
+        Time departureTime;
+        Time arrivalTime;
+        //set departure date
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.YEAR,2017);
+        cal.set(Calendar.MONTH, 0);
+        cal.set(Calendar.DAY_OF_MONTH, 1);
+        departureDate= cal.getTime();
+        //set departure time
+        Calendar time = Calendar.getInstance();
+        time.set(Calendar.HOUR_OF_DAY,10);
+        time.set(Calendar.MINUTE,20);
+        time.set(Calendar.SECOND,0);
+        time.set(Calendar.MILLISECOND,0);
+        Date departureTimeDate=time.getTime();
+        departureTime=new Time(departureTimeDate.getTime());
+        //set arrival date
+        cal.set(Calendar.YEAR,2017);
+        cal.set(Calendar.MONTH, 0);
+        cal.set(Calendar.DAY_OF_MONTH, 1);
+        arrivalDate= cal.getTime();
+        // set arrival time
+        time.set(Calendar.HOUR_OF_DAY,13);
+        time.set(Calendar.MINUTE,30);
+        time.set(Calendar.SECOND,0);
+        time.set(Calendar.MILLISECOND,0);
+        Date arrivalTimeDate=time.getTime();
+        arrivalTime=new Time(arrivalTimeDate.getTime());
+
+        int []arrayHourMin = DateTimeTransform.duration( departureDate,  departureTime,  arrivalDate,  arrivalTime);
+        Assert.assertArrayEquals(arrayHourMinExpected, arrayHourMin);
     }
 }
