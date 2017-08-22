@@ -18,7 +18,7 @@ import java.util.Date;
  * @see org.junit.runner.JUnitCore
  * @since 1.0
  */
-public class TestDateTimeTransform {
+public class DateTimeTransformTest {
     /**
      *Tests the method which the date relating to the future is passed as a parameter
      */

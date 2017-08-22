@@ -3,10 +3,10 @@ package by.htp.easyfly.util;
 
 
 import org.apache.commons.codec.digest.DigestUtils;
-
-
 /**
- * Created by Ayumazec on 15.08.2017.
+ * @author Anton Mazets
+ * <p>Class represent value in hex string representation of the md5 algorithm</p>
+ * @since 1.0
  */
 public class Hashing {
     public static String passwordEncode(String value){

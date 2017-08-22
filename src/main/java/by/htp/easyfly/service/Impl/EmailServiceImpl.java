@@ -53,6 +53,7 @@ public class EmailServiceImpl implements SendEmailService {
         props.put(property.getProperty("smtp.auth"), property.getProperty("smtp.authValue"));
         props.put(property.getProperty("smtp.port"), property.getProperty("smtp.portValue"));
         Session session = Session.getInstance(props, new Authenticator() {
+            @Override
             protected PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication(username, password);
             }
@@ -69,16 +70,16 @@ public class EmailServiceImpl implements SendEmailService {
                 if (aListUser.getUserEmail() != null) {
                     try {
                         Message message = new MimeMessage(session);
-                        //от кого
+                        //sender
                         message.setFrom(new InternetAddress(username));
-                        //кому
+                        //recipient
                         message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(aListUser.getUserEmail()));
-                        //Заголовок письма
+                        //Header
                         message.setSubject(property.getProperty("smtp.headerMessage"));
-                        //Содержимое
+                        //body
                         message.setText(emailText);
 
-                        //Отправляем сообщение
+                        //send
                         Transport.send(message);
                     } catch (MessagingException e) {
                         throw new RuntimeException(e);
