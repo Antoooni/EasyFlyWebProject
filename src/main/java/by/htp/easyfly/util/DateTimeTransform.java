@@ -24,11 +24,7 @@ public class DateTimeTransform {
         }
         return outputDate;
     }
-    public static String convertDateToString(Date inputDate){
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        String s = String.valueOf(sdf.toPattern());
-        return s;
-    }
+
     public static Time convertTimeHHMMSS(String inputStringTime){
         Time outputTime=null;
         DateFormat formatter = new SimpleDateFormat("hh:mm:ss");
@@ -40,6 +36,7 @@ public class DateTimeTransform {
         }
         return outputTime;
     }
+
     public static Time convertTimeHHMM(String inputStringTime){
         Time outputTime=null;
         DateFormat formatter = new SimpleDateFormat("hh:mm");
@@ -77,6 +74,7 @@ public class DateTimeTransform {
         arrayHourMin[1]=difference.get(Calendar.MINUTE);
         return arrayHourMin;
     }
+
     public static boolean checkDateNotInPast(Date departureDate){
         Date currDate= new Date();
         return departureDate.compareTo(currDate) >= 0;

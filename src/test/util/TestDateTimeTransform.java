@@ -97,7 +97,7 @@ public class TestDateTimeTransform {
     }
 
     /**
-     *Tests the method which format data time
+     *Tests the method which format data time in hh:mm
      */
     @Test
     public void convertTimeHHMMTest(){
@@ -114,5 +114,42 @@ public class TestDateTimeTransform {
         }
         Time presetTime = DateTimeTransform.convertTimeHHMM("10:30");
         Assert.assertEquals(expectedTime,presetTime );
+    }
+
+    /**
+     *Tests the method which format data time hh:mm:ss
+     */
+    @Test
+    public void convertTimeHHMMSSTest(){
+        Date d = null;
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+        try {
+            d = sdf.parse("1970-01-01 10:30:00.000");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        Time expectedTime= null;
+        if (d != null) {
+            expectedTime = new Time(d.getTime());
+        }
+        Time presetTime = DateTimeTransform.convertTimeHHMMSS("10:30:00");
+        Assert.assertEquals(expectedTime,presetTime );
+    }
+
+    /**
+     *Tests the method convert String to Date
+     */
+    @Test
+    public void convertDateTest(){
+        Date date = null;
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
+
+        String dateInFuture = "01-01-2017 00:00:00";
+        try {
+            date = sdf.parse(dateInFuture);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        Assert.assertEquals(date,DateTimeTransform.convertDate("2017-01-01"));
     }
 }
