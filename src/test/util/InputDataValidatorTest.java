@@ -20,9 +20,25 @@ import java.util.Date;
  */
 public class InputDataValidatorTest {
     @Test
-    public void isValidPassenger(){
+    public void isValidLoginTest(){
+        Assert.assertTrue(InputDataValidator.isValidLogin("AnyLogin123"));
+    }
+    @Test
+    public void isValidPasswordTest(){
+        Assert.assertTrue(InputDataValidator.isValidPassword("AnyPassword123"));
+    }
+    @Test
+    public void isValidUserTest(){
+        Assert.assertTrue(InputDataValidator.isValidUser("AnyLogin123","AnyPassword123", "Anton", "Mazets","test@test.by"));
+    }
+    @Test
+    public void isValidPassengerTest(){
         boolean b =InputDataValidator.isValidPassenger("Anton", "Mazets", 28, "HY3334455");
         Assert.assertTrue(b);
+    }
+    @Test
+    public void isSameDestinationTest(){
+        Assert.assertTrue(InputDataValidator.isSameDestination("Minsk","Minsk"));
     }
     @Test
     public void dateInPastTest(){

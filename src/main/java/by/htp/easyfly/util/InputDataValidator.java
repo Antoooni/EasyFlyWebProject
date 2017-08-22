@@ -13,7 +13,7 @@ public class InputDataValidator {
     public InputDataValidator() {
     }
 
-    public boolean isValidLogin(String login) {
+    public static boolean isValidLogin(String login) {
         return null != login && Pattern.matches(LOGIN, login);
     }
 
@@ -23,7 +23,9 @@ public class InputDataValidator {
 
     //Checking incoming parameters when creating a ticket
     public static boolean isValidUser(String login, String password, String name, String surname, String email) {
-        return null != login && null != password && null != name && null != surname & null != email && Pattern.matches(LOGIN, login) && Pattern.matches(PASSWORD, password) && Pattern.matches(USERNAME, name) && Pattern.matches(USERSURNAME, surname) && Pattern.matches(EMAIL, email);
+        return null != login && null != password && null != name && null != surname && null != email &&
+                Pattern.matches(LOGIN, login) && Pattern.matches(PASSWORD, password) &&
+                Pattern.matches(USERNAME, name) && Pattern.matches(USERSURNAME, surname) && Pattern.matches(EMAIL_PATTERN, email);
     }
 
     public static boolean isValidPassenger(String name, String surname, int age, String passportNumber){
