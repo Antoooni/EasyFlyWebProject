@@ -1,27 +1,22 @@
 package by.htp.easyfly.servlet.command.user;
 
-import static by.htp.easyfly.util.ConstantValue.*;
+import by.htp.easyfly.bin.*;
+import by.htp.easyfly.exception.ServiceException;
+import by.htp.easyfly.service.CreatePassengerService;
+import by.htp.easyfly.service.CreateTicketService;
+import by.htp.easyfly.service.factory.ServiceFactory;
+import by.htp.easyfly.servlet.command.CommandAction;
+import by.htp.easyfly.util.DateTimeTransform;
+import by.htp.easyfly.util.ForwardPage;
+import by.htp.easyfly.util.InputDataValidator;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
-import by.htp.easyfly.bin.Baggage;
-import by.htp.easyfly.bin.Flight;
-import by.htp.easyfly.bin.Passenger;
-import by.htp.easyfly.bin.Ticket;
-import by.htp.easyfly.bin.User;
-import by.htp.easyfly.exception.ServiceException;
-import by.htp.easyfly.service.CreatePassengerService;
-import by.htp.easyfly.service.CreateTicketService;
-import by.htp.easyfly.service.factory.ServiceFactory;
-import by.htp.easyfly.util.ForwardPage;
-import by.htp.easyfly.servlet.command.CommandAction;
-import by.htp.easyfly.util.DateTimeTransform;
-import by.htp.easyfly.util.InputDataValidator;
+import static by.htp.easyfly.util.ConstantValue.*;
 
 public class BuyTicketAction implements CommandAction {
     private static final Logger LOG = LogManager.getLogger(BuyTicketAction.class.getName());
@@ -56,12 +51,12 @@ public class BuyTicketAction implements CommandAction {
                 LOG.info("Ticket was purchased!");
                 ForwardPage.forwardPage(request, response, page);
             }
-            else if(!InputDataValidator.isBirthdayLessDeparture(flight.getDepartureDate(),passenger.getDateOfBirth())){
+            else if(!InputDataValidator.isBirthdayBeforeDeparture(flight.getDepartureDate(), passenger.getDateOfBirth())){
                 page = PAGE_FLIGHT_INFO;
                 request.setAttribute(ERROR_BIRTHDAY_DATE, INVALID_BIRTHDAY_DATE);
                 ForwardPage.forwardPage(request, response, page);
             }
-            else if(!InputDataValidator.isExpiryLessArrival(flight.getArrivalDate(),passenger.getPassportExpiry())){
+            else if(!InputDataValidator.isExpiryBeforeArrival(flight.getArrivalDate(), passenger.getPassportExpiry())){
                 page = PAGE_FLIGHT_INFO;
                 request.setAttribute(ERROR_EXPIRY_DATE, INVALID_EXPIRY_DATE);
                 ForwardPage.forwardPage(request, response, page);

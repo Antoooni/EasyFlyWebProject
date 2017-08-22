@@ -2,8 +2,6 @@ package by.htp.easyfly.util;
 
 import java.sql.Time;
 import java.util.Date;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.regex.Pattern;
 
 import static by.htp.easyfly.util.RegularExpression.*;
@@ -16,10 +14,7 @@ public class InputDataValidator {
     }
 
     public boolean isValidLogin(String login) {
-        if (null != login) {
-            return Pattern.matches(LOGIN, login);
-        }
-        return false;
+        return null != login && Pattern.matches(LOGIN, login);
     }
 
     public static boolean isValidPassword(String password) {
@@ -28,16 +23,9 @@ public class InputDataValidator {
 
     //Checking incoming parameters when creating a ticket
     public static boolean isValidUser(String login, String password, String name, String surname, String email) {
-        if (null != login && null != password && null != name && null != surname & null != email) {
-            return
-                    Pattern.matches(LOGIN, login) &&
-                    Pattern.matches(PASSWORD, password) &&
-                    Pattern.matches(USERNAME, name) &&
-                    Pattern.matches(USERSURNAME, surname) &&
-                    Pattern.matches(EMAIL, email);
-        }
-        return false;
+        return null != login && null != password && null != name && null != surname & null != email && Pattern.matches(LOGIN, login) && Pattern.matches(PASSWORD, password) && Pattern.matches(USERNAME, name) && Pattern.matches(USERSURNAME, surname) && Pattern.matches(EMAIL, email);
     }
+
     public static boolean isValidPassenger(String name, String surname, int age, String passportNumber){
         return null != name
                 && null != surname
@@ -55,35 +43,19 @@ public class InputDataValidator {
         Date currentDate = new Date();
         int resultForDeparture =departureDate.compareTo(currentDate);
         int resultForArrival =arrivalDate.compareTo(currentDate);
-        if (resultForDeparture<0||resultForArrival<0){
-            return true;
-        }
-        else
-            return false;
+        return resultForDeparture < 0 || resultForArrival < 0;
     }
     public static boolean isArrivalBeforeDeparture(Date departureDate, Date arrivalDate){
         int resultForDeparture =arrivalDate.compareTo(departureDate);
-        if (resultForDeparture<0){
-            return true;
-        }
-        else
-            return false;
+        return resultForDeparture < 0;
     }
-    public static boolean isBirthdayLessDeparture(Date departureDate, Date birthday){
+    public static boolean isBirthdayBeforeDeparture(Date departureDate, Date birthday){
         int resultCompare=birthday.compareTo(departureDate);
-        if (resultCompare<0){
-            return true;
-        }
-        else
-            return false;
+        return resultCompare < 0;
     }
-    public static boolean isExpiryLessArrival(Date arrivalDate, Date expiry){
+    public static boolean isExpiryBeforeArrival(Date arrivalDate, Date expiry){
         int resultCompare=expiry.compareTo(arrivalDate);
-        if (resultCompare<0){
-            return true;
-        }
-        else
-            return false;
+        return resultCompare < 0;
     }
     public static boolean isValidDates(Date departureDate, Time departureTime, Date arrivalDate, Time arrivalTime) {
 
@@ -91,21 +63,17 @@ public class InputDataValidator {
             return false;
         }
         if (departureDate.getTime() == arrivalDate.getTime()) {
-            if (departureTime.getTime() > arrivalTime.getTime()) {
-                return false;
-            }
-            else
+            if (departureTime.getTime() <= arrivalTime.getTime())
                 return true;
+            else
+                return false;
         }
         else
             return true;
 	}
 
     public static boolean isEmptyDate(Date departureDate, Time departureTime, Date arrivalDate, Time arrivalTime) {
-		if (departureDate == null || departureTime == null || arrivalDate == null || arrivalTime == null) {
-			return true;
-		} else
-			return false;
+        return departureDate == null || departureTime == null || arrivalDate == null || arrivalTime == null;
 	}
 
 }
