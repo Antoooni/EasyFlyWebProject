@@ -18,4 +18,9 @@ public class HashingTest {
       String stringExpected="25d55ad283aa400af464c76d713c07ad";
       Assert.assertEquals(stringExpected,Hashing.passwordEncode("12345678"));
     }
+    @Deprecated
+    public void md5HexTest(){
+        String stringExpected="25d55ad283aa400af464c76d713c07ad";
+        Assert.assertEquals(stringExpected,org.apache.commons.codec.digest.DigestUtils.md5Hex("12345678"));
+    }
 }

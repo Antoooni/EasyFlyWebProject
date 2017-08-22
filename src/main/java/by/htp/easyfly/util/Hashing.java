@@ -1,7 +1,5 @@
 package by.htp.easyfly.util;
 
-
-
 import org.apache.commons.codec.digest.DigestUtils;
 /**
  * @author Anton Mazets
