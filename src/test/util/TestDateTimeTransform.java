@@ -95,4 +95,24 @@ public class TestDateTimeTransform {
         int []arrayHourMin = DateTimeTransform.duration( departureDate,  departureTime,  arrivalDate,  arrivalTime);
         Assert.assertArrayEquals(arrayHourMinExpected, arrayHourMin);
     }
+
+    /**
+     *Tests the method which format data time
+     */
+    @Test
+    public void convertTimeHHMMTest(){
+        Date d = null;
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+        try {
+            d = sdf.parse("1970-01-01 10:30:00.000");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        Time expectedTime= null;
+        if (d != null) {
+            expectedTime = new Time(d.getTime());
+        }
+        Time presetTime = DateTimeTransform.convertTimeHHMM("10:30");
+        Assert.assertEquals(expectedTime,presetTime );
+    }
 }
