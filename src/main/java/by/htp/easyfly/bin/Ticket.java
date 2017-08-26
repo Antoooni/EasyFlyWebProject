@@ -15,6 +15,14 @@ public class Ticket implements Serializable {
 	public Ticket(){
 		
 	}
+    public Ticket(int flightId, int passengerId, boolean primaryBoarding, boolean onlineCheckIn, double totalAmount){
+        super();
+        this.flightId=flightId;
+        this.passengerId=passengerId;
+        this.primaryBoarding=primaryBoarding;
+        this.onlineCheckIn=onlineCheckIn;
+        this.totalAmount=totalAmount;
+    }
 
 
 	public int getFlightId() {

@@ -136,3 +136,6 @@ INFO  | 2017-08-18 15:37:46 | [http-nio-8080-exec-1] command.GoHomeAction (GoHom
 INFO  | 2017-08-18 15:37:46 | [http-nio-8080-exec-3] command.GoHomeAction (GoHomeAction.java:40) - AZAZAZ 
 INFO  | 2017-08-18 15:37:51 | [http-nio-8080-exec-5] command.LoginCommandAction (LoginCommandAction.java:65) - Paul has been logged-in
 INFO  | 2017-08-18 15:38:19 | [http-nio-8080-exec-1] admin.ChangeFlightAction (ChangeFlightAction.java:57) - Flight #4 has been changed
+INFO  | 2017-08-23 21:27:12 | [http-nio-8080-exec-1] command.GoHomeAction (GoHomeAction.java:40) - AZAZAZ 
+INFO  | 2017-08-23 21:27:13 | [http-nio-8080-exec-2] command.GoHomeAction (GoHomeAction.java:40) - AZAZAZ 
+INFO  | 2017-08-23 21:27:14 | [http-nio-8080-exec-3] command.GoHomeAction (GoHomeAction.java:40) - AZAZAZ 

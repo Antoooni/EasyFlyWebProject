@@ -1,6 +1,5 @@
-package util;
+package by.htp.easyfly.util;
 
-import by.htp.easyfly.util.Hashing;
 import org.junit.Assert;
 import org.junit.Test;
 

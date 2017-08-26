@@ -1,6 +1,5 @@
-package util;
+package by.htp.easyfly.util;
 
-import by.htp.easyfly.util.DateTimeTransform;
 import org.junit.Assert;
 import org.junit.Test;
 

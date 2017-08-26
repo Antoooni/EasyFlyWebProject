@@ -1,5 +1,6 @@
 package by.htp.easyfly.service.factory;
 
+import by.htp.easyfly.dao.factory.DaoFactory;
 import by.htp.easyfly.service.*;
 import by.htp.easyfly.service.Impl.*;
 
@@ -8,7 +9,7 @@ public class ServiceFactory {
 	private static final AuthorizationService authorizationService=new AuthorizationServiceImpl();
 	private static final DirectionService directionService= new DirectionServiceImpl();
 	private static final DirectionCodeService directionCodeService = new DirectionCodeServiceImpl();
-	private static final UserCreateService userCreateService = new UserCreateServiceImpl();
+	private static final UserCreateService userCreateService = new UserCreateServiceImpl( DaoFactory.getInstance().getUserCreateDao());
 	private static final FlightListService flightListService = new FlightListServiceImpl();
 	private static final SelectedFlightService selectedFlightService = new SelectedFlightServiceImpl();
 	private static final CreatePassengerService createPassengerService = new CreatePassengerServiceImpl();
