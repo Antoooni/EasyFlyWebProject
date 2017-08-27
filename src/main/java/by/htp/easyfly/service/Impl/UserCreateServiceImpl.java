@@ -6,19 +6,23 @@ import by.htp.easyfly.exception.DAOException;
 import by.htp.easyfly.exception.ServiceException;
 import by.htp.easyfly.service.UserCreateService;
 
+/**
+ * @author Anton Mazets
+ * Class is implementation of interface that is a service for creating a new user
+ * @see by.htp.easyfly.service.UserCreateService
+ * @since 1.0
+ */
 public class UserCreateServiceImpl implements UserCreateService {
 	private final UserCreateDao daoCreateUser;
 
     public UserCreateServiceImpl(UserCreateDao daoCreateUser) {
         this.daoCreateUser = daoCreateUser;
     }
-    // DaoFactory daoFactory = new DaoFactory() ;
 
-//	public UserCreateServiceImpl() {
-//		daoCreateUser = DaoFactory.getInstance().getUserCreateDao();
-//
-//	}
-
+    /**
+     * @return created new user
+     * @throws ServiceException
+     */
 	@Override
 	public User createNewUser(User user) throws ServiceException {
 		try {
@@ -33,6 +37,11 @@ public class UserCreateServiceImpl implements UserCreateService {
 		}
 	}
 
+    /**
+     * @param login user's login
+     * @return true if user is already exists or false for new user
+     * @throws ServiceException
+     */
 	@Override
 	public boolean checkUserExist(String login) throws ServiceException {
 		try {
@@ -42,6 +51,11 @@ public class UserCreateServiceImpl implements UserCreateService {
 		}
 	}
 
+    /**
+     * @param email user's email
+     * @return true if email is already exists to one of the users, false for new user
+     * @throws ServiceException
+     */
 	@Override
 	public boolean checkUserEmailExist(String email) throws ServiceException {
 		try {

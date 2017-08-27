@@ -11,7 +11,7 @@ public class ServiceFactory {
 	private static final DirectionCodeService directionCodeService = new DirectionCodeServiceImpl();
 	private static final UserCreateService userCreateService = new UserCreateServiceImpl( DaoFactory.getInstance().getUserCreateDao());
 	private static final FlightListService flightListService = new FlightListServiceImpl();
-	private static final SelectedFlightService selectedFlightService = new SelectedFlightServiceImpl();
+	private static final SelectedFlightService selectedFlightService = new SelectedFlightServiceImpl(DaoFactory.getInstance().getSelectedFlightDao());
 	private static final CreatePassengerService createPassengerService = new CreatePassengerServiceImpl();
 	private static final CreateTicketService createTicketService = new CreateTicketServiceImpl();
 	private static final ChangeFlightService changeFlightService = new ChangeFlightServiceImpl();
