@@ -28,7 +28,7 @@ public class SelectedFlightServiceImplTest {
         service=new SelectedFlightServiceImpl(selectedFlightDao);
     }
     @Test
-    public void flight() throws ServiceException, DAOException{
+    public void flightTest() throws ServiceException, DAOException{
         int flightId=1;
         service.flight(flightId);
         verify(selectedFlightDao,times(1)).flight(flightId);
