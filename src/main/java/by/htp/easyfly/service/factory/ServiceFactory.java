@@ -16,7 +16,7 @@ public class ServiceFactory {
 	private static final CreateTicketService createTicketService = new CreateTicketServiceImpl();
 	private static final ChangeFlightService changeFlightService = new ChangeFlightServiceImpl();
     private static final SearchChangedFlightService searchChangedFlightService = new SearchChangedFlightServiceImpl(DaoFactory.getInstance().getSearchChangedFlightDao());
-    private static final SendEmailService sendEmailService =new EmailServiceImpl();
+    private static final SendEmailService sendEmailService =new EmailServiceImpl(DaoFactory.getInstance().getEmailChangedFlightDao());
 
 	private ServiceFactory() { 
 

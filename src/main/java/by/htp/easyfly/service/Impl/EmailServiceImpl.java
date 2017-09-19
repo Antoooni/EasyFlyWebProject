@@ -3,7 +3,6 @@ package by.htp.easyfly.service.Impl;
 import by.htp.easyfly.bin.Flight;
 import by.htp.easyfly.bin.User;
 import by.htp.easyfly.dao.EmailChangedFlightDao;
-import by.htp.easyfly.dao.factory.DaoFactory;
 import by.htp.easyfly.exception.DAOException;
 import by.htp.easyfly.exception.ServiceException;
 import by.htp.easyfly.service.SendEmailService;
@@ -18,7 +17,10 @@ import java.util.List;
 import java.util.Properties;
 
 /**
- * Created by Ayumazec on 06.07.2017.
+ * @author Anton Mazets
+ * Class is implementation of interface that is a service for sending an email during the change flight data
+ * @see by.htp.easyfly.service.UserCreateService
+ * @since 1.0
  */
 public class EmailServiceImpl implements SendEmailService {
 
@@ -27,8 +29,8 @@ public class EmailServiceImpl implements SendEmailService {
     private Properties props;
     private EmailChangedFlightDao emailChangedFlight;
 
-    public EmailServiceImpl(){
-        emailChangedFlight = DaoFactory.getInstance().getEmailChangedFlightDao();
+    public EmailServiceImpl(EmailChangedFlightDao emailChangedFlightDao) {
+        this.emailChangedFlight=emailChangedFlightDao;
     }
 
     @Override
