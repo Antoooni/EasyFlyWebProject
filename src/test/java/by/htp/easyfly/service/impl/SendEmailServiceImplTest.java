@@ -26,7 +26,7 @@ import static org.mockito.Mockito.*;
  * @see org.mockito.Mockito
  * @since 1.0
  */
-public class SendEmailServiceTest {
+public class SendEmailServiceImplTest {
     private EmailChangedFlightDao emailChangedFlightDao;
     private EmailServiceImpl service;
 
